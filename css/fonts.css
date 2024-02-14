@@ -1,0 +1,218 @@
+
+/* Neue Montreal */
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('fonts/NeueMontreal-Italic.eot');
+    src: url('fonts/NeueMontreal-Italic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/NeueMontreal-Italic.woff2') format('woff2'),
+        url('fonts/NeueMontreal-Italic.woff') format('woff'),
+        url('fonts/NeueMontreal-Italic.ttf') format('truetype'),
+        url('fonts/NeueMontreal-Italic.svg#NeueMontreal-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('fonts/NeueMontreal-LightItalic.eot');
+    src: url('fonts/NeueMontreal-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/NeueMontreal-LightItalic.woff2') format('woff2'),
+        url('fonts/NeueMontreal-LightItalic.woff') format('woff'),
+        url('fonts/NeueMontreal-LightItalic.ttf') format('truetype'),
+        url('fonts/NeueMontreal-LightItalic.svg#NeueMontreal-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('fonts/NeueMontreal-BoldItalic.eot');
+    src: url('fonts/NeueMontreal-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/NeueMontreal-BoldItalic.woff2') format('woff2'),
+        url('fonts/NeueMontreal-BoldItalic.woff') format('woff'),
+        url('fonts/NeueMontreal-BoldItalic.ttf') format('truetype'),
+        url('fonts/NeueMontreal-BoldItalic.svg#NeueMontreal-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('fonts/NeueMontreal-MediumItalic.eot');
+    src: url('fonts/NeueMontreal-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/NeueMontreal-MediumItalic.woff2') format('woff2'),
+        url('fonts/NeueMontreal-MediumItalic.woff') format('woff'),
+        url('fonts/NeueMontreal-MediumItalic.ttf') format('truetype'),
+        url('fonts/NeueMontreal-MediumItalic.svg#NeueMontreal-MediumItalic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('fonts/NeueMontreal-Light.eot');
+    src: url('fonts/NeueMontreal-Light.eot?#iefix') format('embedded-opentype'),
+        url('fonts/NeueMontreal-Light.woff2') format('woff2'),
+        url('fonts/NeueMontreal-Light.woff') format('woff'),
+        url('fonts/NeueMontreal-Light.ttf') format('truetype'),
+        url('fonts/NeueMontreal-Light.svg#NeueMontreal-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('fonts/NeueMontreal-Bold.eot');
+    src: url('fonts/NeueMontreal-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/NeueMontreal-Bold.woff2') format('woff2'),
+        url('fonts/NeueMontreal-Bold.woff') format('woff'),
+        url('fonts/NeueMontreal-Bold.ttf') format('truetype'),
+        url('fonts/NeueMontreal-Bold.svg#NeueMontreal-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('fonts/NeueMontreal-Medium.eot');
+    src: url('fonts/NeueMontreal-Medium.eot?#iefix') format('embedded-opentype'),
+        url('fonts/NeueMontreal-Medium.woff2') format('woff2'),
+        url('fonts/NeueMontreal-Medium.woff') format('woff'),
+        url('fonts/NeueMontreal-Medium.ttf') format('truetype'),
+        url('fonts/NeueMontreal-Medium.svg#NeueMontreal-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('fonts/NeueMontreal-Regular.eot');
+    src: url('fonts/NeueMontreal-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/NeueMontreal-Regular.woff2') format('woff2'),
+        url('fonts/NeueMontreal-Regular.woff') format('woff'),
+        url('fonts/NeueMontreal-Regular.ttf') format('truetype'),
+        url('fonts/NeueMontreal-Regular.svg#NeueMontreal-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* Tenez */
+
+@font-face {
+    font-family: 'Tenez';
+    src: url('fonts/Tenez-BlackItalic.eot');
+    src: url('fonts/Tenez-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Tenez-BlackItalic.woff2') format('woff2'),
+        url('fonts/Tenez-BlackItalic.woff') format('woff'),
+        url('fonts/Tenez-BlackItalic.ttf') format('truetype'),
+        url('fonts/Tenez-BlackItalic.svg#Tenez-BlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tenez';
+    src: url('fonts/Tenez-Regular.eot');
+    src: url('fonts/Tenez-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Tenez-Regular.woff2') format('woff2'),
+        url('fonts/Tenez-Regular.woff') format('woff'),
+        url('fonts/Tenez-Regular.ttf') format('truetype'),
+        url('fonts/Tenez-Regular.svg#Tenez-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tenez';
+    src: url('fonts/Tenez-Bold.eot');
+    src: url('fonts/Tenez-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Tenez-Bold.woff2') format('woff2'),
+        url('fonts/Tenez-Bold.woff') format('woff'),
+        url('fonts/Tenez-Bold.ttf') format('truetype'),
+        url('fonts/Tenez-Bold.svg#Tenez-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tenez';
+    src: url('fonts/Tenez-LightItalic.eot');
+    src: url('fonts/Tenez-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Tenez-LightItalic.woff2') format('woff2'),
+        url('fonts/Tenez-LightItalic.woff') format('woff'),
+        url('fonts/Tenez-LightItalic.ttf') format('truetype'),
+        url('fonts/Tenez-LightItalic.svg#Tenez-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tenez';
+    src: url('fonts/Tenez-Italic.eot');
+    src: url('fonts/Tenez-Italic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Tenez-Italic.woff2') format('woff2'),
+        url('fonts/Tenez-Italic.woff') format('woff'),
+        url('fonts/Tenez-Italic.ttf') format('truetype'),
+        url('fonts/Tenez-Italic.svg#Tenez-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tenez';
+    src: url('fonts/Tenez-Light.eot');
+    src: url('fonts/Tenez-Light.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Tenez-Light.woff2') format('woff2'),
+        url('fonts/Tenez-Light.woff') format('woff'),
+        url('fonts/Tenez-Light.ttf') format('truetype'),
+        url('fonts/Tenez-Light.svg#Tenez-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tenez';
+    src: url('fonts/Tenez-BoldItalic.eot');
+    src: url('fonts/Tenez-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Tenez-BoldItalic.woff2') format('woff2'),
+        url('fonts/Tenez-BoldItalic.woff') format('woff'),
+        url('fonts/Tenez-BoldItalic.ttf') format('truetype'),
+        url('fonts/Tenez-BoldItalic.svg#Tenez-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tenez';
+    src: url('fonts/Tenez-Black.eot');
+    src: url('fonts/Tenez-Black.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Tenez-Black.woff2') format('woff2'),
+        url('fonts/Tenez-Black.woff') format('woff'),
+        url('fonts/Tenez-Black.ttf') format('truetype'),
+        url('fonts/Tenez-Black.svg#Tenez-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+
