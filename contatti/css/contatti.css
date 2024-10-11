@@ -1,0 +1,238 @@
+/* Stili principali */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Suisse Intl', sans-serif;
+    color: var(--nero);
+}
+
+.container-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.contatti-header-content {
+    background-color: var(--bianco); /* Sfondo corretto */
+    padding: 100px 0;
+    text-align: left;
+}
+
+.contatti-title {
+    font-size: 6rem;
+    text-transform: capitalize; /* Solo la prima lettera maiuscola */
+}
+
+.contatti-title .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.contatti-title .bold {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.contatti-description {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.contact-boxes {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0px;
+    margin-top: 20px;
+    gap: 20px; /* Aggiunta spaziatura tra i box */
+}
+
+.contact-box {
+    background-color: var(--nero);
+    border: 2px solid var(--nero);
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+    width: 30%;
+    color: var(--bianco);
+}
+
+.contact-box h2 {
+    font-size: 1.5rem;
+}
+
+.contact-box a {
+    color: var(--bianco);
+    text-decoration: none;
+}
+
+/* Applicare l'animazione della sottolineatura solo ai link nei box contatti */
+.contact-box a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none; /* Rimuove la sottolineatura predefinita */
+  color: inherit;
+  cursor: pointer;
+}
+
+.contact-box a:before,
+.contact-box a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+}
+
+.contact-box a:before {
+  background: rgba(254, 250, 241, 0.6); /* Colore della linea di base */
+  opacity: 0.9;
+}
+
+.contact-box a:after {
+  background: #0d0d0d; /* Colore della sottolineatura al passaggio del mouse */
+  transform: scaleX(0); /* Nasconde la linea inizialmente */
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.contact-box a:hover:after {
+  transform: scaleX(1); /* Espande la linea */
+}
+
+
+/* Colori di hover specifici */
+.contact-box.email:hover {
+    background-color: #B697F8;
+}
+
+.contact-box.call:hover {
+    background-color: #FFB3BA;
+}
+
+.contact-box.form:hover {
+    background-color: #95D3FF;
+}
+
+.contact-box:hover {
+    transform: translateY(-10px);
+    color: var(--nero); /* Testo scuro su hover */
+}
+
+.contact-box form input, .contact-box form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #333;
+    color: var(--bianco);
+    border: 1px solid #555;
+}
+
+.contact-box form button {
+    padding: 10px 20px;
+    background-color: var(--bianco);
+    color: var(--nero);
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	
+	.container-wrapper {
+        padding: 0 15px;  /* Aggiunto padding laterale per evitare che il contenuto tocchi i bordi */
+    }
+
+    .contact-boxes {
+        flex-direction: column;
+        align-items: center;
+		max-width: 90vw;
+        padding: 0 15px;
+    }
+
+    .contact-box {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    nav a {
+        display: none;
+    }
+
+    	/* --- Stile per il menu mobile e animazioni --- */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateX(100%); /* Mantieni l'overlay nascosto all'inizio */
+  width: 100%;
+  height: 100%;
+  background-color: #0d0d0d;
+  color: #fefaf1;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Aggiungi una curva di easing più fluida */
+}
+
+.mobile-menu-overlay ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.mobile-menu-overlay li {
+  margin: 20px 0;
+}
+
+.mobile-menu-overlay a {
+  text-decoration: none;
+  color: #fefaf1;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.mobile-menu-overlay.open {
+  transform: translateX(0); /* Mostra il menu con l'animazione */
+}
+
+/* Close Button */
+.mobile-menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+	
+	    .footer-line {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        max-width: 90vw;
+        padding: 0 15px;
+    }
+}
+@media (max-width: 1024px) {
+	.contatti-title {
+		font-size: 4rem;
+	}
+	
+	.contatti-description {
+		font-size: 0.95rem;
+	}
+    .footer-line {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        max-width: 90vw;
+        padding: 0 15px;
+    }
+}

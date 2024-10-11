@@ -1,0 +1,212 @@
+@import url("../css/fonts.css");
+
+:root {
+    --nero: #0d0d0d;
+    --bianco: #fefaf1;
+}
+
+.container-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.about-header-content {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 100px 0 30px;
+}
+
+.about-title {
+    font-size: 6rem;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.about-title .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.about-title .bold {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+	patting-bottom: 30px;
+	padding-bottom: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-image img {
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px dashed #999;  /* Placeholder border */
+    background-color: #eaeaea;  /* Placeholder background */
+}
+
+.about-text {
+    max-width: 600px;
+    padding-left: 40px;
+}
+
+.about-text p:first-of-type {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--nero);
+}
+
+/* Stile per la classe about-paragraph */
+.about-paragraph {
+    display: block;         /* Forza l'elemento a comportarsi come blocco */
+    clear: both;            /* Evita conflitti di posizionamento */
+    width: 100%;            /* Occupa il 100% della larghezza */
+    margin-top: 30px;       /* Distanza dal contenuto precedente */
+    padding: 20px 0;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 300;
+    text-transform: none;
+}
+
+/* Specifiche del footer */
+footer {
+    background-color: var(--bianco);
+    color: var(--nero);
+    padding: 20px 0;
+}
+
+.footer-line {
+    border-top: 2px solid var(--nero);
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 0;
+    margin-bottom: 0;
+}
+
+.footer-content a {
+    color: var(--nero);
+    text-decoration: none;
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Stile per mobile */
+@media (max-width: 768px) {
+	
+	header {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+		padding-left: 15px;
+		padding-right: 15px;
+    }
+	
+	.about-text p:first-of-type {
+    font-size: 0.90rem;
+    font-weight: 400;
+}
+
+    .about-text {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+    .about-paragraph {
+        text-align: left;
+        margin-top: 15px;
+    }
+
+    .about-title {
+        font-size: 4rem;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+	
+	/* --- Stile per il menu mobile e animazioni --- */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateX(100%); /* Mantieni l'overlay nascosto all'inizio */
+  width: 100%;
+  height: 100%;
+  background-color: #0d0d0d;
+  color: #fefaf1;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Aggiungi una curva di easing più fluida */
+}
+
+.mobile-menu-overlay ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.mobile-menu-overlay li {
+  margin: 20px 0;
+}
+
+.mobile-menu-overlay a {
+  text-decoration: none;
+  color: #fefaf1;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.mobile-menu-overlay.open {
+  transform: translateX(0); /* Mostra il menu con l'animazione */
+}
+
+/* Close Button */
+.mobile-menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+
+/* Stile per tablet  */
+@media (min-width: 769px) and (max-width: 1024px) {
+	
+	header {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+    .about-content {
+        flex-direction: column;
+        text-align: left;
+		padding-left: 15px;
+		padding-right: 15px;
+    }
+}
+
+

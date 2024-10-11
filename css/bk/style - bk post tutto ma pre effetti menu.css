@@ -1,0 +1,1097 @@
+@import url("fonts.css"); /* Using a url */
+
+
+* {
+	margin: 0;
+	padding: 0%;
+}
+
+:root {
+	font-size: 111%;
+    --bianco: #fefaf1;
+    --nero: #0d0d0d;
+    --rosa: #FFB3BA;
+}
+
+
+
+html,
+body {
+    font-family: 'Suisse Intl', sans-serif;
+    color: var(--nero);
+    background-color: var(--bianco);
+    line-height: 1.6;
+	overflow-x: hidden;
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.preloader-logo {
+    font-size: 2.5rem;
+    color: #fefaf1;
+    text-transform: uppercase;
+    font-family: 'Times Now', serif;
+}
+
+/* Container generale per limitare la larghezza del layout */
+.container {
+    max-width: 1440px; /* Larghezza massima della pagina */
+    margin: 0 auto; /* Centratura della pagina */
+    padding: 0 20px; /* Padding laterale */
+	position: relative;
+}
+
+img {
+   display:block;
+   width: 100%;
+}
+
+/* Header - Navigazione */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 20px;
+}
+
+
+.logo img {
+    width: 90px; /* Dimensione del logo */
+    height: auto;
+}
+
+header nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: var(--nero);
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+
+nav a {
+  position: relative;
+  margin-left: 30px;
+  text-decoration: none;
+  color: var(--nero);
+  font-family: 'Suisse Intl', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  z-index: 10; /* Assicura che i link siano sopra eventuali altri elementi */	
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--nero);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+nav a {
+  opacity: 0; /* Nascondi inizialmente */
+  transform: translateY(100%); /* Posiziona le voci sotto il punto iniziale */
+}
+
+
+/*.header-line {
+    border-bottom: 2px solid var(--nero);
+    width: 0; /* Linea inizialmente nascosta 
+    margin: 0;
+    transition: width 0.5s ease; /* Animazione della larghezza 
+}*/
+
+/* HERO Section */
+.hero {
+    padding: 50px 0px 250px;
+    text-align: left;
+	position: relative;
+}
+
+.hero-text span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%); /* Cambia da 50px a 100% per farlo iniziare nascosto in basso */
+}
+
+.hero-text p {
+    opacity: 1; /* Assicurati che sia visibile */
+    transform: none; /* Rimuovi qualsiasi trasformazione */
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin: 50px 0 0;
+    max-width: 350px;
+}
+
+.hero-text span {
+   opacity: 0;
+   transform: translateY(50px); /* Per far scivolare il testo verso il basso */
+}
+
+.hero h1 {
+    font-size: 7rem; /* Dimensione aumentata per la headline */
+    line-height: 1.1;
+    margin-bottom: 5px; /* Spazio sotto la headline */
+	padding-top: 100px;
+}
+
+.hero .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+	font-style: normal;
+}
+
+.hero .bold {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+	letter-spacing: -3pt;
+}
+
+.hero p {
+    font-family: 'Suisse Intl', sans-serif;
+	font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1rem; /* Dimensione ridotta del sottotitolo */
+    margin: 100px 0 0; /* Spazio aumentato tra la headline e il sottotitolo */
+    max-width: 590px; /* Larghezza massima per il testo del sottotitolo */
+}
+
+.scroll-indicator-wrapper {
+    position: absolute;
+    right: 20px; /* Posiziona il cerchio a destra dello schermo */
+    top: 60% !important; /* Centra verticalmente il cerchio nella viewport */
+    transform: translateY(-50%);
+    width: 180px; /* Imposta la dimensione del cerchio */
+    height: 150px;
+}
+
+.scroll-text img {
+    width: 100%;
+    height: 100%;
+}
+
+.arrow-down {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la freccia nel cerchio */
+    width: 15px; /* Regola la dimensione della freccia */
+    height: 60px;
+}
+
+.reveal {
+    overflow: hidden;
+    display: inline-block;
+}
+
+.reveal span {
+    display: block; /* Cambia inline-block a block */
+    opacity: 0;
+    transform: translateY(100%); /* Inizia nascosto con trasformazione verticale al 100% */
+}
+
+
+/* Sezione "Casi Studio" */
+
+.scroll-indicator {
+    margin: 20px 0; /* Aggiusta il margine secondo le tue preferenze */
+    text-align: center; /* Centra l'icona */
+}
+
+.scroll-indicator img {
+    width: 80px; /* Dimensione dell'icona */
+    opacity: 1; /* Leggera trasparenza per non distrarre troppo */
+}
+
+.case-studies-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.case-studies-header,
+.case-studies-footer {
+    width: 100%;
+    text-align: left;
+    margin: 50px 0;
+}
+
+.case-studies-header h2 {
+    font-size: 4rem; /* Mantieni la dimensione originale */
+    line-height: 1.2;
+    margin-top: 0; /* Rimuove qualsiasi margine superiore */
+    padding-top: 0; /* Rimuove eventuale padding superiore */
+}
+
+.case-studies-header h2 .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.case-studies-header h2 .bold {
+    font-family: 'Suisse Int\'l', sans-serif; /* Usa Helvetica nel caso Suisse non venga caricato */
+    font-weight: 400;
+}
+
+.case-studies-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 500px; /* Regola l'altezza secondo il tuo design */
+}
+
+.case-studies {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: auto;
+    height: 100%;
+}
+
+.case-study {
+    flex: 0 0 auto;
+    width: 320px; /* Regola la larghezza di ciascun caso studio */
+    margin-right: 50px; /* Spaziatura tra i casi studio */
+    position: relative;
+    overflow: visible; /* Assicurati che il contenuto che esce sia visibile */
+	transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.case-study:last-child {
+    margin-right: 0;
+}
+
+.case-study:hover {
+    transform: scale(1.02);
+}
+
+.placeholder {
+    width: 100%;
+    height: 300px; /* Regola l'altezza dell'immagine */
+    background-color: #ddd;
+    position: relative;
+    overflow: visible; /* Assicurati che il contenuto che esce sia visibile */
+}
+
+.case-study hr {
+    border: none;
+    border-bottom: 2px solid var(--nero);
+    margin: 30px 0;
+}
+
+.case-study .label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.case-study .name {
+    text-transform: uppercase;
+    font-weight: normal;
+    text-align: left;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.case-study .number-rotated {
+    position: absolute;
+    top: 10px; /* Sposta il numero leggermente verso il basso */
+    right: -25px;
+    font-size: 0.75rem;
+    transform: rotate(-90deg);
+    text-transform: uppercase;
+    overflow: visible;
+}
+
+.see-more-container {
+    display: none;
+}
+
+
+/* SEZIONE CHI SONO */
+
+.about-wrapper {
+    background-color: var(--nero); /* Sfondo nero che copre l'intera larghezza */
+    width: 100vw; /* Copri l'intera larghezza dello schermo */
+    margin-left: calc(-50vw + 50%); /* Estendi il margine sinistro */
+}
+
+.about {
+    display: flex;
+    justify-content: space-between;
+    padding: 150px 0; /* Aggiunto padding sopra e sotto */
+    max-width: 1440px; /* Manteniamo il contenuto all'interno di un container centrale */
+    margin: 0 auto;
+    padding-left: 40px; /* Aggiunto padding per allineare il testo con il resto della pagina */
+    padding-right: 40px; /* Anche a destra per simmetria */
+    color: var(--bianco);
+}
+
+.about-text {
+    width: 50%;
+    text-align: left;
+ 
+}
+
+.about-text-right {
+    width: 40%;
+    color: var(--bianco);
+}
+
+/* Headline stile Chi sono */
+.about h2 {
+    font-size: 4rem; /* Manteniamo la dimensione originale */
+    line-height: 1.2;
+    margin-top: 0; /* Rimuove qualsiasi margine superiore */
+    padding-top: 0; /* Rimuove eventuale padding superiore */
+}
+
+.about h2 .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.about h2 .bold {
+    font-family: 'Suisse Int\'l', sans-serif; /* Usa Helvetica nel caso Suisse non venga caricato */
+    font-weight: 400;
+}
+
+/* Sottotitolo */
+.about-text p {
+    font-family: 'Suisse Int\'l', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+	max-width: 400px;
+}
+
+/* Testo accanto */
+.about-text-right p {
+    font-family: 'Suisse Int\'l', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Stile del pulsante */
+.about-text-right .continue-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--bianco);
+    color: var(--nero);
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-family: 'Suisse Int\'l', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+	text-align: center;
+    margin-top: 20px;
+	transition: background-color 0.3s ease, color 0.3s ease;
+    max-width: 200px;
+    width: fit-content;
+	border: 2px solid var(--bianco);
+}
+
+/* Hover per il pulsante */
+.continue-button:hover {
+    background-color: var(--nero);
+    color: var(--bianco);
+    border: 2px solid var(--bianco);
+}
+
+
+/* SEZIONE COME POSSO AIUTARTI */
+.services-section {
+    padding: 200px 0px 250px;
+    background-color: var(--bianco);
+}
+
+/* Contenitore con due colonne */
+.services-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+    gap: 20px; /* Spazio tra le colonne */
+}
+
+/* Colonne con layout verticale */
+.services-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+	align-items: flex-start;
+    width: 45%; /* Larghezza uguale per entrambe le colonne */
+}
+
+/* Cella A: Stile dell'headline */
+.services-item.A h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Times Now', serif;
+	font-weight: 300;
+    line-height: 1.2;
+}
+
+.services-item.A h2 span {
+    font-family: 'Suisse Int\'l', sans-serif;
+    font-weight: 400;
+}
+
+.services-item.B {
+	padding-bottom: 50px;
+}
+
+/* Stile per i pulsanti */
+.services-button, .pdf-button {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: var(--nero);
+    color: var(--bianco);
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-family: 'Suisse Int\'l', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid var(--nero);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    max-width: 200px;
+    width: fit-content;
+}
+
+/* Hover per i pulsanti */
+.services-button:hover, .pdf-button:hover {
+    background-color: var(--bianco);
+    color: var(--nero);
+    border: 2px solid var(--nero);
+}
+
+
+/* Sezione "Altri progetti" */
+.other-projects {
+    background-color: var(--nero); /* Sfondo nero */
+    color: var(--bianco); /* Testo bianco */
+    padding: 150px 0; /* Spazio sopra e sotto */
+    width: 100vw; /* Imposta la larghezza al 100% della viewport */
+    margin-left: calc(-50vw + 50%); /* Centra lo sfondo */
+}
+
+.other-projects .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px; /* Padding per contenere meglio il testo */
+}
+
+.other-projects h2 {
+    font-size: 3rem;
+    text-align: left; /* Allineamento a sinistra */
+    margin-bottom: 60px;
+}
+
+.other-projects h2 .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.other-projects h2 .bold {
+    font-family: 'Suisse Int\'l', sans-serif;
+    font-weight: 400;
+}
+
+.other-projects hr {
+    border: none;
+    border-bottom: 2px solid var(--bianco); /* Set the color to white */
+    margin: 30px 0; /* Add some spacing if necessary */
+}
+
+.other-projects nav a{
+	margin-left: 0;
+}
+
+.project {
+    padding: 0vh 0 0 0vh;
+    font-size: 5vw;
+}
+
+.project__item {
+    position: relative;
+    margin: 4px;
+	font-family: 'Suisse Int\'l', sans-serif;
+    text-transform: uppercase;
+    z-index: 1; /* Livello più alto */
+}
+
+.project__item-link {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    color: var(--bianco); /* Testo bianco */
+	font-family: 'Suisse Int\'l', sans-serif;
+    text-transform: uppercase;
+    opacity: 1; /* Lasciamo che GSAP gestisca l'opacità */
+    z-index: 2; /* Testo sopra */
+    /* Rimosse le transitions per evitare conflitti */
+}
+
+.project__item-img {
+    pointer-events: none;
+    position: absolute;
+    height: auto;
+    max-height: 400px;
+    width: auto;
+    max-width: 50vh;
+    opacity: 0; /* Solo l'immagine in anteprima hover usa opacity */
+    left: 100%;
+    top: 50%;
+    transform: translate3d(calc(-100% - 6vw), -30%, 0) translate3d(0, 20px, 0);
+    transition: all 0.4s ease; /* Manteniamo solo la transizione dell'immagine */
+    object-fit: cover; /* Mantiene le proporzioni */
+    z-index: 0;
+}
+
+.project__item-link:hover + .project__item-img {
+    opacity: 1; /* Appare l'immagine in hover */
+    transform: translate3d(calc(-100% - 6vw), -30%, 0) rotate3d(0, 0, 1, 4deg);
+    transition: all 0.4s ease; /* Solo transizione immagine */
+    z-index: 3;
+}
+
+.marquee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: var(--bianco);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.marquee__inner {
+    width: fit-content;
+    display: flex;
+    position: relative;
+    padding: 2vw 0;
+    will-change: opacity, transform; /* Manteniamo per ottimizzare l'animazione */
+    visibility: hidden;
+    opacity: 0; /* Assicuriamoci che parta nascosto */
+}
+
+.project__item-link:hover ~ .marquee .marquee__inner {
+    /* Animazione gestita da GSAP */
+}
+
+.project__item-link,
+.marquee span {
+    white-space: nowrap;
+    font-size: 3vw;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.marquee span {
+    font-family: 'Suisse Int\'l', sans-serif;
+    text-transform: uppercase;
+	margin-right: 2vw; /* Aggiungi uno spazio tra gli elementi */
+}
+
+
+
+
+/* Penultima sezione (call to action) */
+.call-to-action {
+    display: flex;
+    justify-content: flex-end; /* Allinea tutto a destra */
+    padding: 100px 0;
+    background-color: var(--bianco); /* Sfondo bianco */
+    width: 100%;
+}
+
+.call-to-action .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.call-to-action .line-text {
+    display: flex;
+    align-items: center; /* Allinea linea e testo sulla stessa linea */
+    margin-bottom: 20px; /* Spazio tra la linea + testo e il pulsante */
+}
+
+.call-to-action .line {
+    width: 80px; /* Larghezza della linea */
+    height: 2px;
+    background-color: var(--nero);
+    margin-right: 10px; /* Spazio tra la linea e il testo */
+}
+
+.call-to-action p {
+    font-family: 'Suisse Int\'l', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--nero);
+    margin: 0;
+    max-width: 250px; /* Massima larghezza per il testo */
+    text-align: right;
+}
+
+.call-to-action .button {
+    background-color: var(--nero);
+    color: var(--bianco);
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-family: 'Suisse Int\'l', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    width: fit-content;
+    max-width: 250px;
+    display: inline-block;
+    text-align: center;
+	border: 2px solid var(--bianco)
+}
+
+
+
+.call-to-action .button:hover {
+    background-color: var(--bianco);
+    color: var(--nero);
+    border: 2px solid var(--nero);
+}
+
+
+
+
+/* Footer */
+footer {
+    background-color: var(--bianco); /* Sfondo bianco */
+    width: 100%;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 0px;
+}
+
+.footer-content span {
+    font-family: 'Suisse Int\'l', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--nero);
+}
+
+.footer-content .social-icons a {
+    margin-left: 30px;
+    text-decoration: none;
+    font-family: 'Suisse Int\'l', sans-serif;
+    font-weight: 500;
+    color: var(--nero);
+    text-transform: uppercase;
+}
+
+.footer-line {
+    width: calc(100% - 0px); /* Stessa larghezza della linea nel menu */
+    border-top: 2px solid var(--nero); /* Linea sopra il footer */
+    margin: 0 auto 0px;
+}
+
+i {
+    font-size: 1.5rem; /* Puoi modificare la dimensione come preferisci */
+    width: 2rem; /* Anche questa può essere regolata */
+    height: 2rem; /* Regola anche l'altezza */
+}
+
+
+/* General Styles for Mobile */
+@media (max-width: 768px) {
+	
+		/* Hero section */
+	
+	
+	.hero {
+		padding: 50px 0
+	}
+	
+	.hero-text h1 {
+		font-size: 3rem;
+		line-height: 1.3;
+	}
+	
+	.scroll-indicator-wrapper {
+        width: 90px; /* Dimensione ridotta per mobile */
+        height: 90px;
+		top: 45%;
+    }
+
+    .arrow-down {
+        width: 10px; /* Riduzione ulteriore della freccia su mobile */
+        height: 60px;
+    }
+	
+		/* Casi studio for mobile */
+    .case-studies-wrapper {
+        height: auto;
+		overflow: visible;
+    }
+	
+	.case-studies-header h2 {
+		font-size: 2.2rem;
+        margin-bottom: 20px;
+	}
+	
+    .case-studies {
+        flex-wrap: wrap;
+    }
+	
+    .case-study {
+        flex: 0 0 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+	
+	.scroll-indicator {
+        display: none;
+    }
+	
+	.see-more-container {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+	.hidden-mobile {
+        display: none !important;
+    }
+	
+	
+	/* Stile per pulsante */
+	.see-more-button, .button {
+		display: inline-block;
+		padding: 10px 30px;
+		background-color: var(--nero);
+		color: var(--bianco);
+		border-radius: 30px;
+		text-transform: uppercase;
+		font-family: 'Suisse Int\'l', sans-serif;
+		text-decoration: none;
+		text-align: center;
+		border: 2px solid var(--nero);
+		transition: background-color 0.3s ease, color 0.3s ease;
+		max-width: 200px;
+		width: fit-content;
+	}
+
+	/* Hover per i pulsanti */
+	.see-more-button:hover, .button:hover {
+		background-color: var(--bianco);
+		color: var(--nero);
+		border: 2px solid var(--nero);
+	}
+	
+    /* Chi sono section for mobile */
+
+	    .about-wrapper {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+    }
+	
+		.about-wrapper,
+		.other-projects {
+		width: 100vw;
+		margin-left: calc(-50vw + 50%); /* Evita che si tagli */
+		
+	}
+	
+		.about {
+		flex-direction: column;
+	}
+
+
+    .about-text, 
+    .about-text-right {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+	
+
+    .about h2 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+	
+	
+    /* Come posso aiutarti section for mobile */
+    .services-section {
+        display: flex;
+        flex-direction: column;
+        padding: 100px 20px;
+        text-align: left;
+    }
+	
+	.services-item.A h2 {
+		font-size: 2.2rem;
+	}
+
+    .services-column {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+	
+	.services-container {
+		flex-direction: column;
+	}
+	
+	.services-item.E {
+    padding-bottom: 50px;
+}
+	/* Altri progetti section for mobile */
+	
+    .other-projects h2 {
+        font-size: 2rem; /* Smaller heading size */
+    }
+
+    .project__item-img {
+        display: none; /* Hide image hover effects */
+    }
+
+    .project__item {
+        padding: 1vw 0; /* Less padding */
+    }
+
+    .project__item-link,
+    .marquee span {
+        font-size: 5vw; /* Smaller text size */
+    }
+	
+		.marquee__inner {
+        display: none; /* Hide marquee on mobile */
+    }
+
+
+    /* Footer section for mobile */
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-line {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+
+	
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: var(--nero);
+}
+
+/* Mobile Menu Overlay Styling */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%); /* Mantieni l'overlay nascosto */
+    width: 100%; /* Assicurati che copra il 100% della viewport */
+    height: 100%;
+    background-color: #0d0d0d;
+    color: #fefaf1;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Aggiungi una curva di easing più fluida */
+}
+
+
+.mobile-menu-overlay ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.mobile-menu-overlay li {
+    margin: 20px 0;
+}
+
+.mobile-menu-overlay a {
+    text-decoration: none;
+    color: #fefaf1;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.mobile-menu-overlay.open {
+    transform: translateX(0); /* Mostra il menu con l'animazione */
+}
+
+/* Close Button */
+.mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Show the Menu for Mobile */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    nav a {
+        display: none; /* Nascondi il menu principale su mobile */
+    }
+}
+
+
+/* General Styles for Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+	
+	/* Hero section */
+	.hero-text h1 {
+		font-size: 4rem;
+		line-height: 1.15;
+	}
+	
+	.scroll-indicator {
+        display: block;
+    }
+	
+    .scroll-indicator-wrapper {
+        width: 120px; /* Dimensione più piccola per tablet */
+        height: 120px;
+		top: 64%;
+    }
+
+    .arrow-down {
+        width: 12px; /* Riduzione della freccia su tablet */
+        height: 70px;
+    }
+	
+	
+    /* Chi sono section for tablet */
+    .about-wrapper {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+    }
+	
+	.about {
+		flex-direction: column;
+	}
+
+    .about h2 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+    }
+
+    .about-text,
+    .about-text-right {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .about-text-right {
+        max-width: 650px;
+    }
+    
+
+    /* Come posso aiutarti section for tablet */
+    .services-section {
+        display: flex;
+        flex-direction: row;
+        padding: 100px 20px;
+        justify-content: space-between;
+    }
+
+    .services-column {
+        width: 48%;
+        margin-bottom: 0;
+    }
+	
+	/* Altri progetti section for tablets */
+	.other-projects h2 {
+        font-size: 2.5rem; /* Medium heading size */
+    }
+
+    .project__item {
+        padding: 1.5vw 0; /* Slightly less padding */
+    }
+
+    .project__item-link,
+    .marquee span {
+        font-size: 3.5vw; /* Medium text size */
+    }
+
+    /* Footer section for tablet */
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-line {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
+    .social-icons {
+        margin-top: 0;
+    }
+}
+

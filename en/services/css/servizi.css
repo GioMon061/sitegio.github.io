@@ -1,0 +1,452 @@
+/* Importa i font e le variabili dal CSS esistente */
+@import url("../css/fonts.css");
+
+/* Aggiungi eventuali nuove variabili se necessario */
+:root {
+    /* Le variabili esistenti sono già definite nel tuo styles.css */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body  {
+    height: 100%;
+	
+}
+
+.container-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Stile per il contenuto del titolo dei servizi */
+.servizi-header-content {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: var(--nero);
+    padding: 20px;
+    padding: 100px 0;
+}
+
+.servizi-title {
+    font-size: 6rem;
+    margin-bottom: 20px;
+}
+
+.servizi-title .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.servizi-title .bold {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.servizi-description {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1rem;
+	max-width: 550px;
+}
+
+/* Menu overlay per mobile */
+.mobile-menu-overlay {
+    display: none;
+}
+
+/* Sezione Servizi */
+
+/* Sezione Centrale per i Servizi */
+.servizi-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+	margin: 0 auto; /* Centra la griglia */
+	max-width: 1440px;
+	margin-bottom: 70px;
+}
+
+.servizio-card {
+    background-color: #0d0d0d;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Aggiunto il background-color */
+    cursor: pointer;
+    overflow: hidden;
+	border: 2px solid var(--nero);
+}
+
+.servizio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Colori per le card */
+.servizio-card.servizio-1 {
+    --hover-color: #DFFE91; /* Verde acido */
+}
+
+.servizio-card.servizio-2 {
+    --hover-color: #FFB3BA; /* Corallo */
+}
+
+.servizio-card.servizio-3 {
+    --hover-color: #95D3FF; /* Azzurro */
+}
+
+.servizio-card.servizio-4 {
+    --hover-color: #F2B3D6; /* Rosa */
+}
+
+.servizio-card.servizio-5 {
+    --hover-color: #B697F8; /* Lilla */
+}
+
+/* Definizione di hover per ogni servizio */
+.servizio-card.servizio-1:hover {
+    background-color: var(--hover-color); /* Cambia il colore di sfondo */
+}
+
+.servizio-card.servizio-2:hover {
+    background-color: var(--hover-color) !important; /* Cambia il colore di sfondo */
+}
+
+.servizio-card.servizio-3:hover {
+    background-color: var(--hover-color); /* Cambia il colore di sfondo */
+}
+
+.servizio-card.servizio-4:hover {
+    background-color: var(--hover-color); /* Cambia il colore di sfondo */
+}
+
+.servizio-card.servizio-5:hover {
+    background-color: var(--hover-color); /* Cambia il colore di sfondo */
+}
+
+
+.servizio-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+	color: var(--bianco);
+}
+
+.servizio-card p {
+    margin-bottom: 10px;
+	color: var(--bianco);
+}
+
+/* Cambia il colore di testo su hover */
+.servizio-card:hover h2,
+.servizio-card:hover p {
+    color: #0d0d0d; /* Cambia il colore del testo a nero */
+}
+
+/* Espansione al clic */
+.servizio-dettagli {
+    display: none;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.modal-overlay {
+  display: none; /* Nascosto di default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0; /* Inizia con opacità 0 per animazione */
+  transition: opacity 0.3s ease-in-out; /* Transizione di entrata e uscita */
+}
+
+.modal-overlay.show {
+  display: flex; /* Mostra il modal */
+  opacity: 1; /* Animazione di visibilità */
+}
+
+.modal-content {
+  background: var(--hover-color); /* Colore di sfondo variabile */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 80%;
+  color: #0d0d0d;
+  transform: scale(0.5); /* Modal ridotto all'inizio */
+  transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Animazione del colore */
+}
+
+.modal-content.show {
+  transform: scale(1); /* Si espande a dimensione piena */
+	border: 2px solid var(--nero);
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.modal-body {
+  margin-top: 20px;
+}
+
+.modal-body p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.servizi-title, .servizi-description, .servizio-card {
+    visibility: visible; /* Assicura che la visibilità rimanga */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.servizio-card.expanded .servizio-dettagli {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Margine per l'ultimo box */
+.servizio-card:last-of-type {
+    margin-bottom: 50px; /* Aggiungi margine sotto l'ultimo box */
+}
+
+/* Quando l'animazione termina, gli elementi rimangono visibili */
+.servizi-title.show, .servizi-description.show, .servizio-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Bento Layout */
+
+.servizio-card:nth-child(1) {
+    grid-column: span 7 /* Occupa metà della larghezza */
+}
+
+.servizio-card:nth-child(2) {
+    grid-column: span 5; /* Occupa 5 colonne */
+}
+
+.servizio-card:nth-child(3) {
+    grid-column: span 7; /* Occupa 7 colonne */
+}
+
+.servizio-card:nth-child(4) {
+    grid-column: span 5; /* Occupa 5 colonne */
+}
+
+/* Servizio 5 occuperà l'intera larghezza */
+.servizio-card:nth-child(5) {
+    grid-column: span 12; /* Occupa tutta la larghezza in fondo */
+}
+
+/* Footer */
+footer {
+    background-color: var(--bianco);
+    color: var(--nero);
+    padding: 20px 0;
+}
+
+.footer-line {
+    border-top: 2px solid var(--nero);
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 0;
+    margin-bottom: 0;
+}
+
+.footer-content a {
+    color: var(--nero);
+    text-decoration: none;
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+	
+
+    .servizi-header-content {
+        height: auto;
+		padding: 20px 15px;
+    }
+	
+	.servizi-title {
+		font-size: 2.5rem;
+	}
+	
+	.servizi-description {
+		font-size: 0.85rem;
+		padding: 50px 50px 50px 0;
+		
+	}
+	
+	    .servizi-grid {
+        grid-template-columns: 1fr; /* Una colonna in mobile */
+			padding: 0 15px; /* Aggiungi padding orizzontale */
+    }
+
+    .servizio-card {
+        grid-column: span 1 !important;
+		font-size: 1.1rem;
+    }
+
+    .servizio-card:nth-child(3) {
+        grid-row: auto;
+    }
+    
+	
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--nero);
+}
+
+/* Menu overlay per mobile */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    width: 100%;
+    height: 100%;
+    background-color: #0d0d0d;
+    color: #fefaf1;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Cambia align-items per spostare il testo più in alto */
+    padding-top: 100px; /* Aggiungi padding per dare spazio sopra */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Lista di elementi del menu */
+.mobile-menu-overlay ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+/* Margine tra gli elementi del menu */
+.mobile-menu-overlay li {
+    margin: 20px 0;
+}
+
+/* Link del menu */
+.mobile-menu-overlay a {
+    text-decoration: none;
+    color: #fefaf1;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+/* Aggiungi la classe 'open' per mostrare il menu */
+.mobile-menu-overlay.open {
+    transform: translateX(0);
+}
+
+/* Stile per il pulsante di chiusura (X) */
+.mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fefaf1;
+    content: '✕'; /* Sostituisce 'Chiudi' con l'icona 'X' */
+    font-weight: 400;
+}
+
+/* Visualizza il pulsante menu in mobile */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    nav a {
+        display: none;
+    }
+
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    footer {
+        max-width: 90vw;
+        margin: 0 auto;
+        padding: 20px 10px;
+    }
+	
+	.servizi-title {
+		font-size: 3rem;
+	}
+	
+	.servizi-grid {
+        grid-template-columns: repeat(6, 1fr); /* 6 colonne per tablet */
+    }
+    .servizio-card:nth-child(1),
+    .servizio-card:nth-child(3) {
+        grid-column: span 6; /* Occupa tutta la larghezza */
+    }
+    .servizio-card:nth-child(2),
+    .servizio-card:nth-child(4) {
+        grid-column: span 3; /* Metà larghezza */
+    }
+}
+
+}
+	
+	@media (max-width: 1024px) {
+		
+		
+		.footer-line {
+        border-top: 2px solid var(--nero);
+        width: 90%; /* Riduci la larghezza per dispositivi più piccoli */
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        max-width: 90vw; /* Imposta la larghezza per mobile/tablet */
+        margin: 0 auto;
+        padding: 20px 10px;
+    }

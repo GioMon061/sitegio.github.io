@@ -1,0 +1,813 @@
+@import url("fonts.css"); /* Using a url */
+
+:root {
+	font-size: 111%;
+    --bianco: #fefaf1;
+    --nero: #0d0d0d;
+    --rosa: #FFB3BA;
+}
+
+html {
+	overflow-x: hidden;
+}
+
+
+body {
+    font-family: 'Suisse Intl', sans-serif;
+    color: var(--nero);
+    background-color: var(--bianco);
+    line-height: 1.6;
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.preloader-logo {
+    font-size: 2.5rem;
+    color: #fefaf1;
+    text-transform: uppercase;
+    font-family: 'Times Now', serif;
+}
+
+/* Container generale per limitare la larghezza del layout */
+.container {
+    max-width: 1440px; /* Larghezza massima della pagina */
+    margin: 0 auto; /* Centratura della pagina */
+    padding: 0 20px; /* Padding laterale */
+}
+
+img {
+   display:block;
+   width: 100%;
+}
+
+/* Header - Navigazione */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 20px;
+}
+
+
+.logo img {
+    width: 85px; /* Dimensione del logo */
+    height: auto;
+}
+
+header nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: var(--nero);
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+
+nav a {
+  position: relative;
+  margin-left: 30px;
+  text-decoration: none;
+  color: var(--nero);
+  font-family: 'Suisse Intl', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  z-index: 10; /* Assicura che i link siano sopra eventuali altri elementi */	
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--nero);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+nav a {
+  opacity: 0; /* Nascondi inizialmente */
+  transform: translateY(100%); /* Posiziona le voci sotto il punto iniziale */
+}
+
+
+.header-line {
+    border-bottom: 2px solid var(--nero);
+    width: 0; /* Linea inizialmente nascosta */
+    margin: 0;
+    transition: width 0.5s ease; /* Animazione della larghezza */
+}
+
+/* HERO Section */
+.hero {
+    padding: 100px 0px;
+    text-align: left;
+}
+
+.hero-text span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%); /* Cambia da 50px a 100% per farlo iniziare nascosto in basso */
+}
+
+.hero-text p {
+    opacity: 1; /* Assicurati che sia visibile */
+    transform: none; /* Rimuovi qualsiasi trasformazione */
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin: 100px 0 0;
+    max-width: 350px;
+}
+
+.hero-text span {
+   opacity: 0;
+   transform: translateY(50px); /* Per far scivolare il testo verso il basso */
+}
+
+.hero h1 {
+    font-size: 5rem; /* Dimensione aumentata per la headline */
+    line-height: 1.2;
+    margin-bottom: 20px; /* Spazio sotto la headline */
+}
+
+.hero .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+	font-style: normal;
+}
+
+.hero .bold {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+	letter-spacing: -3pt;
+}
+
+.hero p {
+    font-family: 'Suisse Intl', sans-serif;
+	font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1rem; /* Dimensione ridotta del sottotitolo */
+    margin: 170px 0 0; /* Spazio aumentato tra la headline e il sottotitolo */
+    max-width: 350px; /* Larghezza massima per il testo del sottotitolo */
+}
+
+
+.reveal {
+    overflow: hidden;
+    display: inline-block;
+}
+
+.reveal span {
+    display: block; /* Cambia inline-block a block */
+    opacity: 0;
+    transform: translateY(100%); /* Inizia nascosto con trasformazione verticale al 100% */
+}
+
+/* CASI STUDIO Section */
+.case-studies {
+    display: flex;
+    justify-content: space-around;
+    padding: 200px 0 250px;
+}
+
+.case-study {
+    width: 22%;
+    position: relative; /* Posizionamento relativo per il numero ruotato */
+}
+
+.placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #ddd;
+    position: relative; /* Necessario per posizionare il numero accanto */
+}
+
+.case-study hr {
+    border: none;
+    border-bottom: 2px solid var(--nero);
+    margin: 30px 0; /* Spazio tra placeholder e linea */
+}
+
+/* Etichetta (categoria e numero) */
+.case-study .label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 5px; /* Ridotto lo spazio tra etichetta e nome del caso studio */
+}
+
+/* Allineamento del nome del caso studio */
+.case-study .name {
+    text-transform: uppercase;
+    font-weight: normal;
+    text-align: left;
+    margin-top: 0px; /* Rimosso qualsiasi margine superiore per ridurre lo spazio */
+    padding-top: 0px; /* Rimosso eventuale padding superiore */
+}
+
+/* Numero ruotato accanto al placeholder */
+.case-study .number-rotated {
+    position: absolute;
+    top: 0px; /* Posiziona il numero all'interno del placeholder, vicino all'angolo destro */
+    right: -25px; /* Lo sposta fuori dal placeholder per stare accanto */
+    font-size: 0.75rem;
+    transform: rotate(-90deg); /* Ruotato dalla parte opposta */
+    text-transform: uppercase;
+}
+
+/* SEZIONE CHI SONO */
+
+.about-wrapper {
+    background-color: var(--nero); /* Sfondo nero che copre l'intera larghezza */
+    width: 100vw; /* Copri l'intera larghezza dello schermo */
+    margin-left: calc(-50vw + 50%); /* Estendi il margine sinistro */
+}
+
+.about {
+    display: flex;
+    justify-content: space-between;
+    padding: 150px 0; /* Aggiunto padding sopra e sotto */
+    max-width: 1440px; /* Manteniamo il contenuto all'interno di un container centrale */
+    margin: 0 auto;
+    padding-left: 40px; /* Aggiunto padding per allineare il testo con il resto della pagina */
+    padding-right: 40px; /* Anche a destra per simmetria */
+    color: var(--bianco);
+}
+
+.about-text {
+    width: 50%;
+    text-align: left;
+ 
+}
+
+.about-text-right {
+    width: 40%;
+    color: var(--bianco);
+}
+
+/* Headline stile Chi sono */
+.about h2 {
+    font-size: 4rem; /* Manteniamo la dimensione originale */
+    line-height: 1.2;
+    margin-top: 0; /* Rimuove qualsiasi margine superiore */
+    padding-top: 0; /* Rimuove eventuale padding superiore */
+}
+
+.about h2 .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.about h2 .bold {
+    font-family: 'Suiss Int\'l', sans-serif; /* Usa Helvetica nel caso Suisse non venga caricato */
+    font-weight: 500;
+}
+
+/* Sottotitolo */
+.about-text p {
+    font-family: 'Suiss Int\'l', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+	max-width: 400px;
+}
+
+/* Testo accanto */
+.about-text-right p {
+    font-family: 'Suiss Int\'l', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Stile del pulsante */
+.about-text-right .continue-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--bianco);
+    color: var(--nero);
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-family: 'Suiss Int\'l', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+/* SEZIONE COME POSSO AIUTARTI */
+.services-section {
+    padding: 200px 0px 250px;
+    background-color: var(--bianco);
+}
+
+/* Contenitore con due colonne */
+.services-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+    gap: 20px; /* Spazio tra le colonne */
+}
+
+/* Colonne con layout verticale */
+.services-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+	align-items: flex-start;
+    width: 45%; /* Larghezza uguale per entrambe le colonne */
+}
+
+/* Cella A: Stile dell'headline */
+.services-item.A h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Times Now', serif;
+	font-weight: 300;
+    line-height: 1.2;
+}
+
+.services-item.A h2 span {
+    font-family: 'Suiss Int\'l', sans-serif;
+    font-weight: 500;
+}
+
+/* Stile per i pulsanti */
+.services-button, .pdf-button {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: var(--nero);
+    color: var(--bianco);
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-family: 'Suiss Int\'l', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid var(--nero);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    max-width: 200px;
+    width: fit-content;
+}
+
+/* Hover per i pulsanti */
+.services-button:hover, .pdf-button:hover {
+    background-color: var(--bianco);
+    color: var(--nero);
+    border: 2px solid var(--nero);
+}
+
+
+/* Sezione "Altri progetti" */
+.other-projects {
+    background-color: var(--nero); /* Sfondo nero */
+    color: var(--bianco);
+    padding: 150px 0; /* Spazio sopra e sotto */
+    width: 100vw; /* Imposta la larghezza a 100% della viewport */
+    margin-left: calc(-50vw + 50%); /* Centra lo sfondo in modo che copra tutta la larghezza */
+}
+
+.other-projects .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px; /* Padding per contenere meglio il testo */
+}
+
+.other-projects h2 {
+    font-size: 3rem;
+    text-align: left; /* Allineamento a sinistra */
+    margin-bottom: 60px;
+}
+
+.other-projects h2 .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.other-projects h2 .bold {
+    font-family: 'Suiss Int\'l', sans-serif;
+    font-weight: 500;
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Allineamento a sinistra */
+}
+
+.project-item {
+    width: 100%;
+    max-width: 1440px;
+    text-align: left; /* Allineamento del testo a sinistra */
+    margin-bottom: 40px; /* Spazio tra i progetti */
+}
+
+.project-item p {
+    display: flex;
+    justify-content: flex-start; /* Allineamento del testo a sinistra */
+    align-items: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.project-title {
+    font-family: 'Suiss Int\'l', sans-serif;
+    font-weight: 500;
+    margin-right: 5px; /* Spazio tra la parola e il numero */
+}
+
+.project-number {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.project-item hr {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--bianco);
+    margin-top: 10px;
+}
+
+
+/* Penultima sezione (call to action) */
+.call-to-action {
+    display: flex;
+    justify-content: flex-end; /* Allinea tutto a destra */
+    padding: 100px 0;
+    background-color: var(--bianco); /* Sfondo bianco */
+    width: 100%;
+}
+
+.call-to-action .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.call-to-action .line-text {
+    display: flex;
+    align-items: center; /* Allinea linea e testo sulla stessa linea */
+    margin-bottom: 20px; /* Spazio tra la linea + testo e il pulsante */
+}
+
+.call-to-action .line {
+    width: 80px; /* Larghezza della linea */
+    height: 2px;
+    background-color: var(--nero);
+    margin-right: 10px; /* Spazio tra la linea e il testo */
+}
+
+.call-to-action p {
+    font-family: 'Suiss Int\'l', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--nero);
+    margin: 0;
+    max-width: 250px; /* Massima larghezza per il testo */
+    text-align: right;
+}
+
+.call-to-action .button {
+    background-color: var(--nero);
+    color: var(--bianco);
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-family: 'Suiss Int\'l', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    width: fit-content;
+    max-width: 250px;
+    display: inline-block;
+    text-align: center;
+}
+
+.call-to-action .button:hover {
+    background-color: var(--bianco);
+    color: var(--nero);
+    border: 2px solid var(--nero);
+}
+
+
+
+
+/* Footer */
+footer {
+    background-color: var(--bianco); /* Sfondo bianco */
+    width: 100%;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 0px;
+}
+
+.footer-content span {
+    font-family: 'Suiss Int\'l', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--nero);
+}
+
+.footer-content .social-icons a {
+    margin-left: 30px;
+    text-decoration: none;
+    font-family: 'Suiss Int\'l', sans-serif;
+    font-weight: 500;
+    color: var(--nero);
+    text-transform: uppercase;
+}
+
+.footer-line {
+    width: calc(100% - 0px); /* Stessa larghezza della linea nel menu */
+    border-top: 2px solid var(--nero); /* Linea sopra il footer */
+    margin: 0 auto 0px;
+}
+
+i {
+    font-size: 1.5rem; /* Puoi modificare la dimensione come preferisci */
+    width: 2rem; /* Anche questa può essere regolata */
+    height: 2rem; /* Regola anche l'altezza */
+}
+
+
+/* General Styles for Mobile */
+@media (max-width: 768px) {
+	
+		/* Hero section */
+	
+	.hero-text h1 {
+		font-size: 3rem;
+		line-height: 1.3;
+		
+	}
+	
+	
+    /* Chi sono section for mobile */
+
+	    .about-wrapper {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+    }
+	
+		.about-wrapper,
+		.other-projects {
+		width: 100vw;
+		margin-left: calc(-50vw + 50%); /* Evita che si tagli */
+		
+	}
+	
+		.about {
+		flex-direction: column;
+	}
+
+
+    .about-text, 
+    .about-text-right {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+	
+
+    .about h2 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+
+    /* Casi Studio section for mobile */
+    .case-studies {
+        display: flex;
+        flex-direction: column;
+        padding: 100px 0;
+    }
+
+    .case-study {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+	
+	
+    /* Come posso aiutarti section for mobile */
+    .services-section {
+        display: flex;
+        flex-direction: column;
+        padding: 100px 20px;
+        text-align: left;
+    }
+
+    .services-column {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+	
+	.services-container {
+		flex-direction: column;
+	}
+
+
+    /* Footer section for mobile */
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-line {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+
+	
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: var(--nero);
+}
+
+/* Mobile Menu Overlay Styling */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%); /* Mantieni l'overlay nascosto */
+    width: 100%; /* Assicurati che copra il 100% della viewport */
+    height: 100%;
+    background-color: #0d0d0d;
+    color: #fefaf1;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Aggiungi una curva di easing più fluida */
+}
+
+
+.mobile-menu-overlay ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.mobile-menu-overlay li {
+    margin: 20px 0;
+}
+
+.mobile-menu-overlay a {
+    text-decoration: none;
+    color: #fefaf1;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.mobile-menu-overlay.open {
+    transform: translateX(0); /* Mostra il menu con l'animazione */
+}
+
+/* Close Button */
+.mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Show the Menu for Mobile */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    nav a {
+        display: none; /* Nascondi il menu principale su mobile */
+    }
+}
+
+
+/* General Styles for Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+	
+	/* Hero section */
+	.hero-text h1 {
+		font-size: 4rem;
+		line-height: 1.15;
+	}
+	
+	
+    /* Chi sono section for tablet */
+    .about-wrapper {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+    }
+	
+	.about {
+		flex-direction: column;
+	}
+
+    .about h2 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+    }
+
+    .about-text,
+    .about-text-right {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .about-text-right {
+        max-width: 650px;
+    }
+
+    /* Casi Studio section for tablet */
+    .case-studies {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px;
+        padding: 150px 20px;
+    }
+
+    .case-study {
+        width: 100%;
+    }
+
+    /* Come posso aiutarti section for tablet */
+    .services-section {
+        display: flex;
+        flex-direction: row;
+        padding: 100px 20px;
+        justify-content: space-between;
+    }
+
+    .services-column {
+        width: 48%;
+        margin-bottom: 0;
+    }
+
+    /* Footer section for tablet */
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-line {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
+    .social-icons {
+        margin-top: 0;
+    }
+}
+

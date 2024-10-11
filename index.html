@@ -1,335 +1,413 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gioia Mongelli - Portfolio Website</title>
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/locomotive-scroll.css" rel="stylesheet" >
-    
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gioia Mongelli Visuals</title>
+    <link rel="stylesheet" href="css/style.css">
+	<script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
+<body>
+	
+	  <div id="preloader">
+    <div class="preloader-logo"><img src="img/logo-bianco-intero.svg"></div> <!-- Può essere anche un logo -->
+  </div>
 
-<body> 
+<div class="container"> <!-- Inizio del container che avvolge tutto -->
 
-      <div class="cursor"></div>
-        <div class="cursor-follower"></div>
-
-    <div data-scroll-container class="wrapper">
-        <div class="container">
-
-            <div class="navigation-bar">
-                <div class="navigation-bar-container">
-                    <div class="title">
-                        <a class="link" href="index.html">gioia mongelli</a>
-                    </div>
-                    
-                    <div class="button link" onclick="toggle()">menu</div>
-                    
-                    <!-- Menu starts here -->
-                    <div class="menu">
-                        <div class="button" onclick="togglec()">close</div>
-                            <ul>
-                                <li onclick="togglec()"><a href="index.html" data-scroll-to>Home</a></li>
-                                <li onclick="togglec()"><a href="#projects" data-scroll-to>Works</a></li>
-                                <li onclick="togglec()"><a href="#about-me" data-scroll-to>About</a></li>
-                                <li onclick="togglec()"><a href="#form" data-scroll-to>Contacts</a></li>
-                            </ul>
-                        </div>
-                </div><!-- navigation bar container end -->
-            </div><!-- navigation bar  end -->
-            
-            <!-- divider -->
-            <div class="divider"></div>      
-            
-            <!-- HEADER -->
-            <header>
-                <div class="header-container">
-                    <h1>
-                      <span id="first-line" class="intro-anim">Hi, I am Gioia</span>
-                    </h1>
-                    <h1>
-                      <span class="intro-anim">Mongelli, web</span>
-                    </h1>
-                    <h1>
-                      <span class="intro-anim">and graphic</span>
-                    </h1>
-                    <h1>
-                      <span class="intro-anim">designer</span>
-                    </h1>
-                </div>
-              </header> 
-            
-            <div class="whitespace"></div>
-
-            
-            <!----- CONTENT AREA ----->
-            
-            <!--- Works --->
- 
-   <!-- Top title section -->
-<div id="projects" class="section-top">
-    <div class="section-top-container">
-        <div class="section-title">
-            .works
-        </div>
-<div class="section-number">/01</div>
+    <header>
+		<!-- Overlay Menu for Mobile -->
+<div class="mobile-menu-overlay">
+    <div class="mobile-menu-close">X</div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#case-studies">Casi Studio</a></li>
+        <li><a href="servizi/servizi.html">Servizi</a></li>
+        <li><a href="chi-sono/chi-sono.html">Chi sono</a></li>
+        <li><a href="contatti/contatti.html">Contatti</a></li>
+		<li><a href="https://zcal.co/gioia/15min" target="_blank">Prenota call</a></li>
+    </ul>
 </div>
-</div>
-     <!-- End Top title section -->
-
-<div class="divider"></div>
-
-<section id="works" data-scroll-items=""> 
-    <div class="whitespace"></div>
-        <div class="work-container">
-
-                 <div class="project-50"></div> <!-- data-scroll data-scroll-direction="horizontal" data-scroll-speed="-0.2" / data-scroll data-scroll-direction="horizontal" data-scroll-speed="0.2" -->
-                <div class="project-50 project project1">
-                   <img src="img/superduper-deskp-thumb-v2.jpg" alt="super duper ai" onclick="location.href='cs-superduper.html'" class="link">
-                    <h3 class="project1-title" data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">superduper ai concept.</h3>
-                </div>
-            <!-- project 1 ends here-->
-            <div class="whitespace"></div>
-            <div class="morespace"></div>
-            
-           
-                <div class="project-50 project project2" onclick="location.href='cs-motikoan.html'">
-                    <img src="img/moti-koan-thumb.png" alt="moti koan" class="link">
-                    <h3 class="project2-title" data-scroll data-scroll-direction="vertical" data-scroll-speed="1">moti's koan landing page concept.</h3>
-                </div>
-                <div class="project-50"></div>    
-            <!-- project 2 ends here-->
-                <div class="whitespace"></div>
-                <div class="morespace"></div>
-            
-           
-                <div class="project-50"></div>
-                <div class="project-50 project project3" onclick="location.href='cs-aartistrange.html'">
-                    <img src="img/aartistrange-thumb-v2.jpg" alt="aarti strange" class="link">
-                    <h3 class="project3-title" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-1">wellness with aarti strange.</h3>
-                </div>
-           <!-- project 3 ends here-->
-                <div class="whitespace"></div>
-                <div class="morespace"></div>
-            
-            
-           
-                <div class="project-50 project project4" onclick="location.href='cs-motimedia.html'">
-                    <img src="img/motimedia-thumb-v2.jpg" alt="moti media" class="link">
-                    <h3 class="project4-title" data-scroll data-scroll-direction="vertical" data-scroll-speed="2">moti media concept.</h3>
-                </div>
-                <div class="project-50"></div>
-            <!-- project 4 ends here-->
-                <div class="whitespace"></div>
-                <div class="morespace"></div>
-                
-            
-            <div class="project-50"></div>
-            <div class="project-50 project project5" onclick="location.href='cs-superhero.html'">
-                <img src="img/superhero-thumb-v2.jpg" alt="superhero incsub" class="link">
-                <h3 class="project5-title" data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">superhero concept.</h3>
-            </div>
-            <!-- project 5 ends here-->
-                <div class="whitespace"></div>
-                <div class="morespace"></div>
-            
-            
-           
-            <div class="project-50 project project6" onclick="location.href='cs-hd8tips.html'">
-                <img src="img/hadleydesign-01-thumb-v2.jpg" alt="hadley design 8 tips" class="link">
-                <h3 class="project6-title" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-2">hadley design '8 tips'</h3>
-            </div>
-            <div class="project-50"></div>
-            <!-- project 6 ends here-->
-                <div class="whitespace"></div>
-                <div class="morespace"></div>
-            
-            
-                        <div class="project-50"></div>
-            <div class="project-50 project project5" onclick="location.href='cs-luxurypresence.html'">
-                <img src="img/luxury-presence-thumb.png" alt="luxury presence" class="link">
-                <h3 class="project5-title" data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">luxury presence IG  concept.</h3>
-            </div>
-            <!-- project 7 ends here-->
-                <div class="whitespace"></div>
-                <div class="morespace"></div>
-            
-                                    <div class="project-50 project project6" onclick="location.href='cs-ultimate_01.html'">
-                <img src="img/ultimate_ai-thumb_01.png" alt="ultimate linkedin" class="link">
-              <h3 class="project4-title" data-scroll data-scroll-direction="vertical" data-scroll-speed="2">ultimate.ai's linkedin teaser</h3>
-                </div>
-            <div class="project-50"></div>
-            <!-- project 8 ends here-->
-                <div class="whitespace"></div>
-                <div class="morespace"></div>
-            
-            
-                        <div class="project-50"></div>
-            <div class="project-50 project project5" onclick="location.href='cs-ultimate_02.html'">
-                <img src="img/ultimate_ai-thumb_03.png" alt="arhanta yoga" class="link">
-                <h3 class="project5-title" data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">ultimate.ai's eventbrite webinar</h3>
-            </div>
-            <!-- project 9 ends here-->
-                <div class="whitespace"></div>
-                <div class="morespace"></div>
-            
-            
-                        <div class="project-50 project project6" onclick="location.href='cs-arhantayoga.html'">
-                <img src="img/arhanta-yoga-thumb_01.png" alt="ultimate linkedin" class="link">
-              <h3 class="project4-title" data-scroll data-scroll-direction="vertical" data-scroll-speed="2">arhanta yoga concept.</h3>
-                </div>
-            <div class="project-50"></div>
-            <!-- project 10 ends here-->
-                <div class="whitespace"></div>
-                <div class="morespace"></div>
-            
-            
-            
-                             <div class="project-50"></div> <!-- data-scroll data-scroll-direction="horizontal" data-scroll-speed="-0.2" / data-scroll data-scroll-direction="horizontal" data-scroll-speed="0.2" -->
-                <div class="project-50 project project1">
-                   <img src="img/johnathan-james-vineyard-thumb_01.png" alt="johnathan james vineyard" onclick="location.href='cs-jjsvineyard.html'" class="link">
-                    <h3 class="project1-title" data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">johnathan james vineyard email design.</h3>
-                </div>
-            <!-- project 11 ends here-->
-            <div class="whitespace"></div>
-            <div class="morespace"></div>
-            
-       <!--     
-                    <div class="project-50 project project6" onclick="location.href='cs-planet.html'">
-                <img src="img/Planet_Brochure_thumb.png" alt="planet" class="link">
-              <h3 class="project4-title" data-scroll data-scroll-direction="vertical" data-scroll-speed="2">planet brochure concept.</h3>
-                </div>
-            <div class="project-50"></div>
-            <!-- project 12 ends here-->
-       <!--         <div class="whitespace"></div>
-                <div class="morespace"></div>-->
-            
-            
-            <!--
-                             <div class="project-50"></div> <!-- data-scroll data-scroll-direction="horizontal" data-scroll-speed="-0.2" / data-scroll data-scroll-direction="horizontal" data-scroll-speed="0.2" -->
-          <!--      <div class="project-50 project project1">
-                   <img src="img/Planted_01_Concept_AD_thumb.png" alt="planted schnitzel" onclick="location.href='cs-planted.html'" class="link">
-                    <h3 class="project1-title" data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">planted schnitzel ad concept.</h3>
-                </div>
-            <!-- project 13 ends here-->
-     <!--       <div class="whitespace"></div>
-            <div class="morespace"></div>-->
-
-
+        <div class="logo-container">
+        <div class="logo">
+            <a href="https://gioiamongelli.com" target="_self">
+                <img src="img/logo.svg" alt="Gioia Mongelli Logo">
+            </a>
         </div>
+        <!-- Aggiungiamo la lingua come elemento accanto al logo -->
+        <div class="language-switcher"><p>IT </p>/ 
+            <a href="en/index.html" class="language-link">EN</a>
+        </div>
+    </div>
+
+<nav>
+    <div class="mobile-menu-toggle">Menu</div> <!-- Aggiungi questo per mobile -->
+    <a href="#case-studies" target="_self" class="nav-link" data-cursor="-opaque">Casi Studio</a>
+    <a href="servizi/servizi.html" target="_self" class="nav-link" data-cursor="-opaque">Servizi</a>
+    <a href="chi-sono/chi-sono.html" target="_self" class="nav-link" data-cursor="-opaque">Chi sono</a>
+    <a href="contatti/contatti.html" target="_self" class="nav-link" data-cursor="-opaque">Contatti</a>
+	<a href="https://zcal.co/gioia/15min" target="_blank" class="nav-button" data-cursor="-magnetic -blob">Prenota call</a>
+</nav>
+    </header>
+	
+    <!--<div class="header-line"></div>  Linea corretta sotto il logo e il menu -->
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>
+                <div class="reveal"><span class="light">Design che</span></div><br>
+                <div class="reveal"><span class="light">riflette</span></div><br>
+                <div class="reveal"><span class="bold">chi sei.&nbsp; </span></div>
+            </h1>
+            <p>scopri come il design strategico può trasmettere fiducia, valorizzare la tua offerta e attrarre clienti migliori.</p>
+	<!-- Wrapper per il cerchio e la freccia -->
+    <div class="scroll-indicator-wrapper">
+        <!-- Cerchio con il testo che ruota -->
+        <div class="scroll-text">
+            <img src="img/scroll-text.svg" alt="scroll text">
+        </div>
+        <!-- Freccia fissa al centro del cerchio -->
+        <div class="arrow-down">
+            <img src="img/arrow-down.svg" alt="arrow down">
+        </div>
+        </div>
+		</div>
+    </section>
+	
+	<!-- Casi Studio -->
+	
+	<!-- Sezione "Casi Studio" con scrolling orizzontale -->
+<section class="case-studies-section" id="case-studies">
+    <!-- Contenuto pinnato sopra la sezione -->
+    <div class="case-studies-header">
+        <h2>
+            <span class="light">Casi</span> <span class="bold">studio</span>
+        </h2>
+		 <div class="scroll-indicator">
+        <!-- Puoi utilizzare un'icona SVG o un'icona da una libreria -->
+        <img src="img/scroll-arrows.svg" alt="Scroll horizontally">
+		</div>
+    </div>
+	<!-- Wrapper per lo scrolling orizzontale -->
+    <div class="case-studies-wrapper">
+        <div class="case-studies">
+			
+			<!-- Caso Studio 1 -->
+            <a href="casi-studio/cs01-shortad.html"><div class="case-study">
+				<div class="placeholder">
+                    <span class="number-rotated">001</span>
+					<img src="casi-studio/img/shortad01.png" class="case-study-image" alt="Short Ad per App">
+                </div>
+                <hr>
+                <div class="label">
+                    <span class="category">Short Ad</span>
+                    <span class="case-number">001</span>
+                </div>
+                <p class="name"><a href="casi-studio/cs01-shortad.html">Short Ad per App</a></p>
+				</div></a>
+
+            <!-- Caso Studio 2 -->
+            <a href="casi-studio/cs02-carouselnews.html"><div class="case-study">
+                <div class="placeholder">
+                    <span class="number-rotated">002</span>
+					<img src="casi-studio/img/carouselnews-01.png" class="case-study-image" alt="Caroselli Notizie">
+                </div>
+                <hr>
+                <div class="label">
+                    <span class="category">Social Media Design</span>
+                    <span class="case-number">002</span>
+                </div>
+				<p class="name"><a href="casi-studio/cs02-carouselnews.html">Carosello Fintech</a></p>
+				</div></a>
+
+            <!-- Caso Studio 3 -->
+            <a href="casi-studio/cs03-grafichesocial.html"><div class="case-study">
+                <div class="placeholder">
+                    <span class="number-rotated">003</span>
+					<img src="casi-studio/img/grafichesocial-02.png" class="case-study-image" alt="Promo grafiche Saas">
+                </div>
+                <hr>
+                <div class="label">
+                    <span class="category">Social Media Design</span>
+                    <span class="case-number">003</span>
+                </div>
+				<p class="name"><a href="casi-studio/cs03-grafichesocial.html">Promo Grafiche Saas</a></p>
+				</div></a>
+
+            <!-- Caso Studio 4 -->
+             <a href="casi-studio/cs04-presentationsocial.html"><div class="case-study">
+                <div class="placeholder">
+                    <span class="number-rotated">004</span>
+					<img src="casi-studio/img/presentationsocial-01.png" class="case-study-image" alt="Presentation e Social">
+                </div>
+                <hr>
+                <div class="label">
+                    <span class="category">Social &amp; Presentation Design</span>
+                    <span class="case-number">004</span>
+                </div>
+                <p class="name"><a href="casi-studio/cs04-presentationsocial.html">Grafiche per Diritti Digitali</a></p>
+				 </div></a>	
+			           <!-- Caso Studio 5 -->
+            <a href="casi-studio/cs05-bannerpodcast.html"><div class="case-study">
+                <div class="placeholder">
+                    <span class="number-rotated">005</span>
+					<img src="casi-studio/img/bannerpodcast-01.png" class="case-study-image" alt="Banner podcast">
+                </div>
+                <hr>
+                <div class="label">
+                    <span class="category">Social Media Design</span>
+                    <span class="case-number">005</span>
+                </div>
+                <p class="name"><a href="casi-studio/cs05-bannerpodcast.html">Banners per Podcast</a></p>
+				</div></a>
+			
+			 <!-- Caso Studio 6 -->
+            <a href="casi-studio/cs06-eventgraphics.html"><div class="case-study">
+                <div class="placeholder">
+                    <span class="number-rotated">006</span>
+					<img src="casi-studio/img/event-graphics-01.png" class="case-study-image" alt="Event graphics">
+                </div>
+                <hr>
+                <div class="label">
+                    <span class="category">Event Design</span>
+                    <span class="case-number">006</span>
+                </div>
+                <p class="name"><a href="casi-studio/cs06-eventgraphics.html">Grafiche Evento Country</a></p>
+				</div></a>
+			
+			 <!-- Caso Studio 7 -->
+            <a href="casi-studio/cs07-educationalvisual.html"><div class="case-study">
+                <div class="placeholder">
+                    <span class="number-rotated">007</span>
+					<img src="casi-studio/img/educationalvisual-02.png" class="case-study-image" alt="Visual educativi">
+                </div>
+                <hr>
+                <div class="label">
+                    <span class="category">Infografica &amp; Reel</span>
+                    <span class="case-number">007</span>
+                </div>
+                <p class="name"><a href="casi-studio/cs07-educationalvisual.html">Visual Educativo Uragani</a></p>
+				</div></a>
+			
+				 <!-- Caso Studio 8 -->
+            <a href="casi-studio/cs08-lpredesign.html"><div class="case-study">
+                <div class="placeholder">
+                    <span class="number-rotated">008</span>
+					<img src="casi-studio/img/landingpage-01.png" class="case-study-image" alt="Landing page">
+                </div>
+                <hr>
+                <div class="label">
+                    <span class="category">Web Design</span>
+                    <span class="case-number">008</span>
+                </div>
+				<p class="name"> <a href="casi-studio/cs08-lpredesign.html">Landing Page Yoga</a></p>
+				</div></a>
+            <!-- Aggiungi altri casi studio se necessario -->
+        </div>
+
+    </div>
+		
+	<!-- Pinned content sotto la sezione -->
+    <div class="case-studies-footer">
+        <!-- Eventuale contenuto aggiuntivo -->
+	</div>
 </section>
+					
+		<!-- Sezione Chi sono -->
 
-
- <!--- About --->
-            
- <div class="whitespace"></div>
-    <div id="about-me" class="section-top">
-        <div class="section-top-container">
-            <div class="section-title">
-                .about</div>
-    <div class="section-number">/02</div>
-    </div>
-    </div>
-    
-        <div class="divider"></div>
-        <div class="whitespace"></div>
-        
- <section id="about">
-            <div class="about-container" data-scroll data-scroll-speed="3">
-                <p>
-                I am a web and graphic designer. I realized this was my real vocation as an adult, when I eventually enrolled in the  Skillcrush online courses.
-                </p>
-                <p class="pushed">
-                When I am not working, you can find me learning new skills, new languages, playing boardgames, building a pc, reading a good book, watching some nice movie or tv-series -I am huge movie lover- trying a new recipe, shopping online or, most of all, travelling: the most enriching activity ever.
-                </p>
-              
-    </div><!-- contacts container end-->
-          </section>             
-            
-   
-            
-<!--- Contacts ---> 
-            
- <div class="whitespace"></div>
-    <div id="form" class="section-top">
-        <div class="section-top-container">
-            <div class="section-title">
-                .contacts</div>
-    <div class="section-number">/03</div>
-    </div>
-    </div>
-    
-        <div class="divider"></div>
-        <div class="whitespace"></div>
-    
- <section id="contact">
-            <div class="contacts-container">
-                <p>
-             <form data-scroll id="contacts" action="https://formsubmit.co/gioia@gioiamongelli.com" method="post">
-                 
-              <div class="hidden-subject">
-                 <input type="hidden" name="_subject" value="New email from GioiaMongelli.com form"></div>
-                 
-                 <div class="form-name">
-                 <label for="name">
-                    </label>
-                    <input type="text" placeholder="Name" name="name" id="name-input" required>
-                 </div>
-                 
-              <div class="form-email">
-                 <label for="email"></label>
-                  <input type="email" placeholder="Email" name="email" id="email-input" required>
-                 </div>  
-                 <div class="form-message">
-                 <label for="message"></label>
-                     <textarea name="message"
- placeholder="Message" id="message-input" cols="20" rows="4" required></textarea>                 
-                 </div>
-                 <div class="form-button">
-                 <input type="submit" value="Submit" id="form-button">
-                 </div>
-                </form>
-                </p>
-              
-    </div><!-- contacts container end-->
-            </section>  
-            
-
-    
-                    <div class="whitespace"></div>
-                    <div class="divider"></div>
-<!-- FOOTER -->
-            
-<footer>
-        <div class="footer-container" data-scroll-position="bottom" data-scroll-speed="2" data-scroll>
-         <div class="copyright">copyright &copy; gioia mongelli</div>
-            <div class="socials">
-                <a href="https://www.linkedin.com/in/gioiamongelli/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
-                <a href="https://dribbble.com/GioiaM" target="_blank"><ion-icon name="logo-dribbble"></ion-icon></a>
-                <a href="https://github.com/Penelope061/" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
-            </div> 
-            <div class="year">
-                <script>document.write(new Date().getFullYear())</script>
-            </div>
+<div class="about-wrapper">
+    <section class="about" id="about">
+        <div class="about-text">
+            <h2>
+                <span class="light">Chi</span> <span class="bold">sono</span>
+            </h2>
+            <p>DAL CAMBIAMENTO DI CARRIERA AL SUCCESSO NEL DESIGN: ECCO COME HO TRASFORMATO LA MIA PASSIONE IN UN SERVIZIO CHE FA LA DIFFERENZA.</p>
         </div>
+        <div class="about-text-right">
+            <p>Ciao, sono Gioia e sono una graphic designer. La creatività è sempre stata parte di me, fin da bambina, quando disegnavo i miei giochi. Durante un momento difficile, ho scoperto Photoshop per caso, e quella che era nata come una distrazione è diventata una vera passione. Ho iniziato da autodidatta, creando design per WordPress e facendo i primi lavori da freelancer. Ma per anni ho lavorato come Sales Executive, gestendo designer invece di creare, e questo mi ha portato a sentirmi insoddisfatta. Due eventi significativi, uno personale e uno professionale, mi hanno spinta a cambiare. Ho deciso di seguire la mia passione per il design, investendo su me stessa con corsi intensivi e ottenendo certificazioni. Da quel momento, tutto è cambiato.</p>
+            <a href="chi-sono/chi-sono.html" class="continue-button">Continua</a>
+        </div>
+    </section>
+</div>
 
-            </footer>
 
-        </div><!-- container end -->
-    </div><!-- wrapper end -->
-    
+<!-- Sezione "Come posso aiutarti" -->
+<section class="come-posso-aiutarti">
+  <div class="services-section">
+    <div class="services-container">
+      
+      <!-- Colonna Sinistra -->
+      <div class="services-column">
+        
+        <!-- Cella A: Headline -->
+        <div class="services-item A">
+          <h2>Come posso <span>aiutarti</span></h2>
+        </div>
+        
+        <!-- Cella B: Testo sinistro -->
+        <div class="services-item B">
+          <p>Ogni business di successo ha una cosa in comune: un design che funziona. Se sei una piccola impresa, un libero professionista, o un solopreneur, sai quanto sia cruciale distinguerti online. Ecco dove entro in gioco io:</p>
+          <ul>
+            <li>Costruisco identità visive che parlano al cuore del tuo pubblico.</li>
+            <li>Creo contenuti grafici per social media che non solo catturano l'attenzione, ma la mantengono.</li>
+            <li>Sviluppo materiali di marketing pensati per convertire, non solo per essere belli.</li>
+          </ul>
+        </div>
+        
+        <!-- Cella C: Pulsante sinistro -->
+        <div class="services-item C">
+          <a href="servizi/servizi.html" class="services-button">Scopri i servizi</a>
+        </div>
+      </div>
+      
+      <!-- Colonna Destra -->
+      <div class="services-column">
+        
+        <!-- Cella D: Vuota per spaziatura -->
+        <div class="services-item D"></div>
+        
+        <!-- Cella E: Testo destro -->
+        <div class="services-item E">
+          <p>Vuoi subito qualche dritta per migliorare il tuo business? Ho preparato un PDF gratuito: <strong>“6 strategie vincenti per il tuo business”</strong>. All’interno, troverai consigli pratici e subito applicabili per far crescere la tua presenza online. Non perdere l’occasione di dare una marcia in più alla tua strategia digitale.</p>
+        </div>
+        
+        <!-- Cella F: Pulsante destro -->
+        <div class="services-item F">
+          <a href="https://gioiamongelli.fillout.com/t/nnaHxnf2j2us" target="_blank" class="pdf-button">Scarica il PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+		
+ <section class="other-projects">
+    <div class="container">
+        <h2>
+            <span class="light">Altri</span> <span class="bold">progetti</span>
+        </h2>
+		<div class="project">
+        <nav class="project-list">
+			<!--Progetto 1-->
+			<div class="project__item">
+                <a class="project__item-link" href="progetti/pr01-vineyard.html">Email Design Cantina Vinicola</a>
+					<img class="project__item-img" src="img/vineyardpreview.png" alt="Progetto 1"/>
+				<div class="marquee">
+										<div class="marquee__inner">
+											<span>Email Design Cantina Vinicola</span>
+											<span>Email Design Cantina Vinicola</span>
+											<span>Email Design Cantina Vinicola</span>
+											<span>Email Design Cantina Vinicola</span>
+											<span>Email Design Cantina Vinicola</span>
+											<span>Email Design Cantina Vinicola</span>
+											<span>Email Design Cantina Vinicola</span>
+											<span>Email Design Cantina Vinicola</span>
+										</div>
+					                </div>
+                                  </div>
+								<hr>
+			
+						<!--Progetto 2-->
+			<div class="project__item">
+                <a class="project__item-link" href="progetti/pr02-socialvisual.html" target="_self">Grafiche Social Lifestyle</a>
+					<img class="project__item-img" src="progetti/img/socialvisual-03.png" alt="Progetto 2"/>
+				<div class="marquee">
+										<div class="marquee__inner">
+											<span>Grafiche Social Lifestyle</span>
+											<span>Grafiche Social Lifestyle</span>
+											<span>Grafiche Social Lifestyle</span>
+											<span>Grafiche Social Lifestyle</span>
+											<span>Grafiche Social Lifestyle</span>
+											<span>Grafiche Social Lifestyle</span>
+											<span>Grafiche Social Lifestyle</span>
+											<span>Grafiche Social Lifestyle</span>
+										</div>
+					                </div>
+                                  </div>
+								<hr>
+			
+			<!--Progetto 3-->
+			<div class="project__item">
+                <a class="project__item-link" href="progetti/pr03-infographic.html" target="_self">Infografica Fintech</a>
+					<img class="project__item-img" src="en/projects/img/infographic-02.png" alt="Progetto 3"/>
+				<div class="marquee">
+										<div class="marquee__inner">
+											<span>Infografica Fintech</span>
+											<span>Infografica Fintech</span>
+											<span>Infografica Fintech</span>
+											<span>Infografica Fintech</span>
+											<span>Infografica Fintech</span>
+											<span>Infografica Fintech</span>
+											<span>Infografica Fintech</span>
+											<span>Infografica Fintech</span>
+										</div>
+					                </div>
+                                  </div>
+								<hr>
+			
+						<!--Progetto 4-->
+			<div class="project__item">
+                <a class="project__item-link" href="progetti/pr04-fictionalbranding.html" target="_self">Visual Concept Frida Kahlo</a>
+					<img class="project__item-img" src="progetti/img/fridakahlo-04.png" alt="Progetto 4"/>
+				<div class="marquee">
+										<div class="marquee__inner">
+											<span>Visual Concept Frida Kahlo</span>
+											<span>Visual Concept Frida Kahlo</span>
+											<span>Visual Concept Frida Kahlo</span>
+											<span>Visual Concept Frida Kahlo</span>
+											<span>Visual Concept Frida Kahlo</span>
+											<span>Visual Concept Frida Kahlo</span>
+											<span>Visual Concept Frida Kahlo</span>
+											<span>Visual Concept Frida Kahlo</span>
+										</div>
+					                </div>
+                                  </div>
+								<hr>
 
-    
-    <!-- SCRIPTS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js"></script>
-    <script src="js/locomotive-scroll.min.js"></script>
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-    <script src="js/script.js"></script> 
-    
- 
-    
+							</nav>
+						</div>
+					</div>
+		</section>
+
+
+<div class="call-to-action">
+    <div class="content">
+        <div class="line-text">
+            <span class="line"></span>
+            <p>SCOPRIAMO SE E COME POSSIAMO LAVORARE INSIEME.</p>
+        </div>
+        <a href="contatti/contatti.html" class="button">Contattami</a>
+    </div>
+</div>
+
+
+   <footer>
+    <div class="footer-line"></div>
+    <div class="footer-content">
+        <span>&copy; Gioia Mongelli - 2024</span>
+        <div class="social-icons">
+            <a href="https://www.instagram.com" target="_blank"><i class="ph ph-instagram-logo"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="mailto:gioia[@]gioiamongelli.com"><i class="ph ph-envelope-simple"></i></a>
+        </div>
+    </div>
+</footer>
+
+
+</div> <!-- Fine del container -->
+
+	<div class="custom-cursor"></div>
+	
+	
+<div id="scroll-to-top">
+  <img src="img/arrow-up.svg" alt="Scroll to Top">
+</div>
+	<!-- Script -->
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.6.3/dist/smooth-scrollbar.js"></script>
+	<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+	<script src="js/script.js"></script>
 </body>
 </html>

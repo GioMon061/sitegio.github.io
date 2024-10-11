@@ -1,0 +1,415 @@
+/* Importa i font e le variabili dal CSS esistente */
+@import url("../css/fonts.css");
+
+/* Aggiungi eventuali nuove variabili se necessario */
+:root {
+    /* Le variabili esistenti sono già definite nel tuo styles.css */
+}
+
+html, body, section.horizontal {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+	overflow: hidden;
+}
+
+body { 
+  margin: 0;
+  padding: 0;
+}
+
+.container-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Stile per il logo e la navigazione */
+header.case-study-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0 20px;
+    color: var(--nero);
+}
+
+/* Stile per il logo */
+.logo img {
+    width: 90px;
+    height: auto;
+}
+
+/* Stile per il contenuto del titolo del caso studio */
+.project-header-content {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: var(--nero);
+    padding: 20px;
+    padding: 100px 0;
+}
+
+.project-title {
+    font-size: 6rem;
+    margin-bottom: 20px;
+}
+
+.project-title .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.project-title .bold {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.project-description {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1rem;
+	max-width: 500px;
+}
+
+
+
+/* Menu overlay per mobile */
+.mobile-menu-overlay {
+    display: none;
+}
+
+/* Sezione Contenuto */
+
+/* Sezione per il layout dei contenuti del progetto */
+.content-section {
+  margin: 60px auto;
+  padding: 0;
+  max-width: 1440px;
+}
+
+/* Impostazioni base per il layout Flexbox */
+.flex-container {
+  display: flex; /* Layout Flexbox */
+  align-items: center; /* Allinea al centro verticalmente */
+  justify-content: space-between; /* Spaziatura tra colonne */
+  margin: 40px 0; /* Spazio tra i blocchi */
+}
+
+/* Impostazione per testo e immagine */
+.text-box,
+.image-box{
+  width: 45%; /* Ogni elemento occupa il 45% dello spazio orizzontale */
+  padding: 20px 0px 20px 0; /* Spaziatura interna */
+}
+
+
+/* Stili per le immagini */
+.image-box img {
+  width: 100%; /* L'immagine riempie tutto il contenitore */
+  height: auto; /* Mantiene le proporzioni */
+  border-radius: 5px; /* Arrotondamento angoli */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+
+/* Stile per il Modale */
+body.modal-active {
+  overflow: hidden; /* Disabilita lo scroll quando il modale è attivo */
+}
+
+.clickable-item {
+  cursor: pointer; /* Mostra il cursore "manina" */
+  transition: transform 0.3s ease;
+}
+
+.clickable-item:hover {
+  transform: scale(1.05); /* Effetto di zoom su hover */
+}
+
+/* Stile principale per il modale */
+.media-modal {
+  display: none; /* Nascosto di default */
+  position: fixed; /* Posizionato rispetto alla finestra */
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra il modale rispetto alla finestra */
+  background-color: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  width: auto; /* Dimensioni adattive */
+  height: auto;
+  padding: 20px; /* Spazio interno */
+  box-sizing: border-box; /* Include padding nelle dimensioni */
+  transition: opacity 0.3s ease; /* Aggiungi una transizione */
+	overflow: hidden; /* Nascondi overflow */
+}
+
+/* Bottone di Chiusura */
+.media-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fefaf1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Stile comune per l'Immagine e il Video */
+.modal-content, .modal-video-content {
+  max-width: 90vw; /* Limita la larghezza dell'immagine o video */
+  max-height: 90vh; /* Limita l'altezza dell'immagine o video */
+  margin: auto;
+}
+
+/* Stile per l'Immagine */
+.modal-content {
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+/* Stile per il Video */
+.modal-video-content {
+  display: none; /* Nascosto di default */
+}
+
+.modal-video-content video {
+  width: 100%; /* Mantieni le proporzioni */
+  height: auto; /* Mantieni le proporzioni */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Mantieni le proporzioni */
+}
+
+/* Transizione */
+.media-modal, .media-modal-close {
+  transition: all 0.3s ease;
+}
+
+/* Animazione per l'apertura */
+.media-modal-show {
+  display: flex; /* Visualizza il modale come flexbox */
+  opacity: 1; /* Rende visibile il modale */
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--bianco);
+    color: var(--nero);
+    padding: 20px 0;
+}
+
+.footer-line {
+    border-top: 2px solid var(--nero);
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 0;
+    margin-bottom: 0;
+}
+
+.footer-content a {
+    color: var(--nero);
+    text-decoration: none;
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+	
+	header.project-header {
+    padding-left: 15px;
+	padding-right: 15px;	
+}
+	
+
+    .project-header-content {
+        height: auto;
+		padding: 0 15px;
+    }
+	
+	.project-title {
+		font-size: 3rem;
+	}
+	
+	.project-description {
+		font-size: 0.85rem;
+		padding: 50px 50px 50px 0;
+		
+	}
+   
+	
+	/* Gestisci il margine del contenitore principale */
+  .container-wrapper {
+    padding: 0 15px; /* Aggiungi padding laterale per evitare overflow */
+  }
+	
+	.flex-container {
+    flex-direction: column; /* Impila gli elementi verticalmente */
+    margin: 20px 0; /* Riduce il margine tra i blocchi */
+  }
+
+  .text-box,
+  .image-box {
+    width: 100%; /* Gli elementi occupano il 100% della larghezza */
+    margin-bottom: 20px; /* Spazio tra le sezioni */
+  }
+
+  .reverse {
+    flex-direction: column; /* Disposizione verticale anche con .reverse */
+  }
+	
+	.media-modal {
+    width: 90vw; /* Aumenta la larghezza del modale */
+    height: auto;
+  }
+
+  .modal-video-content video {
+    max-width: 100%; /* Adatta alla dimensione del contenitore */
+    height: auto; /* Mantieni le proporzioni */
+  }
+}
+	
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--nero);
+}
+
+/* Menu overlay per mobile */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    width: 100%;
+    height: 100%;
+    background-color: #0d0d0d;
+    color: #fefaf1;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Cambia align-items per spostare il testo più in alto */
+    padding-top: 100px; /* Aggiungi padding per dare spazio sopra */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Lista di elementi del menu */
+.mobile-menu-overlay ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+/* Margine tra gli elementi del menu */
+.mobile-menu-overlay li {
+    margin: 20px 0;
+}
+
+/* Link del menu */
+.mobile-menu-overlay a {
+    text-decoration: none;
+    color: #fefaf1;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+/* Aggiungi la classe 'open' per mostrare il menu */
+.mobile-menu-overlay.open {
+    transform: translateX(0);
+}
+
+/* Stile per il pulsante di chiusura (X) */
+.mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fefaf1;
+    content: '✕'; /* Sostituisce 'Chiudi' con l'icona 'X' */
+    font-weight: 400;
+}
+
+/* Visualizza il pulsante menu in mobile */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    nav a {
+        display: none;
+    }
+
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    header.project-header, footer {
+        max-width: 90vw;
+        margin: 0 auto;
+        padding: 20px 10px;
+    }
+	
+	.project-title {
+		font-size: 3rem;
+	}
+
+.text-box h2 {
+    font-size: 1.8rem; /* Ridimensionamento dei titoli */
+  }
+
+  .text-box p {
+    font-size: 0.9rem; /* Ridimensionamento del paragrafo */
+  }
+    
+	.media-modal {
+    width: 85vw; /* Riduci leggermente la larghezza */
+    height: auto;
+  }
+
+  .modal-video-content video {
+    max-width: 100%; /* Limita la larghezza */
+    height: auto; /* Mantieni le proporzioni */
+  }
+}
+	
+	@media (max-width: 1024px) {
+		
+		
+		.modal-video-content video {
+   width: 40%; /* Limita il video alla dimensione del contenitore */
+    height: auto; /* Mantieni le proporzioni */
+  }
+		
+		
+		
+		.footer-line {
+        border-top: 2px solid var(--nero);
+        width: 90%; /* Riduci la larghezza per dispositivi più piccoli */
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        max-width: 90vw; /* Imposta la larghezza per mobile/tablet */
+        margin: 0 auto;
+        padding: 20px 10px;
+    }
+		
+		}

@@ -1,0 +1,437 @@
+/* Importa i font e le variabili dal CSS esistente */
+@import url("../css/fonts.css");
+
+/* Aggiungi eventuali nuove variabili se necessario */
+:root {
+    /* Le variabili esistenti sono già definite nel tuo styles.css */
+}
+
+html, body, section.horizontal {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+	overflow: hidden;
+}
+
+body { 
+  margin: 0;
+  padding: 0;
+}
+
+.container-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Stile per il logo e la navigazione */
+header.case-study-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0 20px;
+    color: var(--nero);
+}
+
+/* Stile per il logo */
+.logo img {
+    width: 90px;
+    height: auto;
+}
+
+/* Stile per il contenuto del titolo del caso studio */
+.case-study-header-content {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: var(--nero);
+    padding: 20px;
+    padding: 100px 0;
+}
+
+.case-study-title {
+    font-size: 6rem;
+    margin-bottom: 20px;
+}
+
+.case-study-title .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.case-study-title .bold {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.case-study-description {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1rem;
+	max-width: 500px;
+}
+
+
+
+/* Menu overlay per mobile */
+.mobile-menu-overlay {
+    display: none;
+}
+
+/* Sezione Contenuto */
+
+body#main-scrollbar {
+    width: auto;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 0;
+    padding: 50px 0 0 0px;
+}
+
+p {
+    margin: 0;
+    padding: 50px 0 50px 0px;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+section:nth-of-type(odd) {
+    background-color: #fefaf1;
+}
+
+section:nth-of-type(even) {
+    background-color: #fefaf1;
+}
+
+section.horizontal {
+    overflow-x: hidden;
+	padding-top: 50px;
+}
+
+section.horizontal .pin-wrap,
+section.horizontal .animation-wrap {
+    display: flex;
+    position: relative;
+    z-index: 1;  
+    height: 70vh;
+    padding-left: max(calc((87vw - 1440px) / 2), 15px);
+}
+
+section.horizontal .item {
+    position: relative;
+    padding: 50px 60px;
+    flex: 0 0 600px;
+    height: auto;
+    display: block;
+    align-items: center;
+    line-height: 1.7;
+    user-select: none;
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    background-color: transparent;
+}
+
+section.horizontal .item:last-child {
+    padding-right: 100px; /* Aggiungi padding extra all'ultimo item */
+    margin-right: 40px;  /* Aggiungi un margine a destra per garantire visibilità */
+    flex: 0 0 650px; /* Allarga l'ultimo item per dare più spazio al testo */
+}
+
+/* Gestione dei tag di formattazione */
+section.horizontal .item span, 
+section.horizontal .item b {
+    display: inline; /* Mantiene tutto nella stessa linea */
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+section.horizontal .item i {
+    font-size: inherit; /* Mantieni la stessa dimensione del testo circostante */
+    font-style: italic; /* Imposta solo lo stile corsivo */
+    font-weight: normal; /* Assicura che non venga applicato il grassetto */
+    line-height: inherit; /* Uniforma la linea con il testo circostante */
+    color: inherit; /* Assicura che il colore rimanga lo stesso del contesto */
+    display: inline; /* Mantiene il comportamento inline come gli altri */
+}
+
+/* Assicura la visualizzazione corretta dei <br> */
+section.horizontal .item br {
+    display: block; /* Mantiene la funzione di andare a capo */
+    line-height: 1.2; /* Spaziatura regolabile */
+}
+
+section.horizontal .item:before {
+    position: absolute;
+    font-size: 100px;
+    opacity: .13;
+    font-weight: bold;    
+    z-index: -1;
+    transform: translate(-30px, -50px);
+    line-height: 1;
+}
+
+section.horizontal .animation-wrap.to-right {
+    counter-reset: item;
+    float: left;
+}
+
+section.horizontal .animation-wrap.to-left {
+    counter-reset: item 11;
+    float: right; 
+}
+
+section.horizontal .animation-wrap.to-right .item:before {
+    counter-increment: item;
+    content: counter(item);
+}
+
+section.horizontal .animation-wrap.to-left .item:before {
+    counter-increment: item -1;
+    content: counter(item);
+}
+
+
+
+/* Footer */
+footer {
+    background-color: var(--bianco);
+    color: var(--nero);
+    padding: 20px 0;
+}
+
+.footer-line {
+    border-top: 2px solid var(--nero);
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 0;
+    margin-bottom: 0;
+}
+
+.footer-content a {
+    color: var(--nero);
+    text-decoration: none;
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+	
+	header.case-study-header {
+    padding-left: 15px;
+	padding-right: 15px;	
+}
+	
+
+    .case-study-header-content {
+        height: auto;
+		padding: 0 15px;
+    }
+	
+	.case-study-title {
+		font-size: 3rem;
+	}
+	
+	.case-study-description {
+		font-size: 0.85rem;
+		padding: 50px 50px 50px 0;
+		
+	}
+
+    /* Make each item in the horizontal section full-width */
+    section.horizontal .item {
+        width: auto !important;
+        /*padding-left: 15px !important;  Forza il padding sinistro */
+    	/*padding-right: 15px !important;  Forza il padding destro */
+        font-size: 1rem !important;
+        height: auto !important;
+		margin-left: 0;
+		margin-right: 0;
+		border-right: none;
+		flex: 0 0 90vw; /* Quasi tutta la larghezza in mobile */
+        padding: 20px 30px; /* Riduce ulteriormente il padding */
+    }
+
+    section.horizontal {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        overflow-x: hidden; /* Eliminate horizontal scroll */
+    }
+	
+	section.horizontal .pin-wrap,
+    section.horizontal .animation-wrap {
+        display: block !important; /* Force column layout */
+        position: relative;
+        width: 90% !important;
+        height: auto !important;
+        padding: 0 10px;
+    }
+	
+
+    section.horizontal .item:before {
+        font-size: 80px; /* Riduce il numero di sezione */
+        transform: translate(-15px, -30px); /* Adatta il posizionamento */
+    }
+	
+	/* Gestisci il margine del contenitore principale */
+  .container-wrapper {
+    padding: 0 15px; /* Aggiungi padding laterale per evitare overflow */
+  }
+	
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--nero);
+}
+
+/* Menu overlay per mobile */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    width: 100%;
+    height: 100%;
+    background-color: #0d0d0d;
+    color: #fefaf1;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Cambia align-items per spostare il testo più in alto */
+    padding-top: 100px; /* Aggiungi padding per dare spazio sopra */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Lista di elementi del menu */
+.mobile-menu-overlay ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+/* Margine tra gli elementi del menu */
+.mobile-menu-overlay li {
+    margin: 20px 0;
+}
+
+/* Link del menu */
+.mobile-menu-overlay a {
+    text-decoration: none;
+    color: #fefaf1;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+/* Aggiungi la classe 'open' per mostrare il menu */
+.mobile-menu-overlay.open {
+    transform: translateX(0);
+}
+
+/* Stile per il pulsante di chiusura (X) */
+.mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fefaf1;
+    content: '✕'; /* Sostituisce 'Chiudi' con l'icona 'X' */
+    font-weight: 400;
+}
+
+/* Visualizza il pulsante menu in mobile */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    nav a {
+        display: none;
+    }
+
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    header.case-study-header, footer {
+        max-width: 90vw;
+        margin: 0 auto;
+        padding: 20px 10px;
+    }
+	
+	.case-study-title {
+		font-size: 3rem;
+	}
+
+
+    section.horizontal .pin-wrap,
+    section.horizontal .animation-wrap {
+		display: block!important;
+        height: auto;
+        padding: 0 15px;
+    }
+
+    section.horizontal .item {
+        padding: 20px;
+        width: 80% !important;
+        height: auto;
+		border-right: none;
+    }
+
+    section.horizontal {
+        padding: 0px;
+        overflow-x: hidden;
+    }
+}
+	
+	@media (max-width: 1024px) {
+		
+		.horizontal {
+			padding: 0 15px !important;
+		}
+		
+		
+		section.hotizontal .item {
+			transform: none !important; /* Disabilita ogni trasformazione */
+			flex: 0 0 80vw; /* Adatta la larghezza degli item per schermi più piccoli */
+        	padding: 30px 40px; /* Riduce il padding */
+			
+		}
+		
+		section.horizontal .item br {
+        line-height: 1.4; /* Maggiore spazio tra le righe in schermi più piccoli */
+    }
+		
+		.footer-line {
+        border-top: 2px solid var(--nero);
+        width: 90%; /* Riduci la larghezza per dispositivi più piccoli */
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        max-width: 90vw; /* Imposta la larghezza per mobile/tablet */
+        margin: 0 auto;
+        padding: 20px 10px;
+    }
+		
+		}
