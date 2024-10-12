@@ -983,6 +983,12 @@ i {
         margin-bottom: 20px;
     }
 	
+	/* Seleziona l'immagine dei casi studio e assicura il ridimensionamento corretto */
+  .case-study-image {
+    object-fit: cover; /* Assicura che l'immagine riempia correttamente il contenitore senza deformarsi */
+  }
+
+	
 	.scroll-indicator {
         display: none;
     }
