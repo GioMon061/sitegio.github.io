@@ -448,7 +448,6 @@ nav a {
     width: 100%;
     height: 300px; /* Regola l'altezza dell'immagine */
     background-color: #ddd;
-    /*position: relative;*/
     overflow: visible; /* Assicurati che il contenuto che esce sia visibile */
 }
 
@@ -936,6 +935,9 @@ i {
 
 /* General Styles for Mobile */
 @media (max-width: 768px) {
+	body, html {
+        overflow-x: hidden;
+    }
 	
 		/* Hero section */
 	.nav-button {
@@ -973,31 +975,46 @@ i {
         margin-bottom: 20px;
 	}
 	
+	
+	
     .case-studies {
-        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column; /* Cambia direzione da riga a colonna */
+        flex-wrap: nowrap;
+        width: 100%; /* Imposta la larghezza al 100% */
+        height: auto; /* L'altezza si adatta al contenuto */
     }
 	
     .case-study {
-        flex: 0 0 100%;
-        margin-right: 0;
-        margin-bottom: 20px;
+        flex: 0 0 auto;
+        width: 100%; /* Larghezza completa */
+        margin-right: 0; /* Rimuovi margine destro */
+        margin-bottom: 40px; /* Spazio tra i casi studio */
     }
 	
-	/* Seleziona l'immagine dei casi studio e assicura il ridimensionamento corretto */
-  .case-study-image {
-    object-fit: cover; /* Assicura che l'immagine riempia correttamente il contenitore senza deformarsi */
-  }
+	 .placeholder {
+        width: 100%;
+        height: auto; /* Lascia che l'altezza si adatti */
+        aspect-ratio: 4 / 3; /* Imposta il rapporto d'aspetto desiderato */
+        position: relative;
+        overflow: hidden;
+    }
 
+    /* Stile per le immagini */
+    .case-study-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Mantiene le proporzioni dell'immagine */
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+	
 	
 	.scroll-indicator {
         display: none;
     }
 	
-	.see-more-container {
-        display: block;
-        text-align: center;
-        margin-top: 20px;
-    }
 
 	.hidden-mobile {
         display: none !important;
