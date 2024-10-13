@@ -5,13 +5,68 @@
     --bianco: #fefaf1;
 }
 
+/* Header - Navigazione */
+.chi-sono-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0 20px;
+}
+
+/* Aggiunta della classe logo-container */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 90px;
+    height: auto;
+}
+
+.chi-sono-header nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: var(--nero);
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    text-transform: capitalize;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    margin-left: 30px;
+    background-color: transparent;
+    color: var(--nero);
+    border: 2px solid var(--nero);
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    height: 50px;
+}
+
 .container-wrapper {
     max-width: 1440px;
     margin: 0 auto;
+	padding: 0 20px; /* Padding laterale */
 }
 
 .about-header-content {
-    height: 50vh;
+    height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -39,8 +94,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: 10px;
-	patting-bottom: 30px;
-	padding-bottom: 15px;
+    padding-bottom: 15px; /* Corretto */
     align-items: center;
     flex-wrap: wrap;
 }
@@ -49,8 +103,6 @@
     max-width: 400px;
     height: auto;
     border-radius: 10px;
-    border: 2px dashed #999;  /* Placeholder border */
-    background-color: #eaeaea;  /* Placeholder background */
 }
 
 .about-text {
@@ -68,10 +120,10 @@
 
 /* Stile per la classe about-paragraph */
 .about-paragraph {
-    display: block;         /* Forza l'elemento a comportarsi come blocco */
-    clear: both;            /* Evita conflitti di posizionamento */
-    width: 100%;            /* Occupa il 100% della larghezza */
-    margin-top: 30px;       /* Distanza dal contenuto precedente */
+    display: block;
+    clear: both;
+    width: 100%;
+    margin-top: 30px;
     padding: 20px 0;
     font-size: 1rem;
     line-height: 1.8;
@@ -111,102 +163,260 @@ footer {
     text-transform: uppercase;
 }
 
-/* Stile per mobile */
-@media (max-width: 768px) {
-	
-	header {
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-    .about-content {
-        flex-direction: column;
-        text-align: center;
-		padding-left: 15px;
-		padding-right: 15px;
-    }
-	
-	.about-text p:first-of-type {
-    font-size: 0.90rem;
-    font-weight: 400;
+/* Nascondi il menu mobile per impostazione predefinita */
+.mobile-menu-toggle {
+    display: none;
 }
 
-    .about-text {
-        padding-left: 0;
-        margin-top: 20px;
+
+
+/* ===== Stili per Mobile e Tablet (max-width: 1024px) ===== */
+@media (max-width: 1024px) {
+	
+ nav a,
+    nav .nav-button {
+        display: none;
+    }
+	
+  .chi-sono-header {
+        padding: 30px;
+    }
+	
+	.logo img { /* non funziona */
+        width: 110px; 
+        height: auto;
+    }
+	
+	.mobile-menu-toggle {
+        display: block;
+    }
+  
+
+    /* Mostra il pulsante del menu mobile */
+    .mobile-menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 1.7rem;
+        text-transform: uppercase;
+        color: var(--nero);
+        /*margin-top: 10px;*/
     }
 
-    .about-paragraph {
-        text-align: left;
-        margin-top: 15px;
-    }
-
+    /* Regola la dimensione del titolo */
     .about-title {
-        font-size: 4rem;
+        font-size: 4rem; /* Riduci leggermente la dimensione */
         padding-left: 15px;
         padding-right: 15px;
+        margin-bottom: 15px; /* Riduci lo spazio sotto il titolo */
+        text-align: left; /* Allinea il titolo a sinistra */
+    }
+
+    /* Modifica la disposizione degli elementi nella about-content */
+    .about-content {
+        flex-direction: column; /* Dispone gli elementi in colonna */
+        align-items: flex-start; /* Allinea a sinistra */
+        text-align: left; /* Allinea il testo a sinistra */
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 10px; /* Ridotto */
+    }
+
+    /* Modifica lo stile dell'immagine */
+    .about-image img {
+        max-width: 100%; /* Aumenta la larghezza massima */
+        height: auto;
+        margin-bottom: 15px;
     }
 	
-	/* --- Stile per il menu mobile e animazioni --- */
-.mobile-menu-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  transform: translateX(100%); /* Mantieni l'overlay nascosto all'inizio */
-  width: 100%;
-  height: 100%;
-  background-color: #0d0d0d;
-  color: #fefaf1;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Aggiungi una curva di easing più fluida */
+	
+    .about-content {
+        flex-direction: column; /* Dispone gli elementi in colonna */
+        align-items: flex-start; /* Allinea a sinistra */
+        text-align: left; /* Allinea il testo a sinistra */
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 10px; /* Ridotto */
+    }
+
+    /* Modifica lo stile del testo */
+    .about-text {
+        padding-left: 0; /* Rimuovi il padding sinistro */
+        max-width: 100%; /* Permetti al testo di occupare l'intera larghezza */
+        margin-top: 10px;
+    }
+
+    /* Modifica lo stile del primo paragrafo */
+    .about-text p:first-of-type {
+        font-size: 1.2rem; /* Aumenta la dimensione */
+        font-weight: 400;
+        line-height: 1.6;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        max-width: 100%;
+    }
+
+    /* Modifica lo stile dei paragrafi */
+    .about-paragraph {
+        text-align: left; /* Mantieni l'allineamento a sinistra */
+        margin-top: 15px;
+        padding: 0;
+        font-size: 2rem;
+        line-height: 1.6;
+    }
+
+    /* Stile per il footer su mobile e tablet */
+    footer {
+        padding: 20px 15px;
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+	
+	.footer-content span {
+		font-size: 1.1rem;
+	}
+
+    .footer-line {
+        width: 90%;
+        margin: 0 auto 20px;
+    }
+	
+	.social-icons {
+		margin-top: 10px;
+	}
+
+    /* Stili per il menu mobile */
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        transform: translateX(100%); /* Mantieni l'overlay nascosto */
+        width: 100%;
+        height: 100%;
+        background-color: var(--nero);
+        color: var(--bianco);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .mobile-menu-overlay.open {
+        transform: translateX(0); /* Mostra il menu */
+    }
+
+    .mobile-menu-overlay ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    .mobile-menu-overlay li {
+        margin: 20px 0;
+    }
+
+    .mobile-menu-overlay a {
+        text-decoration: none;
+        color: var(--bianco);
+        font-size: 3rem;
+        text-transform: uppercase;
+    }
+
+    /* Pulsante di chiusura del menu mobile */
+    .mobile-menu-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 3rem;
+        cursor: pointer;
+        color: var(--bianco);
+    }
 }
 
-.mobile-menu-overlay ul {
-  list-style: none;
-  padding: 0;
-  text-align: center;
-}
-
-.mobile-menu-overlay li {
-  margin: 20px 0;
-}
-
-.mobile-menu-overlay a {
-  text-decoration: none;
-  color: #fefaf1;
-  font-size: 2rem;
-  text-transform: uppercase;
-}
-
-.mobile-menu-overlay.open {
-  transform: translateX(0); /* Mostra il menu con l'animazione */
-}
-
-/* Close Button */
-.mobile-menu-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-
-/* Stile per tablet  */
+/* ===== Stili specifici per Tablet (min-width: 769px and max-width: 1024px) ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
 	
-	header {
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-    .about-content {
-        flex-direction: column;
-        text-align: left;
-		padding-left: 15px;
-		padding-right: 15px;
-    }
+	
+	.about-header-content {
+    height: 20vh;
 }
 
 
+    /* Regola la dimensione del titolo */
+    .about-title {
+        font-size: 5rem; /* Dimensione intermedia */
+
+    }
+
+    /* Modifica la disposizione degli elementi nella about-content */
+    .about-content {
+        padding: 20px 60px; /* Aggiungi padding laterale */
+    }
+
+    /* Modifica lo stile del primo paragrafo */
+    .about-text p:first-of-type {
+        font-size: 1.5rem; /* Aumenta la dimensione */
+        max-width: 700px;
+    }
+	
+	.custom-cursor {
+		display: none;
+	}
+	
+
+}
+
+@media (max-width: 768px) {
+	
+	
+	.custom-cursor {
+		display: none;
+	}
+	
+	.chi-sono-header {
+		padding: 20px 15px;
+	}
+
+.about-header-content {
+    height: 10vh;
+}
+	
+	
+	.about-paragraph {
+		font-size: 1rem;
+	}
+	
+    .mobile-menu-overlay a {;
+        font-size: 2rem;
+    }
+
+    /* Pulsante di chiusura del menu mobile */
+    .mobile-menu-close {
+        font-size: 2rem;
+
+    }
+	
+	.logo img {
+		width: 90px;
+	}
+	
+	    .mobile-menu-toggle {
+        font-size: 1.3rem;
+
+    }
+	
+	footer {
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+	
+	.footer-line {
+		width: 95%;
+	}
+    
+	
+	}
