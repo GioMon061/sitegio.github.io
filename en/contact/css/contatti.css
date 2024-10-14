@@ -11,6 +11,59 @@ body, html {
     margin: 0 auto;
 }
 
+.contatti-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 90px;
+    height: auto;
+}
+
+.contatti-header nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: var(--nero);
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    text-transform: capitalize;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    margin-left: 30px;
+    background-color: transparent;
+    color: var(--nero);
+    border: 2px solid var(--nero);
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    height: 50px;
+}
+
+
 .contatti-header-content {
     background-color: var(--bianco); /* Sfondo corretto */
     padding: 100px 0;
@@ -47,6 +100,7 @@ body, html {
     padding: 50px 0px;
     margin-top: 20px;
     gap: 20px; /* Aggiunta spaziatura tra i box */
+	
 }
 
 .contact-box {
@@ -57,6 +111,7 @@ body, html {
     transition: transform 0.3s ease-in-out, background-color 0.3s ease;
     width: 30%;
     color: var(--bianco);
+	font-size: 1em;
 }
 
 .contact-box h2 {
@@ -74,7 +129,7 @@ body, html {
   display: inline-block;
   text-decoration: none; /* Rimuove la sottolineatura predefinita */
   color: inherit;
-  cursor: pointer;
+  cursor: pointer;	
 }
 
 .contact-box a:before,
@@ -139,10 +194,44 @@ body, html {
     cursor: pointer;
 }
 
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--nero);
+}
+
 @media (max-width: 768px) {
+	
+	.custom-cursor {
+		display: none;
+		font-size: 1.5rem; /* Ingrandito il testo del menu toggle */
+	}
+	
+	/* Header */
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    nav a,
+    .nav-button {
+        display: none;
+    }
+
+    .logo img {
+        width: 100px;
+    }
+
 	
 	.container-wrapper {
         padding: 0 15px;  /* Aggiunto padding laterale per evitare che il contenuto tocchi i bordi */
+    }
+	
+		  .contatti-header {
+        padding: 15px 0;
     }
 
     .contact-boxes {
@@ -155,11 +244,14 @@ body, html {
     .contact-box {
         width: 90%;
         margin-bottom: 20px;
+		font-size: 1.5em;
     }
+	
+	.contact-box h2 {
+    font-size: 1.6rem;
+}
 
-    nav a {
-        display: none;
-    }
+
 
     	/* --- Stile per il menu mobile e animazioni --- */
 .mobile-menu-overlay {
@@ -219,13 +311,53 @@ body, html {
     }
 }
 @media (max-width: 1024px) {
+	
+	/* Header */
+    .mobile-menu-toggle {
+        display: block;
+        font-size: 1.7rem; /* Ingrandito il testo del menu toggle */
+    }
+
+    nav a,
+    .nav-button {
+        display: none;
+    }
+
+    .logo img {
+        width: 120px; /* Ingrandito il logo su tablet */
+    }
+	
+	 .contatti-header {
+        padding: 30px 0; /* Ingrandito il padding dell'header */
+    }
+	
 	.contatti-title {
-		font-size: 4rem;
+		font-size: 5rem;
+		padding: 0 15px;
 	}
 	
 	.contatti-description {
-		font-size: 0.95rem;
-	}
+        font-size: 1.5rem;
+        padding: 0 15px;
+    }
+	
+
+    .contact-box h2 {
+        font-size: 1.6rem; /* Adattato per tablet */
+    }
+
+    /*.contact-box p,
+    .contact-box a {
+        font-size: 1.5rem;
+    }*/
+
+	
+	/* Footer */
+    footer {
+        padding: 20px 0;
+    }
+	
+	
     .footer-line {
         width: 100%;
         margin: 0 auto;
@@ -234,5 +366,94 @@ body, html {
     .footer-content {
         max-width: 90vw;
         padding: 0 15px;
+		margin: 20px auto 0;
+    }
+	
+	
+	
+	.social-icons a i {
+        font-size: 2rem; /* Ingrandite le icone social */
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay a {
+        font-size: 3rem; /* Ingrandito il testo del menu */
+    }
+
+    .mobile-menu-close {
+        font-size: 3rem;
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+	
+	.custom-cursor {
+		display: none;
+	}
+	
+	/* Header */
+    .mobile-menu-toggle {
+        display: block;
+		font-size: 2em;
+    }
+
+    nav a,
+    .nav-button {
+        display: none;
+    }
+
+    .contatti-header {
+        padding: 20px 15px;
+    }
+
+    /* Adjust margins */
+    .container-wrapper {
+        padding: 0 20px;
+    }
+
+    /* Contact Boxes */
+    .contact-boxes {
+		flex-direction: column;
+		align-items: center;
+        padding: 20px 0;
+    }
+
+    .contact-box {
+        width: 93%; /* Slightly wider to fit three boxes */
+		margin-bottom: 20px;
+		font-size: 1.5em;
+    }
+	
+
+
+    /* Title and Description */
+    .contatti-title {
+        font-size: 5.5rem;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .contatti-description {
+        font-size: 1.5rem;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    /* Footer */
+    footer {
+        padding: 20px 0;
+    }
+
+    .footer-content {
+		flex-direction: column;
+		align-items: center;
+        padding: 20px 0;
+    }
+	
+	.footer-content span {
+        font-size: 1.8em;
+		padding: 15px 0;
     }
 }
