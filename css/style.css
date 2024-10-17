@@ -935,9 +935,14 @@ i {
 
 /* General Styles for Mobile */
 @media (max-width: 768px) {
+	
 	body, html {
         overflow-x: hidden;
     }
+	
+	.custom-cursor {
+		display: none;
+	}
 	
 		/* Hero section */
 	.nav-button {
@@ -994,7 +999,7 @@ i {
 	 .placeholder {
         width: 100%;
         height: auto; /* Lascia che l'altezza si adatti */
-        aspect-ratio: 4 / 3; /* Imposta il rapporto d'aspetto desiderato */
+        aspect-ratio: 4 / 3;
         position: relative;
         overflow: hidden;
     }
@@ -1194,11 +1199,19 @@ i {
     nav a {
         display: none; /* Nascondi il menu principale su mobile */
     }
+	
+	.custom-cursor {
+		display: none;
+	}
 }
 
 
 /* General Styles for Tablets */
 @media (min-width: 769px) and (max-width: 1024px) {
+	
+	.custom-cursor {
+		display: none;
+	}
 	
 	/* Hero section */
 	.hero-text h1 {

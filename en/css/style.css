@@ -935,6 +935,10 @@ i {
         overflow-x: hidden;
     }
 	
+	.custom-cursor {
+		display: none;
+	}
+	
 		/* Hero section */
 	.nav-button {
     display: none;
@@ -1220,6 +1224,10 @@ i {
 
 /* General Styles for Tablets */
 @media (min-width: 769px) and (max-width: 1024px) {
+	
+	.custom-cursor {
+		display: none;
+	}
 	
 	/* Hero section */
 	.hero-text h1 {
