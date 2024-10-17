@@ -3,50 +3,31 @@
 
 /* Aggiungi eventuali nuove variabili se necessario */
 :root {
-    /* Le variabili esistenti sono già definite nel tuo styles.css */
+    --nero: #0d0d0d;
+    --bianco: #fefaf1;
 }
 
-html, body, section.horizontal {
+html, body  {
     margin: 0;
     padding: 0;
     height: 100%;
 	overflow: hidden;
 }
 
-body { 
-  margin: 0;
-  padding: 0;
-}
-
 .container-wrapper {
     max-width: 1440px;
     margin: 0 auto;
-}
-
-/* Stile per il logo e la navigazione */
-header.case-study-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 0 20px;
-    color: var(--nero);
-}
-
-/* Stile per il logo */
-.logo img {
-    width: 90px;
-    height: auto;
+	padding: 0 15px; /* Padding laterale */
 }
 
 /* Stile per il contenuto del titolo del caso studio */
 .project-header-content {
-    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     color: var(--nero);
     padding: 20px;
-    padding: 100px 0;
+    padding: 100px 0 30px;
 }
 
 .project-title {
@@ -227,189 +208,107 @@ footer {
     text-transform: uppercase;
 }
 
-/* Mobile Styles */
+/* Mobile Styles (max-width: 768px) */
 @media (max-width: 768px) {
-	
-	header.project-header {
-    padding-left: 15px;
-	padding-right: 15px;	
-}
-	
-
-    .project-header-content {
-        height: auto;
-		padding: 0 15px;
+    /* Header */
+    .project-title {
+        font-size: 3rem; /* Dimensione del titolo ridotta come in contatti */
+        line-height: 1.2;
     }
-	
-	.project-title {
-		font-size: 3rem;
-	}
-	
-	.project-description {
-		font-size: 0.85rem;
-		padding: 50px 50px 50px 0;
-		
-	}
-   
-	
-	/* Gestisci il margine del contenitore principale */
-  .container-wrapper {
-    padding: 0 15px; /* Aggiungi padding laterale per evitare overflow */
-  }
-	
-	.flex-container {
-    flex-direction: column; /* Impila gli elementi verticalmente */
-    margin: 20px 0; /* Riduce il margine tra i blocchi */
-  }
 
-  .text-box,
-  .image-box {
-    width: 100%; /* Gli elementi occupano il 100% della larghezza */
-    margin-bottom: 20px; /* Spazio tra le sezioni */
-  }
+    .project-description {
+        font-size: 0.9rem; /* Testo descrizione ridotto come in contatti */
+        padding-bottom: 20px; /* Aggiungi spazio sotto la descrizione */
+    }
 
-  .reverse {
-    flex-direction: column; /* Disposizione verticale anche con .reverse */
-  }
-	
-	.media-modal {
-    width: 90vw; /* Aumenta la larghezza del modale */
-    height: auto;
-  }
-
-  .modal-video-content video {
-    max-width: 100%; /* Adatta alla dimensione del contenitore */
-    height: auto; /* Mantieni le proporzioni */
-  }
-}
-	
-/* Mobile Menu Toggle */
-.mobile-menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: var(--nero);
-}
-
-/* Menu overlay per mobile */
-.mobile-menu-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    transform: translateX(100%);
-    width: 100%;
-    height: 100%;
-    background-color: #0d0d0d;
-    color: #fefaf1;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Cambia align-items per spostare il testo più in alto */
-    padding-top: 100px; /* Aggiungi padding per dare spazio sopra */
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Lista di elementi del menu */
-.mobile-menu-overlay ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-/* Margine tra gli elementi del menu */
-.mobile-menu-overlay li {
-    margin: 20px 0;
-}
-
-/* Link del menu */
-.mobile-menu-overlay a {
-    text-decoration: none;
-    color: #fefaf1;
-    font-size: 2rem;
-    text-transform: uppercase;
-}
-
-/* Aggiungi la classe 'open' per mostrare il menu */
-.mobile-menu-overlay.open {
-    transform: translateX(0);
-}
-
-/* Stile per il pulsante di chiusura (X) */
-.mobile-menu-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #fefaf1;
-    content: '✕'; /* Sostituisce 'Chiudi' con l'icona 'X' */
-    font-weight: 400;
-}
-
-/* Visualizza il pulsante menu in mobile */
-@media (max-width: 768px) {
+    /* Menu Mobile */
     .mobile-menu-toggle {
-        display: block;
+        display: block; /* Mostra il pulsante per il menu mobile */
+        font-size: 1.2rem;
+        color: var(--nero);
+        cursor: pointer;
     }
 
-    nav a {
-        display: none;
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--nero);
+        color: var(--bianco);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+		padding-top: 185px;
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
+    .mobile-menu-overlay ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    .mobile-menu-overlay li {
+        margin: 20px 0;
+    }
+
+    .mobile-menu-overlay a {
+        text-decoration: none;
+        color: var(--bianco);
+        font-size: 2.5rem;
+        text-transform: uppercase;
+    }
+
+    /* Colonna per testi e immagini */
+    .flex-container {
+        display: flex;
+        flex-direction: column; /* Disposizione verticale */
+        gap: 20px; /* Spazio tra testo e immagini */
+        margin: 20px 0; /* Spazio tra i blocchi */
+    }
+
+/* Alterna tra testo e immagine */
+.text-box:nth-child(odd) {
+    order: 1; /* I testi dispari */
 }
 
-/* Tablet Styles */
-@media (min-width: 769px) and (max-width: 1024px) {
-    header.project-header, footer {
-        max-width: 90vw;
-        margin: 0 auto;
-        padding: 20px 10px;
-    }
-	
-	.project-title {
-		font-size: 3rem;
-	}
+.image-box:nth-child(even) {
+    order: 2; /* Le immagini pari */
+}
 
-.text-box h2 {
-    font-size: 1.8rem; /* Ridimensionamento dei titoli */
-  }
+.text-box:nth-child(even) {
+    order: 3; /* I testi pari */
+}
 
-  .text-box p {
-    font-size: 0.9rem; /* Ridimensionamento del paragrafo */
-  }
-    
-	.media-modal {
-    width: 85vw; /* Riduci leggermente la larghezza */
+.image-box:nth-child(odd) {
+    order: 4; /* Le immagini dispari */
+}
+
+.text-box,
+.image-box {
+    width: 100%; /* I blocchi occupano l'intera larghezza */
+    padding: 0;
+}
+
+.image-box img {
+    width: 100%; /* L'immagine occupa tutta la larghezza disponibile */
     height: auto;
-  }
-
-  .modal-video-content video {
-    max-width: 100%; /* Limita la larghezza */
-    height: auto; /* Mantieni le proporzioni */
-  }
 }
-	
-	@media (max-width: 1024px) {
-		
-		
-		.modal-video-content video {
-   width: 40%; /* Limita il video alla dimensione del contenitore */
-    height: auto; /* Mantieni le proporzioni */
-  }
-		
-		
-		
-		.footer-line {
-        border-top: 2px solid var(--nero);
-        width: 90%; /* Riduci la larghezza per dispositivi più piccoli */
-        margin: 0 auto;
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+		margin-bottom: 0;
     }
 
-    .footer-content {
-        max-width: 90vw; /* Imposta la larghezza per mobile/tablet */
+    .footer-line {
+        width: 100%;
         margin: 0 auto;
-        padding: 20px 10px;
     }
-		
-		}
+}
