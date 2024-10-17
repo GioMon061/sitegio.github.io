@@ -20,6 +20,7 @@ html, body  {
 .container-wrapper {
     max-width: 1440px;
     margin: 0 auto;
+	padding: 0 15px;
 }
 
 /* Stile per il contenuto del titolo dei servizi */
@@ -30,7 +31,7 @@ html, body  {
     justify-content: flex-start;
     color: var(--nero);
     padding: 20px;
-    padding: 100px 0;
+    padding: 100px 0 30px;
 }
 
 .servizi-title {
@@ -299,154 +300,154 @@ footer {
     text-transform: uppercase;
 }
 
-/* Mobile Styles */
+/* Stili mobile */
+
+
+/* Mobile Styles (max-width: 768px) */
 @media (max-width: 768px) {
 	
+	.custom-cursor {
+		display: none;
+	}
 
+    /* Header */
     .servizi-header-content {
         height: auto;
-		padding: 20px 15px;
     }
-	
-	.servizi-title {
-		font-size: 2.5rem;
-	}
-	
-	.servizi-description {
-		font-size: 0.85rem;
-		padding: 50px 50px 50px 0;
-		
-	}
-	
-	    .servizi-grid {
-        grid-template-columns: 1fr; /* Una colonna in mobile */
-			padding: 0 15px; /* Aggiungi padding orizzontale */
+
+    .servizi-title {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+
+    .servizi-description {
+        font-size: 0.9rem;
+        padding: 10px 0;
+		margin-bottom: 15px; /* Riduce lo spazio tra sottotitolo e box */
+    }
+
+    /* Griglia Servizi: una colonna */
+    .servizi-grid {
+        display: flex;
+        flex-direction: column; /* Disposizione verticale: i box appaiono uno sotto l'altro */
+        gap: 20px; /* Spazio tra i box */
+        margin: 0 auto;
     }
 
     .servizio-card {
-        grid-column: span 1 !important;
-		font-size: 1.1rem;
+        width: 100%; /* I box occupano l'intera larghezza del container */
+        margin-bottom: 20px; /* Spaziatura tra i box */
     }
 
-    .servizio-card:nth-child(3) {
-        grid-row: auto;
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
-    
+
+    .footer-line {
+        width: 90%;
+    }
 	
-/* Mobile Menu Toggle */
-.mobile-menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: var(--nero);
-}
-
-/* Menu overlay per mobile */
+	
+	/* Stili per il menu mobile */
 .mobile-menu-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    transform: translateX(100%);
-    width: 100%;
-    height: 100%;
-    background-color: #0d0d0d;
-    color: #fefaf1;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Cambia align-items per spostare il testo più in alto */
-    padding-top: 100px; /* Aggiungi padding per dare spazio sopra */
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        position: fixed;
+        top: 0;
+        right: 0;
+        transform: translateX(100%); /* Mantieni l'overlay nascosto */
+        width: 100%;
+        height: 100%;
+        background-color: #0d0d0d;
+        color: #fefaf1;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Allinea il contenuto all'inizio */
+        padding-top: 185px; /* Aggiunge uno spazio sopra per evitare che il testo tocchi il bordo */
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Curva di easing */
 }
 
-/* Lista di elementi del menu */
-.mobile-menu-overlay ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-/* Margine tra gli elementi del menu */
-.mobile-menu-overlay li {
-    margin: 20px 0;
-}
-
-/* Link del menu */
-.mobile-menu-overlay a {
-    text-decoration: none;
-    color: #fefaf1;
-    font-size: 2rem;
-    text-transform: uppercase;
-}
-
-/* Aggiungi la classe 'open' per mostrare il menu */
-.mobile-menu-overlay.open {
-    transform: translateX(0);
-}
-
-/* Stile per il pulsante di chiusura (X) */
-.mobile-menu-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #fefaf1;
-    content: '✕'; /* Sostituisce 'Chiudi' con l'icona 'X' */
-    font-weight: 400;
-}
-
-/* Visualizza il pulsante menu in mobile */
-@media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: block;
+    .mobile-menu-overlay.open {
+        transform: translateX(0); /* Mostra il menu */
     }
 
-    nav a {
-        display: none;
+    .mobile-menu-overlay ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
     }
 
+    .mobile-menu-overlay li {
+        margin: 20px 0;
+    }
+
+    .mobile-menu-overlay a {
+        text-decoration: none;
+        color: var(--bianco);
+        font-size: 2.5rem; /* Dimensione adeguata per schermi piccoli */
+        text-transform: uppercase;
+    }
+
+    /* Pulsante di chiusura del menu mobile */
+    .mobile-menu-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2.5rem;
+        cursor: pointer;
+        color: var(--bianco);
+    }
 }
 
-/* Tablet Styles */
+/* Tablet Styles (min-width: 769px and max-width: 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-    footer {
-        max-width: 90vw;
-        margin: 0 auto;
-        padding: 20px 10px;
-    }
 	
-	.servizi-title {
-		font-size: 3rem;
+	.custom-cursor {
+		display: none;
 	}
 	
-	.servizi-grid {
-        grid-template-columns: repeat(6, 1fr); /* 6 colonne per tablet */
-    }
-    .servizio-card:nth-child(1),
-    .servizio-card:nth-child(3) {
-        grid-column: span 6; /* Occupa tutta la larghezza */
-    }
-    .servizio-card:nth-child(2),
-    .servizio-card:nth-child(4) {
-        grid-column: span 3; /* Metà larghezza */
-    }
-}
-
-}
 	
-	@media (max-width: 1024px) {
-		
-		
-		.footer-line {
-        border-top: 2px solid var(--nero);
-        width: 90%; /* Riduci la larghezza per dispositivi più piccoli */
-        margin: 0 auto;
+	.container-wrapper {
+        max-width: 1440px; /* Valore corretto */
+        padding: 0 30px; /* Margini laterali per contenuti */
+        margin: 0 auto; /* Centratura */
+    }
+    /* Header */
+    .servizi-title {
+        font-size: 4rem;
+        line-height: 1.15;
     }
 
-    .footer-content {
-        max-width: 90vw; /* Imposta la larghezza per mobile/tablet */
-        margin: 0 auto;
-        padding: 20px 10px;
+    .servizi-description {
+        font-size: 1rem;
+        max-width: 600px;
     }
+
+    /* Griglia Servizi: due colonne */
+    .servizi-grid {
+        display: flex;
+        flex-wrap: wrap; /* Consente ai box di andare a capo */
+        gap: 20px; /* Spazio tra i box */
+        padding: 0 30px; /* Margini laterali per evitare che tocchi i bordi */
+        justify-content: space-between; /* Spaziatura uniforme tra i box */
+    }
+	
+	.servizio-card {
+		lex: 1 1 calc(50% - 20px); /* Due box per riga, con gap */
+        margin-bottom: 20px; /* Spaziatura tra i box */
+        width: calc(50% - 20px); /* Larghezza per garantire due box per riga */
+    }
+
+
+    /* Footer */
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-line {
+        width: 100%;
+    }
+}
