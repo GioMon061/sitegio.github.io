@@ -1,16 +1,12 @@
-/* Stili principali */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Suisse Intl', sans-serif;
-    color: var(--nero);
+@import url("../css/fonts.css");
+
+:root {
+    --nero: #0d0d0d;
+    --bianco: #fefaf1;
 }
 
-.container-wrapper {
-    max-width: 1440px;
-    margin: 0 auto;
-}
 
+/* Header - Navigazione */
 .contatti-header {
     display: flex;
     justify-content: space-between;
@@ -18,55 +14,20 @@ body, html {
     padding: 30px 0 20px;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    width: 90px;
-    height: auto;
-}
-
 .contatti-header nav {
     display: flex;
     align-items: center;
 }
 
-nav a {
-    margin-left: 30px;
-    text-decoration: none;
-    color: var(--nero);
-    font-family: 'Suisse Intl', sans-serif;
-    font-weight: 400;
-    text-transform: capitalize;
-    transition: color 0.3s ease;
-    position: relative;
+.container-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+	padding: 0 15px; /* Padding laterale */
 }
-
-.nav-button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 0px 20px;
-    margin-left: 30px;
-    background-color: transparent;
-    color: var(--nero);
-    border: 2px solid var(--nero);
-    border-radius: 30px;
-    text-transform: uppercase;
-    font-family: 'Suisse Intl', sans-serif;
-    font-weight: 400;
-    cursor: pointer;
-    overflow: hidden;
-    transition: color 0.3s ease;
-    height: 50px;
-}
-
 
 .contatti-header-content {
     background-color: var(--bianco); /* Sfondo corretto */
-    padding: 100px 0;
+    padding: 100px 0 30px;
     text-align: left;
 }
 
@@ -90,7 +51,7 @@ nav a {
     font-family: 'Suisse Intl', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-align: left;
 }
 
@@ -100,7 +61,6 @@ nav a {
     padding: 50px 0px;
     margin-top: 20px;
     gap: 20px; /* Aggiunta spaziatura tra i box */
-	
 }
 
 .contact-box {
@@ -111,7 +71,7 @@ nav a {
     transition: transform 0.3s ease-in-out, background-color 0.3s ease;
     width: 30%;
     color: var(--bianco);
-	font-size: 1em;
+    font-size: 1em;
 }
 
 .contact-box h2 {
@@ -158,7 +118,6 @@ nav a {
   transform: scaleX(1); /* Espande la linea */
 }
 
-
 /* Colori di hover specifici */
 .contact-box.email:hover {
     background-color: #B697F8;
@@ -194,266 +153,163 @@ nav a {
     cursor: pointer;
 }
 
+/* Specifiche del footer */
+footer {
+    background-color: var(--bianco);
+    color: var(--nero);
+    padding: 20px 0;
+}
+
+.footer-line {
+    border-top: 2px solid var(--nero);
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 0;
+    margin-bottom: 0;
+}
+
+.footer-content a {
+    color: var(--nero);
+    text-decoration: none;
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
 
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: var(--nero);
 }
 
+/* Mobile Styles (max-width: 768px) */
 @media (max-width: 768px) {
-	
+    /* Header */
+
 	.custom-cursor {
 		display: none;
-		font-size: 1.5rem; /* Ingrandito il testo del menu toggle */
 	}
 	
-	/* Header */
-    .mobile-menu-toggle {
-        display: block;
-    }
-
-    nav a,
-    .nav-button {
-        display: none;
-    }
-
-    .logo img {
-        width: 100px;
-    }
-
-	
-	.container-wrapper {
-        padding: 0 15px;  /* Aggiunto padding laterale per evitare che il contenuto tocchi i bordi */
-    }
-	
-		  .contatti-header {
-        padding: 15px 0;
-    }
-
-    .contact-boxes {
-        flex-direction: column;
-        align-items: center;
-		max-width: 90vw;
-        padding: 0 15px;
-    }
-
-    .contact-box {
-        width: 90%;
-        margin-bottom: 20px;
-		font-size: 1.5em;
-    }
-	
-	.contact-box h2 {
-    font-size: 1.6rem;
-}
-
-
-
-    	/* --- Stile per il menu mobile e animazioni --- */
-.mobile-menu-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  transform: translateX(100%); /* Mantieni l'overlay nascosto all'inizio */
-  width: 100%;
-  height: 100%;
-  background-color: #0d0d0d;
-  color: #fefaf1;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Aggiungi una curva di easing più fluida */
-}
-
-.mobile-menu-overlay ul {
-  list-style: none;
-  padding: 0;
-  text-align: center;
-}
-
-.mobile-menu-overlay li {
-  margin: 20px 0;
-}
-
-.mobile-menu-overlay a {
-  text-decoration: none;
-  color: #fefaf1;
-  font-size: 2rem;
-  text-transform: uppercase;
-}
-
-.mobile-menu-overlay.open {
-  transform: translateX(0); /* Mostra il menu con l'animazione */
-}
-
-/* Close Button */
-.mobile-menu-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 2rem;
-  cursor: pointer;
-}
-	
-	    .footer-line {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .footer-content {
-        max-width: 90vw;
-        padding: 0 15px;
-    }
-}
-@media (max-width: 1024px) {
-	
-	/* Header */
-    .mobile-menu-toggle {
-        display: block;
-        font-size: 1.7rem; /* Ingrandito il testo del menu toggle */
-    }
-
-    nav a,
-    .nav-button {
-        display: none;
-    }
-
-    .logo img {
-        width: 120px; /* Ingrandito il logo su tablet */
-    }
-	
 	 .contatti-header {
-        padding: 30px 0; /* Ingrandito il padding dell'header */
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Allinea verticalmente logo e menu */
     }
 	
 	.contatti-title {
-		font-size: 5rem;
-		padding: 0 15px;
-	}
+        font-size: 3rem;
+        line-height: 1.2;
+    }
 	
 	.contatti-description {
-        font-size: 1.5rem;
-        padding: 0 15px;
+		font-size: 0.9rem;
+	}
+
+    .mobile-menu-toggle {
+        display: block; /* Mostra il pulsante per il menu mobile */
+        font-size: 1.2rem;
+        color: var(--nero);
+        cursor: pointer;
+    }
+
+    /* Griglia dei box: una colonna */
+    .contact-boxes {
+        flex-direction: column; /* Disposizione verticale */
+		justify-content: center;
+		align-items: center;
+        gap: 20px; /* Spazio tra i box */
+    }
+
+    .contact-box {
+        width: 85%; /* I box occupano l'intera larghezza */
+        margin-bottom: 20px;
     }
 	
-
-    .contact-box h2 {
-        font-size: 1.6rem; /* Adattato per tablet */
+.contact-box a {
+        text-decoration: underline; /* Mantiene il link sottolineato per un aspetto semplice */
+        color: inherit; /* Mantiene il colore del testo */
     }
 
-    /*.contact-box p,
-    .contact-box a {
-        font-size: 1.5rem;
-    }*/
-
-	
-	/* Footer */
-    footer {
-        padding: 20px 0;
+    .contact-box a:before,
+    .contact-box a:after {
+        display: none; /* Nasconde gli pseudo-elementi per evitare qualsiasi effetto hover */
     }
-	
-	
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px 15px;
+    }
+
     .footer-line {
         width: 100%;
-        margin: 0 auto;
+		margin: 0 auto;
     }
 
-    .footer-content {
-        max-width: 90vw;
-        padding: 0 15px;
-		margin: 20px auto 0;
-    }
-	
-	
-	
-	.social-icons a i {
-        font-size: 2rem; /* Ingrandite le icone social */
+   	/* Stili per il menu mobile */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%); /* Mantieni l'overlay nascosto */
+    width: 100%; /* Assicurati che copra il 100% della viewport */
+    height: 100%;
+    background-color: #0d0d0d;
+    color: #fefaf1;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Aggiungi una curva di easing più fluida */
+}
+
+    .mobile-menu-overlay.open {
+        transform: translateX(0); /* Mostra il menu */
     }
 
-    /* Mobile Menu Overlay */
+    .mobile-menu-overlay ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    .mobile-menu-overlay li {
+        margin: 20px 0;
+    }
+
     .mobile-menu-overlay a {
-        font-size: 3rem; /* Ingrandito il testo del menu */
+        text-decoration: none;
+        color: var(--bianco);
+        font-size: 2.5rem; /* Dimensione adeguata per schermi piccoli */
+        text-transform: uppercase;
     }
 
+    /* Pulsante di chiusura del menu mobile */
     .mobile-menu-close {
-        font-size: 3rem;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2.5rem;
+        cursor: pointer;
+        color: var(--bianco);
     }
 }
 
-/* Tablet Styles */
+/* Tablet Styles (min-width: 769px and max-width: 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
 	
 	.custom-cursor {
 		display: none;
 	}
 	
-	/* Header */
-    .mobile-menu-toggle {
-        display: block;
-		font-size: 2em;
-    }
-
-    nav a,
-    .nav-button {
-        display: none;
-    }
-
-    .contatti-header {
-        padding: 20px 15px;
-    }
-
-    /* Adjust margins */
-    .container-wrapper {
-        padding: 0 20px;
-    }
-
-    /* Contact Boxes */
-    .contact-boxes {
-		flex-direction: column;
-		align-items: center;
-        padding: 20px 0;
-    }
-
-    .contact-box {
-        width: 93%; /* Slightly wider to fit three boxes */
-		margin-bottom: 20px;
-		font-size: 1.5em;
-    }
-	
-
-
-    /* Title and Description */
-    .contatti-title {
-        font-size: 5.5rem;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .contatti-description {
-        font-size: 1.5rem;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-
-    /* Footer */
-    footer {
-        padding: 20px 0;
-    }
-
-    .footer-content {
-		flex-direction: column;
-		align-items: center;
-        padding: 20px 0;
-    }
-	
-	.footer-content span {
-        font-size: 1.8em;
-		padding: 15px 0;
-    }
 }
+
