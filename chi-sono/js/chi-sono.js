@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // === Animazioni GSAP per il titolo e la descrizione ===
     gsap.registerPlugin(ScrollTrigger);
 
     // Animazione per il titolo dell'hero
@@ -40,4 +41,41 @@ document.addEventListener("DOMContentLoaded", function() {
             toggleActions: "play none none none"
         }
     });
+
+    // === Funzione del menu mobile ===
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const menuOverlay = document.querySelector('.mobile-menu-overlay');
+    const menuClose = document.querySelector('.mobile-menu-close');
+
+    // Funzione per aprire il menu mobile
+    menuToggle.addEventListener('click', function () {
+        gsap.to('.mobile-menu-overlay', { x: 0, duration: 1.5, ease: 'power4.out' });
+        const mobileMenuItems = document.querySelectorAll('.mobile-menu-overlay ul li');
+        gsap.from(mobileMenuItems, {
+            y: 50, opacity: 0, duration: 0.5, stagger: 0.2, ease: 'power4.out',
+        });
+    });
+
+    // Funzione per chiudere il menu mobile
+    menuClose.addEventListener('click', function () {
+        gsap.to('.mobile-menu-overlay', { x: '100%', duration: 0.5, ease: 'power4.out' });
+    });
+
+    // Sincronizzazione del menu desktop e mobile in base alla larghezza della finestra
+    const navMenu = document.querySelector("nav");
+    window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+            navMenu.classList.add("desktop-visible");
+            document.querySelector('.mobile-menu-overlay').classList.remove("open");
+        } else {
+            navMenu.classList.remove('desktop-visible');
+        }
+    });
+
+    // Verifica dello stato del menu al caricamento della pagina
+    if (window.innerWidth >= 768) {
+        navMenu.classList.add('desktop-visible');
+    } else {
+        navMenu.classList.remove('desktop-visible');
+    }
 });
