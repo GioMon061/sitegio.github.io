@@ -228,11 +228,13 @@ function initCustomCursor() {
   });
 }
 
-// === Freccia verso l'alto ===
+// Freccia verso l'alto
 document.addEventListener('DOMContentLoaded', function () {
   const scrollToTopBtn = document.getElementById('scroll-to-top');
 
+  // Gestione dello scroll per mostrare/nascondere il pulsante
   window.addEventListener('scroll', function () {
+    // Verifica se lo scroll è sufficiente per mostrare il pulsante
     if (window.scrollY > 2000) {
       scrollToTopBtn.style.display = 'block';
     } else {
@@ -240,7 +242,126 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // Azione al click per lo scroll verso l'alto
   scrollToTopBtn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
+
+// **Animazione rotazione continua per scroll-text.svg**
+function animateScrollText() {
+  gsap.to('.scroll-text', {
+    rotate: 360,
+    duration: 15,
+    repeat: -1,
+    ease: 'linear'
+  });
+}
+
+animateScrollText();
+
+// **Posizionare la freccia al centro del cerchio senza rotazione**
+function positionArrow() {
+  gsap.set('.arrow-down', {
+    xPercent: -50,
+    yPercent: -50,
+    position: 'absolute',
+    top: '50%',
+    left: '50%'
+  });
+}
+
+positionArrow();
+
+
+// === Gestione del menu mobile con animazione personalizzata ===
+document.querySelector('.mobile-menu-toggle').addEventListener('click', function () {
+  gsap.to('.mobile-menu-overlay', { x: 0, duration: 1.5, ease: 'power4.out' });
+  const mobileMenuItems = document.querySelectorAll('.mobile-menu-overlay ul li');
+  gsap.from(mobileMenuItems, {
+    y: 50, opacity: 0, duration: 0.5, stagger: 0.2, ease: 'power4.out',
+  });
+});
+
+document.querySelector('.mobile-menu-close').addEventListener('click', function () {
+  gsap.to('.mobile-menu-overlay', { x: '100%', duration: 0.5, ease: 'power4.out' });
+});
+
+const navMenu = document.querySelector("nav");
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 768) {
+    navMenu.classList.add("desktop-visible");
+    document.querySelector('.mobile-menu-overlay').classList.remove("open");
+  } else {
+    navMenu.classList.remove('desktop-visible');
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.innerWidth >= 768) {
+    navMenu.classList.add('desktop-visible');
+  } else {
+    navMenu.classList.remove('desktop-visible');
+  }
+});
+
+
+// Funzione per gestire il pulsante "Vedi Altro" per mostrare ulteriori Casi Studio
+function initSeeMoreButton() {
+  const seeMoreButton = document.querySelector('.see-more-button');
+  if (seeMoreButton) {
+    seeMoreButton.addEventListener('click', function (event) {
+      event.preventDefault(); // Evita che la pagina si sposti in alto
+      const hiddenProjects = document.querySelectorAll('.case-study.hidden-mobile');
+      
+      // Verifica se ci sono progetti nascosti
+      if (hiddenProjects.length > 0) {
+        hiddenProjects.forEach((project) => {
+          project.classList.remove('hidden-mobile'); // Mostra i progetti nascosti
+        });
+        
+        // Nascondi il pulsante "Vedi Altro" dopo aver mostrato i progetti
+        seeMoreButton.style.display = 'none'; 
+      }
+    });
+  }
+}
+
+// Inizializza il pulsante "Vedi Altro"
+initSeeMoreButton();
+
+
+
+// Funzione per inizializzare gli indicatori
+function initCarouselIndicators() {
+  const wrapper = document.querySelector('.case-studies-wrapper');
+  const caseStudies = document.querySelectorAll('.case-study');
+  const indicatorsContainer = document.querySelector('.carousel-indicators');
+  
+  if (!indicatorsContainer || caseStudies.length === 0) return;
+
+  // Crea gli indicatori in base al numero di elementi
+  caseStudies.forEach((_, index) => {
+    const indicator = document.createElement('div');
+    indicator.classList.add('carousel-indicator');
+    if (index === 0) indicator.classList.add('active'); // Imposta il primo come attivo
+    indicatorsContainer.appendChild(indicator);
+  });
+
+  // Funzione per aggiornare gli indicatori in base allo scroll
+  function updateIndicators() {
+    const scrollLeft = wrapper.scrollLeft;
+    const itemWidth = caseStudies[0].offsetWidth + parseInt(window.getComputedStyle(caseStudies[0]).marginRight);
+    const activeIndex = Math.round(scrollLeft / itemWidth);
+
+    document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
+      indicator.classList.toggle('active', index === activeIndex);
+    });
+  }
+
+  // Ascolta l'evento di scroll per aggiornare gli indicatori
+  wrapper.addEventListener('scroll', updateIndicators);
+}
+
+// Inizializza gli indicatori quando il DOM è pronto
+document.addEventListener('DOMContentLoaded', initCarouselIndicators);

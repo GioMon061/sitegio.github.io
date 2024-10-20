@@ -1268,6 +1268,36 @@ i {
         height: 70px;
     }
 	
+	.case-studies-wrapper {
+    overflow-x: scroll; /* Abilita lo scorrimento orizzontale */
+    scroll-snap-type: x mandatory; /* Usa lo snap per rendere più fluido lo scorrimento */
+    -webkit-overflow-scrolling: touch; /* Scorrimento fluido su dispositivi touch */
+  }
+
+  .case-study {
+    scroll-snap-align: start; /* Allinea gli elementi quando lo scorrimento si ferma */
+  }
+	
+	.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .carousel-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+  }
+
+  .carousel-indicator.active {
+    background-color: #333; /* Colore attivo */
+  }
+	
 	
     /* Chi sono section for tablet */
     .about-wrapper {
