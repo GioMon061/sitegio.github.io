@@ -217,7 +217,7 @@ function initCustomCursor() {
   });
 
   // Nascondere il cursore personalizzato quando sopra elementi interattivi
-  const interactiveElements = document.querySelectorAll('nav a, .nav-button, .continue-button, .services-button, .pdf-button, .call-to-action .button, .social-icons a');
+  const interactiveElements = document.querySelectorAll('nav a, .nav-button, .continue-button, .carousel-arrow, .case-study, .services-button, .pdf-button, .call-to-action .button, #scroll-to-top, .social-icons a');
   interactiveElements.forEach((el) => {
     el.addEventListener('mouseenter', () => {
       gsap.to(cursor, { opacity: 0, duration: 0.2 });
@@ -227,3 +227,20 @@ function initCustomCursor() {
     });
   });
 }
+
+// === Freccia verso l'alto ===
+document.addEventListener('DOMContentLoaded', function () {
+  const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 2000) {
+      scrollToTopBtn.style.display = 'block';
+    } else {
+      scrollToTopBtn.style.display = 'none';
+    }
+  });
+
+  scrollToTopBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
