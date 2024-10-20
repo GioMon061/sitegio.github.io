@@ -329,3 +329,39 @@ function initSeeMoreButton() {
 
 // Inizializza il pulsante "Vedi Altro"
 initSeeMoreButton();
+
+
+
+// Funzione per inizializzare gli indicatori
+function initCarouselIndicators() {
+  const wrapper = document.querySelector('.case-studies-wrapper');
+  const caseStudies = document.querySelectorAll('.case-study');
+  const indicatorsContainer = document.querySelector('.carousel-indicators');
+  
+  if (!indicatorsContainer || caseStudies.length === 0) return;
+
+  // Crea gli indicatori in base al numero di elementi
+  caseStudies.forEach((_, index) => {
+    const indicator = document.createElement('div');
+    indicator.classList.add('carousel-indicator');
+    if (index === 0) indicator.classList.add('active'); // Imposta il primo come attivo
+    indicatorsContainer.appendChild(indicator);
+  });
+
+  // Funzione per aggiornare gli indicatori in base allo scroll
+  function updateIndicators() {
+    const scrollLeft = wrapper.scrollLeft;
+    const itemWidth = caseStudies[0].offsetWidth + parseInt(window.getComputedStyle(caseStudies[0]).marginRight);
+    const activeIndex = Math.round(scrollLeft / itemWidth);
+
+    document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
+      indicator.classList.toggle('active', index === activeIndex);
+    });
+  }
+
+  // Ascolta l'evento di scroll per aggiornare gli indicatori
+  wrapper.addEventListener('scroll', updateIndicators);
+}
+
+// Inizializza gli indicatori quando il DOM è pronto
+document.addEventListener('DOMContentLoaded', initCarouselIndicators);
