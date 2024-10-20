@@ -304,3 +304,28 @@ document.addEventListener("DOMContentLoaded", () => {
     navMenu.classList.remove('desktop-visible');
   }
 });
+
+
+// Funzione per gestire il pulsante "Vedi Altro" per mostrare ulteriori Casi Studio
+function initSeeMoreButton() {
+  const seeMoreButton = document.querySelector('.see-more-button');
+  if (seeMoreButton) {
+    seeMoreButton.addEventListener('click', function (event) {
+      event.preventDefault(); // Evita che la pagina si sposti in alto
+      const hiddenProjects = document.querySelectorAll('.case-study.hidden-mobile');
+      
+      // Verifica se ci sono progetti nascosti
+      if (hiddenProjects.length > 0) {
+        hiddenProjects.forEach((project) => {
+          project.classList.remove('hidden-mobile'); // Mostra i progetti nascosti
+        });
+        
+        // Nascondi il pulsante "Vedi Altro" dopo aver mostrato i progetti
+        seeMoreButton.style.display = 'none'; 
+      }
+    });
+  }
+}
+
+// Inizializza il pulsante "Vedi Altro"
+initSeeMoreButton();
