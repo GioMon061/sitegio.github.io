@@ -272,3 +272,35 @@ function positionArrow() {
 }
 
 positionArrow();
+
+
+// === Gestione del menu mobile con animazione personalizzata ===
+document.querySelector('.mobile-menu-toggle').addEventListener('click', function () {
+  gsap.to('.mobile-menu-overlay', { x: 0, duration: 1.5, ease: 'power4.out' });
+  const mobileMenuItems = document.querySelectorAll('.mobile-menu-overlay ul li');
+  gsap.from(mobileMenuItems, {
+    y: 50, opacity: 0, duration: 0.5, stagger: 0.2, ease: 'power4.out',
+  });
+});
+
+document.querySelector('.mobile-menu-close').addEventListener('click', function () {
+  gsap.to('.mobile-menu-overlay', { x: '100%', duration: 0.5, ease: 'power4.out' });
+});
+
+const navMenu = document.querySelector("nav");
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 768) {
+    navMenu.classList.add("desktop-visible");
+    document.querySelector('.mobile-menu-overlay').classList.remove("open");
+  } else {
+    navMenu.classList.remove('desktop-visible');
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.innerWidth >= 768) {
+    navMenu.classList.add('desktop-visible');
+  } else {
+    navMenu.classList.remove('desktop-visible');
+  }
+});
