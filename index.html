@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gioia Mongelli Visuals</title>
+    <title>Landing Page - Gioia Mongelli</title>
     <link rel="stylesheet" href="css/style.css">
+	<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@studio-freight/mouse-follower@1.2.3/dist/mouse-follower.css">-->
 	<script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
@@ -21,16 +22,16 @@
     <div class="mobile-menu-close">X</div>
     <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#case-studies">Casi Studio</a></li>
+        <li><a href="casi-studio/caso-studio.html">Casi Studio</a></li>
         <li><a href="servizi/servizi.html">Servizi</a></li>
         <li><a href="chi-sono/chi-sono.html">Chi sono</a></li>
         <li><a href="contatti/contatti.html">Contatti</a></li>
-		<li><a href="https://zcal.co/gioia/15min" target="_blank">Prenota call</a></li>
+		<li><a href="https://zcal.co/gioia/15min" target="_blank">Book a call</a></li>
     </ul>
 </div>
-        <div class="logo-container">
+         <div class="logo-container">
         <div class="logo">
-            <a href="https://gioiamongelli.com" target="_self">
+            <a href="https://gioiamongelli.com">
                 <img src="img/logo.svg" alt="Gioia Mongelli Logo">
             </a>
         </div>
@@ -42,11 +43,11 @@
 
 <nav>
     <div class="mobile-menu-toggle">Menu</div> <!-- Aggiungi questo per mobile -->
-    <a href="#case-studies" target="_self" class="nav-link" data-cursor="-opaque">Casi Studio</a>
-    <a href="servizi/servizi.html" target="_self" class="nav-link" data-cursor="-opaque">Servizi</a>
-    <a href="chi-sono/chi-sono.html" target="_self" class="nav-link" data-cursor="-opaque">Chi sono</a>
-    <a href="contatti/contatti.html" target="_self" class="nav-link" data-cursor="-opaque">Contatti</a>
-	<a href="https://zcal.co/gioia/15min" target="_blank" class="nav-button" data-cursor="-magnetic -blob">Prenota call</a>
+    <a href="casi-studio/casi-studio.html"  class="nav-link" data-cursor="-opaque">Casi Studio</a>
+    <a href="servizi/servizi.html"  class="nav-link" data-cursor="-opaque">Servizi</a>
+    <a href="chi-sono/chi-sono.html"  class="nav-link" data-cursor="-opaque">Chi sono</a>
+    <a href="contatti/contatti.html"  class="nav-link" data-cursor="-opaque">Contatti</a>
+	<a href="https://zcal.co/gioia/15min" target="_blank" class="nav-button" data-cursor="-magnetic -blob">Book a call</a>
 </nav>
     </header>
 	
@@ -131,11 +132,11 @@
                     <span class="category">Social Media Design</span>
                     <span class="case-number">003</span>
                 </div>
-				<p class="name"><a href="casi-studio/cs03-grafichesocial.html">Promo Grafiche Saas</a></p>
+                <p class="name"><a href="casi-studio/cs03-grafichesocial.html">Promo Grafiche Saas</a></p>
 				</div></a>
 
             <!-- Caso Studio 4 -->
-             <a href="casi-studio/cs04-presentationsocial.html"><div class="case-study">
+            <a href="casi-studio/cs04-presentationsocial.html"><div class="case-study">
                 <div class="placeholder">
                     <span class="number-rotated">004</span>
 					<img src="casi-studio/img/presentationsocial-01.png" class="case-study-image" alt="Presentation e Social">
@@ -146,9 +147,19 @@
                     <span class="case-number">004</span>
                 </div>
                 <p class="name"><a href="casi-studio/cs04-presentationsocial.html">Grafiche per Diritti Digitali</a></p>
-				 </div></a>	
+				</div></a>
+			
+			
+			
+				<!-- Pulsante "Vedi di più" -->
+			<div class="see-more-container">
+				<a href="#" class="see-more-button button">Vedi di più</a>
+			</div>
+			
+			<!-- Nascosti su mobile -->
+						
 			           <!-- Caso Studio 5 -->
-            <a href="casi-studio/cs05-bannerpodcast.html"><div class="case-study">
+            <a href="casi-studio/cs05-bannerpodcast.html"><div class="case-study hidden-mobile">
                 <div class="placeholder">
                     <span class="number-rotated">005</span>
 					<img src="casi-studio/img/bannerpodcast-01.png" class="case-study-image" alt="Banner podcast">
@@ -158,11 +169,11 @@
                     <span class="category">Social Media Design</span>
                     <span class="case-number">005</span>
                 </div>
-                <p class="name"><a href="casi-studio/cs05-bannerpodcast.html">Banners per Podcast</a></p>
+				<p class="name"><a href="casi-studio/cs05-bannerpodcast.html">Banner per Podcast</a></p>
 				</div></a>
 			
 			 <!-- Caso Studio 6 -->
-            <a href="casi-studio/cs06-eventgraphics.html"><div class="case-study">
+            <a href="casi-studio/cs06-eventgraphics.html"><div class="case-study hidden-mobile">
                 <div class="placeholder">
                     <span class="number-rotated">006</span>
 					<img src="casi-studio/img/event-graphics-01.png" class="case-study-image" alt="Event graphics">
@@ -172,11 +183,11 @@
                     <span class="category">Event Design</span>
                     <span class="case-number">006</span>
                 </div>
-                <p class="name"><a href="casi-studio/cs06-eventgraphics.html">Grafiche Evento Country</a></p>
+				<p class="name"><a href="casi-studio/cs06-eventgraphics.html">Grafiche Evento Country</a></p>
 				</div></a>
 			
 			 <!-- Caso Studio 7 -->
-            <a href="casi-studio/cs07-educationalvisual.html"><div class="case-study">
+			 <a href="casi-studio/cs07-educationalvisual.html"><div class="case-study hidden-mobile">
                 <div class="placeholder">
                     <span class="number-rotated">007</span>
 					<img src="casi-studio/img/educationalvisual-02.png" class="case-study-image" alt="Visual educativi">
@@ -189,8 +200,9 @@
                 <p class="name"><a href="casi-studio/cs07-educationalvisual.html">Visual Educativo Uragani</a></p>
 				</div></a>
 			
-				 <!-- Caso Studio 8 -->
-            <a href="casi-studio/cs08-lpredesign.html"><div class="case-study">
+			
+			 <!-- Caso Studio 8 -->
+			<a href="casi-studio/cs08-lpredesign.html"><div class="case-study hidden-mobile">
                 <div class="placeholder">
                     <span class="number-rotated">008</span>
 					<img src="casi-studio/img/landingpage-01.png" class="case-study-image" alt="Landing page">
@@ -202,8 +214,9 @@
                 </div>
 				<p class="name"> <a href="casi-studio/cs08-lpredesign.html">Landing Page Yoga</a></p>
 				</div></a>
-            <!-- Aggiungi altri casi studio se necessario -->
+         
         </div>
+		
 
     </div>
 		
@@ -287,10 +300,12 @@
         </h2>
 		<div class="project">
         <nav class="project-list">
+			
+			
 			<!--Progetto 1-->
 			<div class="project__item">
-                <a class="project__item-link" href="progetti/pr01-vineyard.html">Email Design Cantina Vinicola</a>
-					<img class="project__item-img" src="img/vineyardpreview.png" alt="Progetto 1"/>
+                <a class="project__item-link" src="progetti/pr01-vineyard.html">Email Design Cantina Vinicola</a>
+					<img class="project__item-img" src="img/vineyardpreview.png" alt="Email Design Cantina Vinicola"/>
 				<div class="marquee">
 										<div class="marquee__inner">
 											<span>Email Design Cantina Vinicola</span>
@@ -306,10 +321,11 @@
                                   </div>
 								<hr>
 			
+			
 						<!--Progetto 2-->
 			<div class="project__item">
-                <a class="project__item-link" href="progetti/pr02-socialvisual.html" target="_self">Grafiche Social Lifestyle</a>
-					<img class="project__item-img" src="progetti/img/socialvisual-03.png" alt="Progetto 2"/>
+                <a class="project__item-link" src="progetti/pr02-socialvisual.html">Grafiche Social Lifestyle</a>
+					<img class="project__item-img" src="progetti/img/socialvisual-03.png" alt="Grafiche Social Lifestyle"/>
 				<div class="marquee">
 										<div class="marquee__inner">
 											<span>Grafiche Social Lifestyle</span>
@@ -327,8 +343,8 @@
 			
 			<!--Progetto 3-->
 			<div class="project__item">
-                <a class="project__item-link" href="progetti/pr03-infographic.html" target="_self">Infografica Fintech</a>
-					<img class="project__item-img" src="en/projects/img/infographic-02.png" alt="Progetto 3"/>
+                <a class="project__item-link" src="progetti/pr03-infographic.html">Infografica Fintech</a>
+					<img class="project__item-img" src="projects/img/infographic-02.png" alt="Infografica Fintech"/>
 				<div class="marquee">
 										<div class="marquee__inner">
 											<span>Infografica Fintech</span>
@@ -346,8 +362,8 @@
 			
 						<!--Progetto 4-->
 			<div class="project__item">
-                <a class="project__item-link" href="progetti/pr04-fictionalbranding.html" target="_self">Visual Concept Frida Kahlo</a>
-					<img class="project__item-img" src="progetti/img/fridakahlo-04.png" alt="Progetto 4"/>
+                <a class="project__item-link" src="progetti/pr04-fictionalbranding.html">Visual Concept Frida Kahlo</a>
+					<img class="project__item-img" src="progetti/img/fridakahlo-04.png" alt="Visual Concept Frida Kahlo"/>
 				<div class="marquee">
 										<div class="marquee__inner">
 											<span>Visual Concept Frida Kahlo</span>
@@ -375,7 +391,7 @@
             <span class="line"></span>
             <p>SCOPRIAMO SE E COME POSSIAMO LAVORARE INSIEME.</p>
         </div>
-        <a href="contatti/contatti.html" class="button">Contattami</a>
+        <a href="#contatti" class="button">Contattami</a>
     </div>
 </div>
 
@@ -385,8 +401,8 @@
     <div class="footer-content">
         <span>&copy; Gioia Mongelli - 2024</span>
         <div class="social-icons">
-            <a href="https://www.instagram.com" target="_blank"><i class="ph ph-instagram-logo"></i></a>
-            <a href="https://www.linkedin.com" target="_blank"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="https://www.instagram.com/gioiamongelli/" target="_blank"><i class="ph ph-instagram-logo"></i></a>
+            <a href="https://www.linkedin.com/in/gioiamongelli/" target="_blank"><i class="ph ph-linkedin-logo"></i></a>
             <a href="mailto:gioia[@]gioiamongelli.com"><i class="ph ph-envelope-simple"></i></a>
         </div>
     </div>
@@ -394,6 +410,7 @@
 
 
 </div> <!-- Fine del container -->
+<!-- Fine del container -->
 
 	<div class="custom-cursor"></div>
 	
@@ -401,13 +418,12 @@
 <div id="scroll-to-top">
   <img src="img/arrow-up.svg" alt="Scroll to Top">
 </div>
+	
 	<!-- Script -->
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.6.3/dist/smooth-scrollbar.js"></script>
 	<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 	<script src="js/script.js"></script>
 </body>
 </html>

@@ -13,9 +13,7 @@
     --rosa: #FFB3BA;
 }
 
-html{
-	scroll-behavior: smooth;
-}
+
 
 html,
 body {
@@ -76,8 +74,6 @@ header {
 .logo img {
     width: 90px; /* Dimensione del logo */
     height: auto;
-	display: flex;
-	align-items: center;
 }
 
 .language-switcher {
@@ -119,7 +115,6 @@ header nav a {
     font-weight: 500;
     text-transform: uppercase;
 }
-
 
 
 nav a {
@@ -233,11 +228,6 @@ nav a::before {
   transform: translate(-50%, -50%);
   mix-blend-mode: hard-light; /* Applica un effetto visivo */
   opacity: 1;
-}
-
-/* Nascondi il pallino sulle voci di navigazione */
-nav a:hover ~ .custom-cursor, .nav-button:hover ~ .custom-cursor {
-  opacity: 0; /* Effetto di scomparsa */
 }
 
 /*header nav a {
@@ -382,6 +372,7 @@ nav a {
     opacity: 1; /* Leggera trasparenza per non distrarre troppo */
 }
 
+
 .case-studies-section {
     position: relative;
     width: 100%;
@@ -417,6 +408,11 @@ nav a {
     overflow: hidden;
     width: 100%;
     height: 500px; /* Regola l'altezza secondo il tuo design */
+	cursor: grab;
+}
+
+.case-studies-wrapper.active {
+    cursor: grabbing; /* Mostra il pugno quando si trascina */
 }
 
 .case-studies {
@@ -448,7 +444,8 @@ nav a {
     width: 100%;
     height: 300px; /* Regola l'altezza dell'immagine */
     background-color: #ddd;
-    overflow: visible; /* Assicurati che il contenuto che esce sia visibile */
+    position: relative;
+    /* overflow: visible; Assicurati che il contenuto che esce sia visibile */
 }
 
 .case-study hr {
@@ -488,13 +485,21 @@ nav a {
   text-decoration: none;
 }
 
-
 .case-study-image {
    width: 100%;
    height: 100%;
    object-fit: cover; /* Copre l'area mantenendo le proporzioni */
    object-position: center; /* Centra l'immagine all'interno del placeholder */
 }
+
+.case-studies {
+  will-change: transform; /* Informa il browser che la proprietà transform cambierà spesso */
+}
+
+.see-more-container {
+    display: none;
+}
+
 
 /* SEZIONE CHI SONO */
 
@@ -730,6 +735,13 @@ nav a {
     /* Rimosse le transitions per evitare conflitti */
 }
 
+.project__item-link:hover + .project__item-img {
+    opacity: 1; /* Appare l'immagine in hover */
+    transform: translate3d(calc(-100% - 6vw), -30%, 0) rotate3d(0, 0, 1, 4deg);
+    transition: all 0.4s ease; /* Solo transizione immagine */
+    z-index: 3;
+}
+
 .project__item-img {
     pointer-events: none;
     position: absolute;
@@ -859,6 +871,7 @@ nav a {
     border: 2px solid var(--nero);
 }
 
+
 /* Stile per il pulsante di scroll verso l'alto */
 #scroll-to-top {
   position: fixed; /* Fissa il pulsante rispetto alla finestra */
@@ -885,8 +898,6 @@ nav a {
   opacity: 1; /* Rende il pulsante completamente opaco */
   transform: scale(1.1); /* Ingrandimento leggero */
 }
-
-
 
 /* Footer */
 footer {
@@ -940,11 +951,8 @@ i {
         overflow-x: hidden;
     }
 	
-	.custom-cursor {
-		display: none;
-	}
-	
 		/* Hero section */
+	
 	.nav-button {
     display: none;
   }
@@ -980,7 +988,6 @@ i {
         margin-bottom: 20px;
 	}
 	
-	
     .case-studies {
         display: flex;
         flex-direction: column; /* Cambia direzione da riga a colonna */
@@ -991,20 +998,20 @@ i {
 	
     .case-study {
         flex: 0 0 auto;
-        width: 100%; /* Larghezza completa */
-        margin-right: 0; /* Rimuovi margine destro */
-        margin-bottom: 40px; /* Spazio tra i casi studio */
+		width: 100%;
+        margin-right: 0;
+        margin-bottom: 40px;
     }
 	
-	 .placeholder {
+	.placeholder {
         width: 100%;
         height: auto; /* Lascia che l'altezza si adatti */
         aspect-ratio: 4 / 3;
         position: relative;
         overflow: hidden;
     }
-
-    /* Stile per le immagini */
+	
+	/* Stile per le immagini */
     .case-study-image {
         width: 100%;
         height: 100%;
@@ -1014,16 +1021,44 @@ i {
         left: 0;
     }
 	
-	
 	.scroll-indicator {
         display: none;
     }
 	
+	.see-more-container {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
 
 	.hidden-mobile {
         display: none !important;
     }
+	
+	
+	/* Stile per pulsante */
+	.see-more-button, .button {
+		display: inline-block;
+		padding: 10px 30px;
+		background-color: var(--nero);
+		color: var(--bianco);
+		border-radius: 30px;
+		text-transform: uppercase;
+		font-family: 'Suisse Int\'l', sans-serif;
+		text-decoration: none;
+		text-align: center;
+		border: 2px solid var(--nero);
+		transition: background-color 0.3s ease, color 0.3s ease;
+		max-width: 200px;
+		width: fit-content;
+	}
 
+	/* Hover per i pulsanti */
+	.see-more-button:hover, .button:hover {
+		background-color: var(--bianco);
+		color: var(--nero);
+		border: 2px solid var(--nero);
+	}
 	
     /* Chi sono section for mobile */
 
@@ -1087,7 +1122,7 @@ i {
 	/* Altri progetti section for mobile */
 	
     .other-projects h2 {
-        font-size: 2rem; /* Smaller heading size */
+        font-size: 1.8rem; /* Smaller heading size */
     }
 
     .project__item-img {
@@ -1128,7 +1163,6 @@ i {
     .social-icons {
         margin-top: 20px;
     }
-	
 
 	
 }
