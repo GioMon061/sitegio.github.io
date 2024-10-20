@@ -228,11 +228,13 @@ function initCustomCursor() {
   });
 }
 
-// === Freccia verso l'alto ===
+// Freccia verso l'alto
 document.addEventListener('DOMContentLoaded', function () {
   const scrollToTopBtn = document.getElementById('scroll-to-top');
 
+  // Gestione dello scroll per mostrare/nascondere il pulsante
   window.addEventListener('scroll', function () {
+    // Verifica se lo scroll è sufficiente per mostrare il pulsante
     if (window.scrollY > 2000) {
       scrollToTopBtn.style.display = 'block';
     } else {
@@ -240,26 +242,33 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // Azione al click per lo scroll verso l'alto
   scrollToTopBtn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
 
-// Funzione per gestire il pulsante "Vedi Altro" per mostrare ulteriori Casi Studio
-function initSeeMoreButton() {
-  const seeMoreButton = document.querySelector('.see-more-button');
-  if (seeMoreButton) {
-    seeMoreButton.addEventListener('click', function (event) {
-      event.preventDefault(); // Evita che la pagina si sposti in alto
-      const hiddenProjects = document.querySelectorAll('.case-study.hidden-mobile');
-      hiddenProjects.forEach((project) => {
-        project.classList.remove('hidden-mobile'); // Mostra i progetti nascosti
-      });
-      seeMoreButton.style.display = 'none'; // Nascondi il pulsante "Vedi Altro" dopo il clic
-    });
-  }
+// **Animazione rotazione continua per scroll-text.svg**
+function animateScrollText() {
+  gsap.to('.scroll-text', {
+    rotate: 360,
+    duration: 15,
+    repeat: -1,
+    ease: 'linear'
+  });
 }
 
-// Richiama la funzione per inizializzare il pulsante "Vedi Altro"
-initSeeMoreButton();
+animateScrollText();
 
+// **Posizionare la freccia al centro del cerchio senza rotazione**
+function positionArrow() {
+  gsap.set('.arrow-down', {
+    xPercent: -50,
+    yPercent: -50,
+    position: 'absolute',
+    top: '50%',
+    left: '50%'
+  });
+}
+
+positionArrow();
