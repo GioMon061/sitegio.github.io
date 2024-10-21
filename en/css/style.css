@@ -10,7 +10,14 @@
 	font-size: 111%;
     --bianco: #fefaf1;
     --nero: #0d0d0d;
-    --rosa: #FFB3BA;
+    --corallo: #FFB3BA;
+	--verdeacido: #DFFE91;
+	--celeste: #95D3FF;
+	--menta: #BAFFC9;
+	--lilla: #B697F8;
+	--rosa: #F2B3D6;
+	--giallo: #FBFD8C;
+	
 }
 
 
@@ -99,7 +106,7 @@ header {
 }
 
 .language-link:hover {
-    color: var(--rosa); /* Cambia colore in hover per effetto */
+    color: var(--corallo); /* Cambia colore in hover per effetto */
 }
 
 header nav {
