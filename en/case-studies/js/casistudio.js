@@ -142,15 +142,15 @@ function showModal() {
 }
 
 // Chiusura della finestra modale
-modalClose.onclick = function () {
-  closeModal();
-};
+// Chiudi il modale al clic del pulsante di chiusura
+modalClose.addEventListener('click', closeModal);
 
-window.onclick = function (event) {
+// Chiudi il modale al clic all'esterno dell'area del contenuto
+modal.addEventListener('click', function (event) {
   if (event.target === modal) {
     closeModal();
   }
-};
+});
 
 // Funzione per chiudere il modale e ripristinare gli stati
 function closeModal() {
