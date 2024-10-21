@@ -57,6 +57,9 @@ body {
     text-transform: uppercase;
     font-size: 1rem;
 	max-width: 500px;
+	white-space: normal; /* Permetti il ritorno a capo */
+    word-wrap: break-word; /* Gestisce le parole lunghe */
+    overflow: visible; /* Assicura che il testo non venga tagliato */
 }
 
 
@@ -101,6 +104,7 @@ section:nth-of-type(even) {
 section.horizontal {
     overflow-x: hidden;
 	padding-top: 50px;
+	margin-top: 100px;
 }
 
 section.horizontal .pin-wrap,
@@ -305,7 +309,25 @@ footer {
     .case-study-description {
         font-size: 0.9rem; /* Dimensione del testo come in contatti */
         padding-bottom: 20px;
+		white-space: normal; /* Permetti il ritorno a capo */
+    	word-wrap: break-word; /* Gestisce le parole lunghe */
+    	overflow: visible; /* Assicura che il testo non venga tagliato */
     }
+	
+	.modal-video-content video {
+  width: 100%; /* Mantiene le proporzioni */
+  height: auto; /* Mantiene le proporzioni */
+  max-width: 90vw; /* Limita la larghezza per evitare che esca dallo schermo */
+  max-height: 90vh; /* Limita l'altezza per evitare che esca dallo schermo */
+  object-fit: contain; /* Mantiene le proporzioni */
+}
+	
+	  .media-modal-close {
+    top: 20px; /* Posiziona la chiusura più in alto */
+    right: 20px; /* Posiziona la chiusura vicino al bordo destro */
+    font-size: 35px; /* Ridimensiona la chiusura per essere visibile */
+		  z-index: 10001; /* Un valore molto alto per garantire che sia visibile */
+  }
 
     /* Menu Mobile */
     .mobile-menu-overlay {
@@ -426,5 +448,7 @@ footer {
         font-size: 1rem;
         padding-bottom: 20px;
     }
+	
+
 }
 
