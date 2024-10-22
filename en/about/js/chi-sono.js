@@ -79,3 +79,17 @@ document.addEventListener("DOMContentLoaded", function() {
         navMenu.classList.remove('desktop-visible');
     }
 });
+
+// === Cursore Personalizzato ===
+const cursor = document.querySelector('.custom-cursor');
+const customCursor = document.querySelector('.custom-cursor');
+
+// Movimento del cursore personalizzato
+document.addEventListener('mousemove', (e) => {
+  gsap.to(customCursor, {
+    x: e.clientX,
+    y: e.clientY,
+    ease: 'power3.out',
+    duration: 0.15,
+  });
+});
