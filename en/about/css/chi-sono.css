@@ -91,6 +91,10 @@
     text-transform: none;
 }
 
+.about-title, .about-image, .about-text {
+    will-change: opacity, transform;
+}
+
 /* Specifiche del footer */
 footer {
     background-color: var(--bianco);
