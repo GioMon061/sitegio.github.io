@@ -153,6 +153,7 @@ nav a::before {
     font-weight: 400;
     text-transform: capitalize;
     z-index: 10;
+	font-size: 0.9rem;
 }
 
 .nav-link::after {
