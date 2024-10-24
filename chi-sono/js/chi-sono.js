@@ -95,3 +95,9 @@ document.addEventListener('mousemove', (e) => {
 });
 
 
+// Forza il repaint quando la pagina si ricarica
+window.addEventListener('load', function() {
+    document.body.style.display = 'none';
+    document.body.offsetHeight; // Forza un repaint
+    document.body.style.display = '';
+});
