@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
         y: 50,
         duration: 1.5,
         ease: "power3.out",
+		force3D: true,  // Aggiungi force3D
         scrollTrigger: {
             trigger: ".about-title",
             start: "top 80%", // Inizia quando il titolo è visibile all'80%
