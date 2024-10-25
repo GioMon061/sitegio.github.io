@@ -102,3 +102,5 @@ window.addEventListener('load', function() {
     document.body.offsetHeight; // Forza un repaint
     document.body.style.display = '';
 });
+
+gsap.config({ debug: true });
