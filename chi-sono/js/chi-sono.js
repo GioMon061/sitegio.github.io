@@ -100,3 +100,10 @@ document.addEventListener("visibilitychange", function() {
         ScrollTrigger.refresh();
     }
 });
+
+window.addEventListener("pageshow", function(event) {
+    if (event.persisted) {  // Controlla se la pagina è stata ripristinata dalla cache
+        ScrollTrigger.refresh(); // Forza il refresh delle animazioni GSAP
+    }
+});
+
