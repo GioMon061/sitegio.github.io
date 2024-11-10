@@ -184,8 +184,8 @@ html, body  {
   background: var(--hover-color); /* Colore di sfondo variabile */
   padding: 20px;
   border-radius: 10px;
-  max-width: 600px;
-  width: 80%;
+  max-width: 800px;
+  width: 90%;
   color: #0d0d0d;
   transform: scale(0.5); /* Modal ridotto all'inizio */
   transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Animazione del colore */
@@ -269,6 +269,71 @@ html, body  {
 .servizio-card:nth-child(5) {
     grid-column: span 12; /* Occupa tutta la larghezza in fondo */
 }
+
+/*Links*/
+.servizio-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.contact-link {
+    position: relative;
+    display: inline-block;
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--nero); /* Colore del testo, personalizzabile */
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Effetto sottolineatura */
+.contact-link:before,
+.contact-link:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+}
+
+.contact-link:before {
+    background: rgba(254, 250, 241, 0.6); /* Colore della linea di base */
+    opacity: 0.9;
+}
+
+.contact-link:after {
+    background: var(--nero); /* Colore della sottolineatura al passaggio del mouse */
+    transform: scaleX(0); /* Nasconde la linea inizialmente */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.contact-link:hover:after {
+    transform: scaleX(1); /* Espande la linea */
+}
+
+/* Stile responsive */
+@media (max-width: 768px) {
+    .servizio-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-link {
+        text-decoration: underline; /* Semplice sottolineatura su mobile */
+        color: inherit; /* Mantiene il colore del testo */
+    }
+
+    .contact-link:before,
+    .contact-link:after {
+        display: none; /* Disabilita l'effetto su mobile */
+    }
+}
+
 
 /* Footer */
 footer {
