@@ -477,6 +477,7 @@ footer {
 
   .modal-overlay {
     align-items: flex-start; /* Allinea il modal in alto */
+	  overflow-y: auto; /* Permette di scorrere l'overlay su mobile */
     padding-top: 20px; /* Spazio per migliorare il layout */
   }
 }
