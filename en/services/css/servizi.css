@@ -466,6 +466,22 @@ footer {
     }
 }
 
+/* Modal adattato per mobile e tablet */
+@media (max-width: 1024px) {
+  .modal-content {
+    width: 90%; /* Aumenta la larghezza su mobile e tablet */
+    height: 100%; /* Limita l'altezza per evitare tagli */
+    overflow-y: auto; /* Permette di scorrere il contenuto */
+    transform: none; /* Rimuove l'effetto di scala */
+  }
+
+  .modal-overlay {
+    align-items: flex-start; /* Allinea il modal in alto */
+	  overflow-y: auto; /* Permette di scorrere l'overlay su mobile */
+    padding-top: 20px; /* Spazio per migliorare il layout */
+  }
+}
+
 /* Tablet Styles (min-width: 769px and max-width: 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
 	

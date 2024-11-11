@@ -470,7 +470,7 @@ footer {
 @media (max-width: 1024px) {
   .modal-content {
     width: 90%; /* Aumenta la larghezza su mobile e tablet */
-    max-height: 90vh; /* Limita l'altezza per evitare tagli */
+    height: 100%; /* Limita l'altezza per evitare tagli */
     overflow-y: auto; /* Permette di scorrere il contenuto */
     transform: none; /* Rimuove l'effetto di scala */
   }
