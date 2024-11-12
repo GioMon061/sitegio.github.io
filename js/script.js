@@ -46,7 +46,7 @@ function handlePreloader() {
   // Nascondi il preloader e avvia altre animazioni
   gsap.to(preloader, {
     opacity: 0,
-    delay: 2.5,
+    delay: 1,
     duration: 1,
     ease: "power4.inOut",
     onComplete: function () {
