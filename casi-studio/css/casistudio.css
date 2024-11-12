@@ -119,7 +119,7 @@ section.horizontal .animation-wrap {
 section.horizontal .item {
     position: relative;
     padding: 50px 60px;
-    flex: 0 0 600px;
+    flex: 0 0 550px;
     height: auto;
     display: block;
     align-items: center;
