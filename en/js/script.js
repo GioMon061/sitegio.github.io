@@ -365,3 +365,20 @@ function initCarouselIndicators() {
 
 // Inizializza gli indicatori quando il DOM è pronto
 document.addEventListener('DOMContentLoaded', initCarouselIndicators);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const supportsWebP = () => {
+    const canvas = document.createElement("canvas");
+    return canvas.toDataURL("image/webp").indexOf("data:image/webp") === 0;
+  };
+
+  if (supportsWebP()) {
+    const images = document.querySelectorAll("img");
+    images.forEach(img => {
+      const src = img.getAttribute("src");
+      if (src && src.match(/\.(jpg|jpeg|png)$/)) {
+        img.setAttribute("src", src.replace(/\.(jpg|jpeg|png)$/, ".webp"));
+      }
+    });
+  }
+});
