@@ -231,8 +231,8 @@ body.modal-active {
 
 /* Stile comune per l'Immagine e il Video */
 .modal-content, .modal-video-content {
-  max-width: 90vw; /* Limita la larghezza dell'immagine o video */
-  max-height: 90vh; /* Limita l'altezza dell'immagine o video */
+  max-width: 95vw; /* Limita la larghezza dell'immagine o video */
+  max-height: 95vh; /* Limita l'altezza dell'immagine o video */
   margin: auto;
 }
 
