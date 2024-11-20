@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!supportsWebP()) {
       const src = img.getAttribute("src");
       if (src && src.endsWith(".webp")) {
-        img.setAttribute("src", src.replace(".webp", ".jpg")); // O .png se necessario
+        img.setAttribute("src", src.replace(".webp", ".jpg")); // O .webp se necessario
       }
     }
   });
