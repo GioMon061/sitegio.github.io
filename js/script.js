@@ -28,6 +28,32 @@ gsap.ticker.add((time) => {
   lenis.raf(time * 1000);
 });
 
+// Ottimizzazione immagini: lazy loading e fallback per WebP
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll("img");
+  
+  images.forEach(img => {
+    // Applica loading="lazy" a tutte le immagini se non già presente
+    if (!img.hasAttribute("loading")) {
+      img.setAttribute("loading", "lazy");
+    }
+
+    // Se il browser non supporta WebP, usa un fallback
+    if (!supportsWebP()) {
+      const src = img.getAttribute("src");
+      if (src && src.endsWith(".webp")) {
+        img.setAttribute("src", src.replace(".webp", ".jpg")); // O .png se necessario
+      }
+    }
+  });
+});
+
+// Funzione per verificare il supporto a WebP
+function supportsWebP() {
+  const canvas = document.createElement("canvas");
+  return canvas.toDataURL("image/webp").indexOf("data:image/webp") === 0;
+}
+
 // Inizializza il preloader e le animazioni al caricamento della pagina
 window.addEventListener("load", function () {
   handlePreloader();
@@ -37,23 +63,37 @@ window.addEventListener("load", function () {
 function handlePreloader() {
   const preloader = document.getElementById("preloader");
 
-  // Avvia animazione del logo del preloader
-  gsap.fromTo(".preloader-logo",
-    { opacity: 0, y: 50 },
-    { opacity: 1, y: 0, duration: 2, ease: "power4.out" }
-  );
+  // Timeout massimo di sicurezza per il preloader
+  const safetyTimeout = setTimeout(() => {
+    hidePreloader(preloader);
+  }, 3000); // Nasconde il preloader dopo 3 secondi
 
-  // Nascondi il preloader e avvia altre animazioni
+  // Quando il DOM è pronto, inizia l'animazione del preloader
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.fromTo(".preloader-logo", 
+      { opacity: 0, y: 50 }, 
+      { opacity: 1, y: 0, duration: 1.5, ease: "power4.out" }
+    );
+  });
+
+  // Quando tutte le risorse sono caricate, nascondi il preloader
+  window.addEventListener("load", () => {
+    clearTimeout(safetyTimeout); // Cancella il timeout di sicurezza
+    hidePreloader(preloader);
+  });
+}
+
+// Funzione per nascondere il preloader
+function hidePreloader(preloader) {
   gsap.to(preloader, {
     opacity: 0,
-    delay: 1,
     duration: 1,
     ease: "power4.inOut",
-    onComplete: function () {
-      preloader.style.display = 'none';
-      startAnimations(); // Inizia le animazioni della pagina
-      initHorizontalSnapScroll(); // Inizializza lo scrolling orizzontale
-      initCustomCursor(); // Inizializza il cursore personalizzato
+    onComplete: () => {
+      preloader.style.display = "none";
+      startAnimations(); // Avvia le animazioni della pagina
+      initHorizontalSnapScroll();
+      initCustomCursor();
       ScrollTrigger.refresh();
     }
   });
@@ -216,7 +256,6 @@ function initCustomCursor() {
     });
   });
 
-  // Nascondere il cursore personalizzato quando sopra elementi interattivi
   const interactiveElements = document.querySelectorAll('nav a, .nav-button, .continue-button, .carousel-arrow, .case-study, .services-button, .pdf-button, .call-to-action .button, #scroll-to-top, .social-icons a');
   interactiveElements.forEach((el) => {
     el.addEventListener('mouseenter', () => {
@@ -232,9 +271,7 @@ function initCustomCursor() {
 document.addEventListener('DOMContentLoaded', function () {
   const scrollToTopBtn = document.getElementById('scroll-to-top');
 
-  // Gestione dello scroll per mostrare/nascondere il pulsante
   window.addEventListener('scroll', function () {
-    // Verifica se lo scroll è sufficiente per mostrare il pulsante
     if (window.scrollY > 2000) {
       scrollToTopBtn.style.display = 'block';
     } else {
@@ -242,13 +279,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Azione al click per lo scroll verso l'alto
   scrollToTopBtn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
 
-// **Animazione rotazione continua per scroll-text.svg**
+// Animazione rotazione continua per scroll-text.svg
 function animateScrollText() {
   gsap.to('.scroll-text', {
     rotate: 360,
@@ -260,7 +296,7 @@ function animateScrollText() {
 
 animateScrollText();
 
-// **Posizionare la freccia al centro del cerchio senza rotazione**
+// Posizionare la freccia al centro del cerchio senza rotazione
 function positionArrow() {
   gsap.set('.arrow-down', {
     xPercent: -50,
@@ -273,8 +309,7 @@ function positionArrow() {
 
 positionArrow();
 
-
-// === Gestione del menu mobile con animazione personalizzata ===
+// Gestione del menu mobile con animazione personalizzata
 document.querySelector('.mobile-menu-toggle').addEventListener('click', function () {
   gsap.to('.mobile-menu-overlay', { x: 0, duration: 1.5, ease: 'power4.out' });
   const mobileMenuItems = document.querySelectorAll('.mobile-menu-overlay ul li');
@@ -305,63 +340,49 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-// Funzione per gestire il pulsante "Vedi Altro" per mostrare ulteriori Casi Studio
+// Funzione per il pulsante "Vedi Altro" per mostrare ulteriori Casi Studio
 function initSeeMoreButton() {
   const seeMoreButton = document.querySelector('.see-more-button');
   if (seeMoreButton) {
     seeMoreButton.addEventListener('click', function (event) {
-      event.preventDefault(); // Evita che la pagina si sposti in alto
+      event.preventDefault(); 
       const hiddenProjects = document.querySelectorAll('.case-study.hidden-mobile');
-      
-      // Verifica se ci sono progetti nascosti
       if (hiddenProjects.length > 0) {
         hiddenProjects.forEach((project) => {
-          project.classList.remove('hidden-mobile'); // Mostra i progetti nascosti
+          project.classList.remove('hidden-mobile');
         });
-        
-        // Nascondi il pulsante "Vedi Altro" dopo aver mostrato i progetti
         seeMoreButton.style.display = 'none'; 
       }
     });
   }
 }
 
-// Inizializza il pulsante "Vedi Altro"
 initSeeMoreButton();
-
-
 
 // Funzione per inizializzare gli indicatori
 function initCarouselIndicators() {
   const wrapper = document.querySelector('.case-studies-wrapper');
   const caseStudies = document.querySelectorAll('.case-study');
   const indicatorsContainer = document.querySelector('.carousel-indicators');
-  
   if (!indicatorsContainer || caseStudies.length === 0) return;
 
-  // Crea gli indicatori in base al numero di elementi
   caseStudies.forEach((_, index) => {
     const indicator = document.createElement('div');
     indicator.classList.add('carousel-indicator');
-    if (index === 0) indicator.classList.add('active'); // Imposta il primo come attivo
+    if (index === 0) indicator.classList.add('active');
     indicatorsContainer.appendChild(indicator);
   });
 
-  // Funzione per aggiornare gli indicatori in base allo scroll
   function updateIndicators() {
     const scrollLeft = wrapper.scrollLeft;
     const itemWidth = caseStudies[0].offsetWidth + parseInt(window.getComputedStyle(caseStudies[0]).marginRight);
     const activeIndex = Math.round(scrollLeft / itemWidth);
-
     document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
       indicator.classList.toggle('active', index === activeIndex);
     });
   }
 
-  // Ascolta l'evento di scroll per aggiornare gli indicatori
   wrapper.addEventListener('scroll', updateIndicators);
 }
 
-// Inizializza gli indicatori quando il DOM è pronto
 document.addEventListener('DOMContentLoaded', initCarouselIndicators);
