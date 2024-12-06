@@ -1,38 +1,39 @@
 /* Importa i font e le variabili dal CSS esistente */
 @import url("../css/fonts.css");
 
-/* Aggiungi eventuali nuove variabili se necessario */
+/* Variabili principali */
 :root {
-    /* Le variabili esistenti sono già definite nel tuo styles.css */
+    --max-width: 1440px;
+    --padding: 15px;
 }
 
-html, body, section.horizontal {
+/* Struttura generale */
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-	overflow: hidden;
+    overflow-x: hidden;
 }
 
-body { 
-  margin: 0;
-  padding: 0;
+body {
+    margin: 0;
+    padding: 0;
 }
 
 .container-wrapper {
-    max-width: 1440px;
+    max-width: var(--max-width);
     margin: 0 auto;
-	padding: 0 15px;
+    padding: 0 var(--padding);
 }
 
-/* Stile per il contenuto del titolo del caso studio */
+/* Header e titolo del caso studio */
 .case-study-header-content {
-    height: 50vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     color: var(--nero);
-    padding: 20px;
-    padding: 100px 0 30px;
+    padding: 100px 15px 30px;
 }
 
 .case-study-title {
@@ -56,215 +57,84 @@ body {
     font-weight: 500;
     text-transform: uppercase;
     font-size: 1rem;
-	max-width: 500px;
-	white-space: normal; /* Permetti il ritorno a capo */
-    word-wrap: break-word; /* Gestisce le parole lunghe */
-    overflow: visible; /* Assicura che il testo non venga tagliato */
+    max-width: 1000px; /* Aumentato il width del sottotitolo */
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: visible;
+    margin-bottom: 40px; /* Aggiunto spazio extra sotto */
 }
 
-
-
-/* Menu overlay per mobile */
-.mobile-menu-overlay {
-    display: none;
-}
-
-/* Sezione Contenuto */
-
-body#main-scrollbar {
-    width: auto;
-    height: 100vh;
-    overflow: hidden;
-}
-
-h1 {
-    margin: 0;
-    padding: 50px 0 0 0px;
-}
-
-p {
-    margin: 0;
-    padding: 50px 0 50px 0px;
-}
-
-section {
+/* Contenuto centrale verticale */
+#main-scrollbar {
     width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-section:nth-of-type(odd) {
-    background-color: #fefaf1;
-}
-
-section:nth-of-type(even) {
-    background-color: #fefaf1;
+    overflow-y: auto;
+    padding: 30px 15px;
 }
 
 section.horizontal {
-    overflow-x: hidden;
-	padding-top: 50px;
-	margin-top: 100px;
-}
-
-section.horizontal .pin-wrap,
-section.horizontal .animation-wrap {
     display: flex;
-    position: relative;
-    z-index: 1;  
-    height: 70vh;
-    padding-left: max(calc((87vw - 1440px) / 2), 15px);
+    flex-direction: column;
+    gap: 50px; /* Aumentato lo spazio tra le sezioni */
+    margin: 0 auto;
+    max-width: var(--max-width);
+    padding: 0 var(--padding);
 }
 
 section.horizontal .item {
-    position: relative;
-    padding: 50px 60px;
-    flex: 0 0 550px;
-    height: auto;
-    display: block;
-    align-items: center;
+    margin-bottom: 30px;
+	padding: 50px 0 0 0;
+    font-size: 1rem;
     line-height: 1.7;
-    user-select: none;
-    border-right: 1px solid rgba(0, 0, 0, 0.06);
-    background-color: transparent;
+    word-wrap: break-word;
+    color: var(--nero);
 }
 
+section.horizontal .item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-
-/* Gestione dei tag di formattazione */
-section.horizontal .item span, 
 section.horizontal .item b {
-    display: inline; /* Mantiene tutto nella stessa linea */
-    font-weight: 500;
-    margin: 0;
-    padding: 0;
+    font-weight: bold;
+    text-transform: none;
 }
 
 section.horizontal .item i {
-    font-size: inherit; /* Mantieni la stessa dimensione del testo circostante */
-    font-style: italic; /* Imposta solo lo stile corsivo */
-    font-weight: normal; /* Assicura che non venga applicato il grassetto */
-    line-height: inherit; /* Uniforma la linea con il testo circostante */
-    color: inherit; /* Assicura che il colore rimanga lo stesso del contesto */
-    display: inline; /* Mantiene il comportamento inline come gli altri */
+    font-style: italic;
+    font-size: 1rem; /* Reso della stessa dimensione del testo normale */
 }
 
-/* Assicura la visualizzazione corretta dei <br> */
-section.horizontal .item br {
-    display: block; /* Mantiene la funzione di andare a capo */
-    line-height: 1.2; /* Spaziatura regolabile */
+/* Lightbox (immagini cliccabili) */
+/* Lightbox Stile */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-section.horizontal .item:before {
-    position: absolute;
-    font-size: 100px;
-    opacity: .13;
-    font-weight: bold;    
-    z-index: -1;
-    transform: translate(-30px, -50px);
-    line-height: 1;
+#lightbox.active {
+    opacity: 1;
+    visibility: visible;
 }
 
-section.horizontal .animation-wrap.to-right {
-    counter-reset: item;
-    float: left;
-}
-
-section.horizontal .animation-wrap.to-left {
-    counter-reset: item 11;
-    float: right; 
-}
-
-section.horizontal .animation-wrap.to-right .item:before {
-    counter-increment: item;
-    content: counter(item);
-}
-
-section.horizontal .animation-wrap.to-left .item:before {
-    counter-increment: item -1;
-    content: counter(item);
-}
-
-/* Stile per il Modale */
-body.modal-active {
-  overflow: hidden; /* Disabilita lo scroll quando il modale è attivo */
-}
-
-.clickable-item {
-  cursor: pointer; /* Mostra il cursore "manina" */
-  transition: transform 0.3s ease;
-}
-
-.clickable-item:hover {
-  transform: scale(1.05); /* Effetto di zoom su hover */
-}
-
-/* Stile principale per il modale */
-.media-modal {
-  display: none; /* Nascosto di default */
-  position: fixed; /* Posizionato rispetto alla finestra */
-  z-index: 9999;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centra il modale rispetto alla finestra */
-  background-color: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
-  justify-content: center; /* Centra orizzontalmente */
-  align-items: center; /* Centra verticalmente */
-  width: auto; /* Dimensioni adattive */
-  height: auto;
-  padding: 20px; /* Spazio interno */
-  box-sizing: border-box; /* Include padding nelle dimensioni */
-  transition: opacity 0.3s ease; /* Aggiungi una transizione */
-	overflow: hidden; /* Nascondi overflow */
-}
-
-/* Bottone di Chiusura */
-.media-modal-close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #fefaf1;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* Stile comune per l'Immagine e il Video */
-.modal-content, .modal-video-content {
-  max-width: 95vw; /* Limita la larghezza dell'immagine o video */
-  max-height: 95vh; /* Limita l'altezza dell'immagine o video */
-  margin: auto;
-}
-
-/* Stile per l'Immagine */
-.modal-content {
-  width: auto;
-  height: auto;
-  display: block;
-}
-
-/* Stile per il Video */
-.modal-video-content {
-  display: none; /* Nascosto di default */
-}
-
-.modal-video-content video {
-  width: 100%; /* Mantieni le proporzioni */
-  height: auto; /* Mantieni le proporzioni */
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* Mantieni le proporzioni */
-}
-
-/* Transizione */
-.media-modal, .media-modal-close {
-  transition: all 0.3s ease;
-}
-
-/* Animazione per l'apertura */
-.media-modal-show {
-  display: flex; /* Visualizza il modale come flexbox */
-  opacity: 1; /* Rende visibile il modale */
+#lightbox img, #lightbox video {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
 }
 
 
@@ -284,7 +154,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1440px;
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: 20px 0;
     margin-bottom: 0;
@@ -298,38 +168,42 @@ footer {
     text-transform: uppercase;
 }
 
-/* Mobile Styles (max-width: 768px) */
+/* Mobile Styles */
 @media (max-width: 768px) {
-    /* Header */
     .case-study-title {
-        font-size: 3rem; /* Dimensioni del titolo ridotte come in contatti */
+        font-size: 3rem;
         line-height: 1.2;
     }
 
     .case-study-description {
-        font-size: 0.9rem; /* Dimensione del testo come in contatti */
+        font-size: 0.9rem;
         padding-bottom: 20px;
-		white-space: normal; /* Permetti il ritorno a capo */
-    	word-wrap: break-word; /* Gestisce le parole lunghe */
-    	overflow: visible; /* Assicura che il testo non venga tagliato */
+    }
+
+    section.horizontal {
+        gap: 20px;
+    }
+
+    section.horizontal .item img {
+        border-radius: 5px;
+    }
+
+    .media-modal img, .media-modal video {
+        max-width: 95%;
+        max-height: 85%;
     }
 	
-	.modal-video-content video {
-  width: 100%; /* Mantiene le proporzioni */
-  height: auto; /* Mantiene le proporzioni */
-  max-width: 90vw; /* Limita la larghezza per evitare che esca dallo schermo */
-  max-height: 90vh; /* Limita l'altezza per evitare che esca dallo schermo */
-  object-fit: contain; /* Mantiene le proporzioni */
+	#main-scrollbar {
+		padding: 0;
 }
-	
-	  .media-modal-close {
-    top: 20px; /* Posiziona la chiusura più in alto */
-    right: 20px; /* Posiziona la chiusura vicino al bordo destro */
-    font-size: 35px; /* Ridimensiona la chiusura per essere visibile */
-		  z-index: 10001; /* Un valore molto alto per garantire che sia visibile */
-  }
+	 /* Menu Mobile */
+    .mobile-menu-toggle {
+        display: block; /* Mostra il pulsante per il menu mobile */
+        font-size: 1.2rem;
+        color: var(--nero);
+        cursor: pointer;
+    }
 
-    /* Menu Mobile */
     .mobile-menu-overlay {
         position: fixed;
         top: 0;
@@ -342,7 +216,7 @@ footer {
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        padding-top: 185px; /* Allinea le voci del menu più in alto */
+		padding-top: 185px;
         transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
@@ -363,92 +237,22 @@ footer {
         text-transform: uppercase;
     }
 
-    /* Contenuto Sezione Centrale su Mobile */
-   section.horizontal {
-        display: flex;
-        flex-direction: column; /* Disposizione verticale */
-        padding-top: 10px;
-        padding-bottom: 10px;
-        overflow-y: auto; /* Scorrimento verticale abilitato */
-        overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
-    }
 
-    section.horizontal .pin-wrap,
-    section.horizontal .animation-wrap {
-        display: block !important;
-        height: auto !important;
-        padding-left: 15px !important; /* Aggiungi padding laterale */
-        padding-right: 15px !important;
-    }
-
-    section.horizontal .item {
-        width: 100% !important;
-        margin-bottom: 20px; /* Spazio tra i blocchi */
-        font-size: 1rem !important;
-        padding: 20px 0px; /* Riduce il padding */
-        flex: none; /* Disattiva il comportamento di flex per garantire una disposizione verticale */
-		border-right: none;
-    }
-	
-	 /* Ridimensionamento delle sezioni numeriche */
-    section.horizontal .item:before {
-        font-size: 80px;
-        transform: translate(-15px, -30px); 
-    }
-
-	
-    /* Footer */
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .footer-line {
-        width: 100%;
-        margin: 0 auto;
-    }
-}
-
-/* Tablet Styles (min-width: 769px and max-width: 1024px) */
+/* Tablet Styles */
 @media (min-width: 769px) and (max-width: 1024px) {
-    /* Contenuto Sezione Centrale su Tablet */
-    section.horizontal {
-        display: flex;
-        flex-direction: column; /* Imposta la disposizione in colonna */
-        overflow-y: auto; /* Abilita lo scorrimento verticale */
-        overflow-x: hidden;
-    }
-
-    section.horizontal .pin-wrap,
-    section.horizontal .animation-wrap {
-        display: block !important;
-        height: auto;
-    }
-
-    section.horizontal .item {
-        padding: 20px 0;
-        width: 100% !important;
-        height: auto;
-        margin-bottom: 20px;
-    }
-
-
-    /* Stile Testi su Tablet */
     .case-study-title {
         font-size: 4rem;
     }
-	
-	.case-study-header-content {
-		height: auto;
-	}
 
     .case-study-description {
         font-size: 1rem;
         padding-bottom: 20px;
     }
+
+    section.horizontal {
+        gap: 25px;
+    }
 	
-
+	
+	}
 }
-
