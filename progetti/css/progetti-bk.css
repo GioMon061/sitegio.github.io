@@ -1,0 +1,314 @@
+/* Importa i font e le variabili dal CSS esistente */
+@import url("../css/fonts.css");
+
+/* Aggiungi eventuali nuove variabili se necessario */
+:root {
+    --nero: #0d0d0d;
+    --bianco: #fefaf1;
+}
+
+html, body  {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+	overflow: hidden;
+}
+
+.container-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+	padding: 0 15px; /* Padding laterale */
+}
+
+/* Stile per il contenuto del titolo del caso studio */
+.project-header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: var(--nero);
+    padding: 20px;
+    padding: 100px 0 30px;
+}
+
+.project-title {
+    font-size: 6rem;
+    margin-bottom: 20px;
+}
+
+.project-title .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.project-title .bold {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.project-description {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1rem;
+	max-width: 500px;
+}
+
+
+
+/* Menu overlay per mobile */
+.mobile-menu-overlay {
+    display: none;
+}
+
+/* Sezione Contenuto */
+
+/* Sezione per il layout dei contenuti del progetto */
+.content-section {
+  margin: 60px auto;
+  padding: 0;
+  max-width: 1440px;
+}
+
+/* Impostazioni base per il layout Flexbox */
+.flex-container {
+  display: flex; /* Layout Flexbox */
+  align-items: center; /* Allinea al centro verticalmente */
+  justify-content: space-between; /* Spaziatura tra colonne */
+  margin: 40px 0; /* Spazio tra i blocchi */
+}
+
+/* Impostazione per testo e immagine */
+.text-box,
+.image-box{
+  width: 45%; /* Ogni elemento occupa il 45% dello spazio orizzontale */
+  padding: 20px 0px 20px 0; /* Spaziatura interna */
+}
+
+
+/* Stili per le immagini */
+.image-box img {
+  width: 100%; /* L'immagine riempie tutto il contenitore */
+  height: auto; /* Mantiene le proporzioni */
+  border-radius: 5px; /* Arrotondamento angoli */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+
+/* Stile per il Modale */
+body.modal-active {
+  overflow: hidden; /* Disabilita lo scroll quando il modale è attivo */
+}
+
+.clickable-item {
+  cursor: pointer; /* Mostra il cursore "manina" */
+  transition: transform 0.3s ease;
+}
+
+.clickable-item:hover {
+  transform: scale(1.05); /* Effetto di zoom su hover */
+}
+
+/* Stile principale per il modale */
+.media-modal {
+  display: none; /* Nascosto di default */
+  position: fixed; /* Posizionato rispetto alla finestra */
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra il modale rispetto alla finestra */
+  background-color: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  width: auto; /* Dimensioni adattive */
+  height: auto;
+  padding: 20px; /* Spazio interno */
+  box-sizing: border-box; /* Include padding nelle dimensioni */
+  transition: opacity 0.3s ease; /* Aggiungi una transizione */
+	overflow: hidden; /* Nascondi overflow */
+}
+
+/* Bottone di Chiusura */
+.media-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fefaf1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Stile comune per l'Immagine e il Video */
+.modal-content, .modal-video-content {
+  max-width: 90vw; /* Limita la larghezza dell'immagine o video */
+  max-height: 90vh; /* Limita l'altezza dell'immagine o video */
+  margin: auto;
+}
+
+/* Stile per l'Immagine */
+.modal-content {
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+/* Stile per il Video */
+.modal-video-content {
+  display: none; /* Nascosto di default */
+}
+
+.modal-video-content video {
+  width: 100%; /* Mantieni le proporzioni */
+  height: auto; /* Mantieni le proporzioni */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Mantieni le proporzioni */
+}
+
+/* Transizione */
+.media-modal, .media-modal-close {
+  transition: all 0.3s ease;
+}
+
+/* Animazione per l'apertura */
+.media-modal-show {
+  display: flex; /* Visualizza il modale come flexbox */
+  opacity: 1; /* Rende visibile il modale */
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--bianco);
+    color: var(--nero);
+    padding: 20px 0;
+}
+
+.footer-line {
+    border-top: 2px solid var(--nero);
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 0;
+    margin-bottom: 0;
+}
+
+.footer-content a {
+    color: var(--nero);
+    text-decoration: none;
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Mobile Styles (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Header */
+    .project-title {
+        font-size: 3rem; /* Dimensione del titolo ridotta come in contatti */
+        line-height: 1.2;
+    }
+
+    .project-description {
+        font-size: 0.9rem; /* Testo descrizione ridotto come in contatti */
+        padding-bottom: 20px; /* Aggiungi spazio sotto la descrizione */
+    }
+
+    /* Menu Mobile */
+    .mobile-menu-toggle {
+        display: block; /* Mostra il pulsante per il menu mobile */
+        font-size: 1.2rem;
+        color: var(--nero);
+        cursor: pointer;
+    }
+
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--nero);
+        color: var(--bianco);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+		padding-top: 185px;
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .mobile-menu-overlay ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    .mobile-menu-overlay li {
+        margin: 20px 0;
+    }
+
+    .mobile-menu-overlay a {
+        text-decoration: none;
+        color: var(--bianco);
+        font-size: 2.5rem;
+        text-transform: uppercase;
+    }
+
+    /* Colonna per testi e immagini */
+    .flex-container {
+        display: flex;
+        flex-direction: column; /* Disposizione verticale */
+        gap: 20px; /* Spazio tra testo e immagini */
+        margin: 20px 0; /* Spazio tra i blocchi */
+    }
+
+/* Alterna tra testo e immagine */
+.text-box:nth-child(odd) {
+    order: 1; /* I testi dispari */
+}
+
+.image-box:nth-child(even) {
+    order: 2; /* Le immagini pari */
+}
+
+.text-box:nth-child(even) {
+    order: 3; /* I testi pari */
+}
+
+.image-box:nth-child(odd) {
+    order: 4; /* Le immagini dispari */
+}
+
+.text-box,
+.image-box {
+    width: 100%; /* I blocchi occupano l'intera larghezza */
+    padding: 0;
+}
+
+.image-box img {
+    width: 100%; /* L'immagine occupa tutta la larghezza disponibile */
+    height: auto;
+}
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+		margin-bottom: 0;
+    }
+
+    .footer-line {
+        width: 100%;
+        margin: 0 auto;
+    }
+}

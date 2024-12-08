@@ -601,11 +601,11 @@ nav a {
 }
 
 
-/* SEZIONE COME POSSO AIUTARTI */
+/* SEZIONE COME POSSO AIUTARTI 
 .services-section {
     padding: 200px 0px 250px;
     background-color: var(--bianco);
-}
+}*/
 
 /* Contenitore con due colonne */
 .services-container {
@@ -649,10 +649,10 @@ nav a {
 }
 
 .services-item.E {
-	padding-bottom: 90px;
+	padding-bottom: 62px;
 }
 
-/* Stile per i pulsanti */
+/* Stile per i pulsanti 
 .services-button, .pdf-button {
     display: inline-block;
     padding: 10px 30px;
@@ -669,11 +669,219 @@ nav a {
     width: fit-content;
 }
 
-/* Hover per i pulsanti */
+/* Hover per i pulsanti 
 .services-button:hover, .pdf-button:hover {
     background-color: var(--bianco);
     color: var(--nero);
     border: 2px solid var(--nero);
+}
+
+/* sezione COME POSSO AIUTARTI VARIABILE */
+.come-posso-aiutarti {
+	width: 100vw; /* Copri l'intera larghezza dello schermo */
+	margin-left: calc(-50vw + 50%); /* Estendi il margine sinistro */
+}
+.services-section {
+    padding: 200px 0px 250px;
+    background-color: var(--nero);
+	color: var(--bianco);
+}
+
+/* Stile variabile per i pulsanti */
+.services-button, .pdf-button {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: var(--bianco);
+    color: var(--nero);
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-family: 'Suisse Int\'l', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid var(--bianco);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    max-width: 200px;
+    width: fit-content;
+}
+
+/* Hover per i pulsanti variabile*/
+.services-button:hover, .pdf-button:hover {
+    background-color: var(--nero);
+    color: var(--bianco);
+    border: 2px solid var(--bianco);
+}
+
+/* Testimonial Section */
+.testimonial-section {
+  background-color: var(--bianco);
+  color: var(--nero);
+  padding: 150px 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.testimonial-section .container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+
+.testimonial-title {
+  font-size: 3rem;
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.testimonial-title .light {
+  font-family: 'Times Now', serif;
+  font-weight: 300;
+}
+
+.testimonial-title .bold {
+  font-family: 'Suisse Int\'l', sans-serif;
+  font-weight: 400;
+}
+
+.testimonial-slider {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Centra il contenuto orizzontalmente */
+  align-items: center;     /* Centra verticalmente, se necessario */
+  min-height: 575px; /* o un valore adatto al tuo layout */
+}
+
+.testimonial-card {
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  box-sizing: border-box; 
+  max-width: 1100px;
+  width: 100%;	
+  margin: 0 auto;
+  border: 3px solid #0d0d0d;
+  border-radius: 12px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-card.active {
+  opacity: 1; /* Card attiva visibile */
+  transform: translateX(0); /* Card attiva centrata */
+}
+
+.testimonial-card:last-child {
+  margin-right: 0;
+}
+
+.testimonial-text {
+  font-family: 'Suisse Int\'l', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-family: 'Suisse Int\'l', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.author-role {
+  font-family: 'Suisse Int\'l', sans-serif;
+  font-size: 0.9rem;
+}
+
+.author-role i {
+	font-style: italic;
+  font-size: inherit; /* Usa la stessa dimensione del testo circostante */
+  line-height: inherit;
+}
+
+.author-image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.original-testimonial {
+  max-width: 300px; /* Dimensione ridotta per non dominare la scena */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.original-testimonial-label {
+  font-size: 0.8rem;
+  font-family: 'Suisse Int\'l', sans-serif;
+  color: #6b6b6b;
+  margin-bottom: 5px;
+  text-align: left;	
+}
+
+.original-testimonial img {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Navigazione */
+.testimonial-navigation {
+  position: absolute;
+  top: 50%; 
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.nav-arrow {
+  pointer-events: all;	
+  background-color: var(--nero);
+  color: var(--bianco);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background-color: var(--corallo);
+  color: var(--nero);
+  border: 3px solid #0d0d0d;
+  	
+}
+
+.nav-arrow:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
 }
 
 

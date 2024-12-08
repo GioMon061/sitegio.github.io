@@ -1,32 +1,34 @@
 /* Importa i font e le variabili dal CSS esistente */
 @import url("../css/fonts.css");
 
-/* Aggiungi eventuali nuove variabili se necessario */
+/* Variabili */
 :root {
     --nero: #0d0d0d;
     --bianco: #fefaf1;
 }
 
-html, body  {
+/* Reset di base */
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .container-wrapper {
     max-width: 1440px;
     margin: 0 auto;
-	padding: 0 15px; /* Padding laterale */
+    padding: 0 15px;
 }
 
-/* Stile per il contenuto del titolo del caso studio */
+/* Header, nav, footer invariati */
+
+/* Stile per il contenuto del titolo del progetto */
 .project-header-content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     color: var(--nero);
-    padding: 20px;
     padding: 100px 0 30px;
 }
 
@@ -46,139 +48,114 @@ html, body  {
     text-transform: uppercase;
 }
 
+/* Aumentiamo la larghezza massima del sottotitolo a 1000px come nel caso studio */
 .project-description {
     font-family: 'Suisse Intl', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
     font-size: 1rem;
-	max-width: 500px;
+    max-width: 1000px;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: visible;
+    margin-bottom: 0; /* Puoi regolare se vuoi più spazio sotto */
 }
-
-
 
 /* Menu overlay per mobile */
 .mobile-menu-overlay {
     display: none;
 }
 
-/* Sezione Contenuto */
+/* -------------------------------------------------------------------------------- */
+/* SEZIONE CONTENUTO - Stile tipo caso studio */
+/* -------------------------------------------------------------------------------- */
 
-/* Sezione per il layout dei contenuti del progetto */
 .content-section {
-  margin: 60px auto;
-  padding: 0;
-  max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px; 
+    margin: 0 auto;
+    max-width: 1440px;
 }
 
-/* Impostazioni base per il layout Flexbox */
 .flex-container {
-  display: flex; /* Layout Flexbox */
-  align-items: center; /* Allinea al centro verticalmente */
-  justify-content: space-between; /* Spaziatura tra colonne */
-  margin: 40px 0; /* Spazio tra i blocchi */
+    display: block; 
+    margin-bottom: 30px;
+    padding: 50px 0 0 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    word-wrap: break-word;
+    color: var(--nero);
+    font-family: 'Suisse Intl', sans-serif;
 }
 
-/* Impostazione per testo e immagine */
 .text-box,
-.image-box{
-  width: 45%; /* Ogni elemento occupa il 45% dello spazio orizzontale */
-  padding: 20px 0px 20px 0; /* Spaziatura interna */
+.image-box {
+    width: 100%;
+    margin-bottom: 30px;
 }
 
+/* Stile testuale come nel caso studio */
+.text-box p,
+.text-box ul {
+    margin-bottom: 20px;
+}
 
-/* Stili per le immagini */
+.text-box b {
+    font-weight: bold;
+    text-transform: none;
+}
+
+.text-box i {
+    font-style: italic;
+    font-size: 1rem;
+}
+
+/* Immagini con stile simile al caso studio */
 .image-box img {
-  width: 100%; /* L'immagine riempie tutto il contenitore */
-  height: auto; /* Mantiene le proporzioni */
-  border-radius: 5px; /* Arrotondamento angoli */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* -------------------------------------------------------------------------------- */
+/* LIGHTBOX come nel caso studio */
+/* -------------------------------------------------------------------------------- */
 
-/* Stile per il Modale */
-body.modal-active {
-  overflow: hidden; /* Disabilita lo scroll quando il modale è attivo */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.clickable-item {
-  cursor: pointer; /* Mostra il cursore "manina" */
-  transition: transform 0.3s ease;
+#lightbox.active {
+    opacity: 1;
+    visibility: visible;
 }
 
-.clickable-item:hover {
-  transform: scale(1.05); /* Effetto di zoom su hover */
+#lightbox img,
+#lightbox video {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
 }
 
-/* Stile principale per il modale */
-.media-modal {
-  display: none; /* Nascosto di default */
-  position: fixed; /* Posizionato rispetto alla finestra */
-  z-index: 9999;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centra il modale rispetto alla finestra */
-  background-color: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
-  justify-content: center; /* Centra orizzontalmente */
-  align-items: center; /* Centra verticalmente */
-  width: auto; /* Dimensioni adattive */
-  height: auto;
-  padding: 20px; /* Spazio interno */
-  box-sizing: border-box; /* Include padding nelle dimensioni */
-  transition: opacity 0.3s ease; /* Aggiungi una transizione */
-	overflow: hidden; /* Nascondi overflow */
-}
+/* Rimuoviamo completamente i riferimenti a .media-modal e modal-content, non servono più */
 
-/* Bottone di Chiusura */
-.media-modal-close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #fefaf1;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* Stile comune per l'Immagine e il Video */
-.modal-content, .modal-video-content {
-  max-width: 90vw; /* Limita la larghezza dell'immagine o video */
-  max-height: 90vh; /* Limita l'altezza dell'immagine o video */
-  margin: auto;
-}
-
-/* Stile per l'Immagine */
-.modal-content {
-  width: auto;
-  height: auto;
-  display: block;
-}
-
-/* Stile per il Video */
-.modal-video-content {
-  display: none; /* Nascosto di default */
-}
-
-.modal-video-content video {
-  width: 100%; /* Mantieni le proporzioni */
-  height: auto; /* Mantieni le proporzioni */
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* Mantieni le proporzioni */
-}
-
-/* Transizione */
-.media-modal, .media-modal-close {
-  transition: all 0.3s ease;
-}
-
-/* Animazione per l'apertura */
-.media-modal-show {
-  display: flex; /* Visualizza il modale come flexbox */
-  opacity: 1; /* Rende visibile il modale */
-}
-
-
-/* Footer */
+/* Footer invariato */
 footer {
     background-color: var(--bianco);
     color: var(--nero);
@@ -208,22 +185,20 @@ footer {
     text-transform: uppercase;
 }
 
-/* Mobile Styles (max-width: 768px) */
+/* Mobile Styles */
 @media (max-width: 768px) {
-    /* Header */
     .project-title {
-        font-size: 3rem; /* Dimensione del titolo ridotta come in contatti */
+        font-size: 3rem;
         line-height: 1.2;
     }
 
     .project-description {
-        font-size: 0.9rem; /* Testo descrizione ridotto come in contatti */
-        padding-bottom: 20px; /* Aggiungi spazio sotto la descrizione */
+        font-size: 0.9rem;
+        padding-bottom: 20px;
     }
 
-    /* Menu Mobile */
     .mobile-menu-toggle {
-        display: block; /* Mostra il pulsante per il menu mobile */
+        display: block;
         font-size: 1.2rem;
         color: var(--nero);
         cursor: pointer;
@@ -241,7 +216,7 @@ footer {
         display: flex;
         justify-content: center;
         align-items: flex-start;
-		padding-top: 185px;
+        padding-top: 185px;
         transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
@@ -262,53 +237,46 @@ footer {
         text-transform: uppercase;
     }
 
-    /* Colonna per testi e immagini */
-    .flex-container {
-        display: flex;
-        flex-direction: column; /* Disposizione verticale */
-        gap: 20px; /* Spazio tra testo e immagini */
-        margin: 20px 0; /* Spazio tra i blocchi */
+    .content-section {
+        padding: 0 20px;
     }
 
-/* Alterna tra testo e immagine */
-.text-box:nth-child(odd) {
-    order: 1; /* I testi dispari */
-}
+    .flex-container {
+        margin-bottom: 20px;
+        padding: 20px 0 0 0;
+    }
 
-.image-box:nth-child(even) {
-    order: 2; /* Le immagini pari */
-}
+    .text-box,
+    .image-box {
+        margin-bottom: 20px;
+    }
 
-.text-box:nth-child(even) {
-    order: 3; /* I testi pari */
-}
-
-.image-box:nth-child(odd) {
-    order: 4; /* Le immagini dispari */
-}
-
-.text-box,
-.image-box {
-    width: 100%; /* I blocchi occupano l'intera larghezza */
-    padding: 0;
-}
-
-.image-box img {
-    width: 100%; /* L'immagine occupa tutta la larghezza disponibile */
-    height: auto;
-}
-
-    /* Footer */
     .footer-content {
         flex-direction: column;
         align-items: center;
         text-align: center;
         padding: 20px;
-		margin-bottom: 0;
+        margin-bottom: 0;
     }
 
     .footer-line {
         width: 100%;
         margin: 0 auto;
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .project-title {
+        font-size: 4rem;
+    }
+
+    .project-description {
+        font-size: 1rem;
+        padding-bottom: 20px;
+    }
+
+    .content-section {
+        gap: 40px;
     }
 }
