@@ -2,11 +2,22 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Design Cantina Vinicola - Altri Progetti</title>
     <!-- Collegamento al CSS generale -->
     <link rel="stylesheet" href="../css/style.css">
     <!-- Collegamento al CSS specifico del caso studio -->
     <link rel="stylesheet" href="css/progetti.css">
+	
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KXWZK25C8C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KXWZK25C8C');
+</script>
 
 </head>
 <body>
@@ -15,14 +26,14 @@
 	<div class="container-wrapper">
     <header class="project-header">
         <div class="logo">
-            <a href="https://gioiamongelli.com" target="_self">
+            <a href="https://gioiamongelli.com" >
                 <img src="../img/logo.svg" alt="Gioia Mongelli Logo">
             </a>
         </div>
         <nav>
                 <div class="mobile-menu-toggle">Menu</div>
 			<a href="../index.html" class="nav-link" data-cursor="-opaque">Home</a>
-                <a href="../index.html/#case-studies"  class="nav-link" data-cursor="-opaque">Casi Studio</a>
+                <a href="../index.html#case-studies"  class="nav-link" data-cursor="-opaque">Casi Studio</a>
     <a href="../servizi/servizi.html"  class="nav-link" data-cursor="-opaque">Servizi</a>
     <a href="../chi-sono/chi-sono.html"  class="nav-link" data-cursor="-opaque">Chi sono</a>
     <a href="../contatti/contatti.html"  class="nav-link" data-cursor="-opaque">Contatti</a>
@@ -34,7 +45,7 @@
         <div class="mobile-menu-close">X</div>
         <ul>
               <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html/#case-studies">Casi Studio</a></li>
+            <li><a href="../index.html#case-studies">Casi Studio</a></li>
         <li><a href="../servizi/servizi.html">Servizi</a></li>
         <li><a href="../chi-sono/chi-sono.html">Chi sono</a></li>
         <li><a href="../contatti/contatti.html">Contatti</a></li>
@@ -52,66 +63,47 @@
             </p>
         </div>
     </section>
-	</div>
+
 	
 
 
-	<!-- Sezione Contenuto-->
+
 	
 <!-- Sezione Contenuto - Singolo Progetto -->
 <section class="content-section">
-  <!-- Primo Blocco: Testo a sinistra, Immagine a destra -->
+	<!-- Primo Blocco-->
+  <div class="flex-container">
+ <div class="text-box">
+      <p>Creazione di una newsletter promozionale per una cantina vinicola della Napa Valley. </p>
+    </div>
+<div class="item"><video src="video/email-design.webm" autoplay muted loop playsinline class="auto-video"></video></div>
+  </div>
+  <!-- Secondo Blocco -->
   <div class="flex-container">
     <div class="text-box">
-      <p>Creazione di una newsletter promozionale per una cantina vinicola della Napa Valley. Il progetto mirava a evidenziare le caratteristiche di due vini distinti utilizzando i materiali grafici e il testo forniti dal cliente.</p>
+      <p>Il progetto mirava a evidenziare le caratteristiche di due vini distinti utilizzando i materiali grafici e il testo forniti dal cliente.</p>
     </div>
     <div class="image-box">
-      <img src="img/vineyard-01.png" data-type="image" data-src="img/vineyard-01.png" class="clickable-item" alt="Newsletter laptop mockup 01">
+      <img src="img/vineyard-01.webp" data-type="image" data-src="img/vineyard-01.webp" class="clickable-item" alt="Newsletter laptop mockup 01">
+		 
     </div>
   </div>
-
-  <!-- Secondo Blocco: Immagine a sinistra, Testo a destra (inversione) -->
+  <!-- Terzo Blocco-->
   <div class="flex-container">
-    <div class="image-box">
-      <img src="img/vineyard-02.png" data-type="image" data-src="img/vineyard-02.png" class="clickable-item" alt="Newsletter laptop mockup 02">
-    </div>
     <div class="text-box">
-      <p><b>Dettagli di Design</b>
-    <ul>Utilizzo della palette colori e tipografia del sito web per mantenere la coerenza visiva.</ul>
-    <ul>Integrazione delle grafiche delle etichette delle bottiglie per differenziare i due vini.</ul>
-    <ul>Enfasi sulla chiarezza visiva per facilitare la lettura e la comprensione.</ul></p>
+      <p><b>Dettagli di Design</b><br>
+    Utilizzo della palette colori e tipografia del sito web per mantenere la coerenza visiva.<br>
+    Integrazione delle grafiche delle etichette delle bottiglie per differenziare i due vini.<br>
+    Enfasi sulla chiarezza visiva per facilitare la lettura e la comprensione.<br></p>
     </div>
-  </div>
-
-  <!-- Terzo Blocco: Testo a sinistra, Immagine a destra -->
-  <div class="flex-container">
-   <!-- <div class="text-box">
-      <h2>Risultati Finali</h2>
-      <p>Descrivi i risultati finali ottenuti, se pertinenti, e come il design ha soddisfatto le esigenze del cliente.</p>
+	 <div class="image-box">
+      <img src="img/vineyard-02.webp" data-type="image" data-src="img/vineyard-02.webp" class="clickable-item" alt="Newsletter laptop mockup 02">
     </div>
-    <div class="image-box">
-      <img src="../img/mockup3.jpg" alt="Descrizione dell'immagine 3">
-    </div>-->
   </div>
 </section>
-
-     
-	<!-- Modal per le Immagini e i Video -->
-<div id="media-modal" class="media-modal">
-  <span class="media-modal-close">&times;</span>
-  <img id="modal-image" class="modal-content">
-  <div id="modal-video" class="modal-video-content">
-    <video id="video-iframe" controls>
-                <source src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-  </div>
-</div>
-	<!-- END Sezione Contenuto-->
 	
 	
  <!-- Footer -->
-	<div class="container-wrapper">
     <footer>
         <div class="footer-line"></div>
         <div class="footer-content container">

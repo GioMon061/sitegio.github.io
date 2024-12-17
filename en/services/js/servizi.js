@@ -78,6 +78,10 @@ function handleCardExpansionWithModal() {
 
       // Ripristina il display e applica la classe show con un piccolo delay
       modal.style.display = 'flex';
+
+      // Scorri automaticamente verso l'alto quando il modal viene aperto
+      bodyScrollBar.scrollTo(0, 0); // Sposta all'inizio della pagina
+
       setTimeout(() => {
         modalContent.classList.add('show');
         modal.classList.add('show');

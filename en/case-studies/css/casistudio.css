@@ -1,52 +1,39 @@
 /* Importa i font e le variabili dal CSS esistente */
 @import url("../css/fonts.css");
 
-/* Aggiungi eventuali nuove variabili se necessario */
+/* Variabili principali */
 :root {
-    /* Le variabili esistenti sono già definite nel tuo styles.css */
+    --max-width: 1440px;
+    --padding: 15px;
 }
 
-html, body, section.horizontal {
+/* Struttura generale */
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-	overflow: hidden;
+    overflow-x: hidden;
 }
 
-body { 
-  margin: 0;
-  padding: 0;
+body {
+    margin: 0;
+    padding: 0;
 }
 
 .container-wrapper {
-    max-width: 1440px;
+    max-width: var(--max-width);
     margin: 0 auto;
+    padding: 0 var(--padding);
 }
 
-/* Stile per il logo e la navigazione */
-header.case-study-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 0 20px;
-    color: var(--nero);
-}
-
-/* Stile per il logo */
-.logo img {
-    width: 90px;
-    height: auto;
-}
-
-/* Stile per il contenuto del titolo del caso studio */
+/* Header e titolo del caso studio */
 .case-study-header-content {
-    height: 50vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     color: var(--nero);
-    padding: 20px;
-    padding: 100px 0;
+    padding: 100px 15px 30px;
 }
 
 .case-study-title {
@@ -70,213 +57,92 @@ header.case-study-header {
     font-weight: 500;
     text-transform: uppercase;
     font-size: 1rem;
-	max-width: 500px;
+    max-width: 1000px; /* Aumentato il width del sottotitolo */
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: visible;
+    margin-bottom: 40px; /* Aggiunto spazio extra sotto */
 }
 
-
-
-/* Menu overlay per mobile */
-.mobile-menu-overlay {
-    display: none;
-}
-
-/* Sezione Contenuto */
-
-body#main-scrollbar {
-    width: auto;
-    height: 100vh;
-    overflow: hidden;
-}
-
-h1 {
-    margin: 0;
-    padding: 50px 0 0 0px;
-}
-
-p {
-    margin: 0;
-    padding: 50px 0 50px 0px;
-}
-
-section {
+/* Contenuto centrale verticale */
+#main-scrollbar {
     width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-section:nth-of-type(odd) {
-    background-color: #fefaf1;
-}
-
-section:nth-of-type(even) {
-    background-color: #fefaf1;
+    overflow-y: auto;
+    padding: 30px 15px;
 }
 
 section.horizontal {
-    overflow-x: hidden;
-	padding-top: 50px;
-}
-
-section.horizontal .pin-wrap,
-section.horizontal .animation-wrap {
     display: flex;
-    position: relative;
-    z-index: 1;  
-    height: 70vh;
-    padding-left: max(calc((87vw - 1440px) / 2), 15px);
+    flex-direction: column;
+    gap: 50px; /* Aumentato lo spazio tra le sezioni */
+    margin: 0 auto;
+    max-width: var(--max-width);
+    padding: 0 var(--padding);
 }
 
 section.horizontal .item {
-    position: relative;
-    padding: 50px 60px;
-    flex: 0 0 600px;
-    height: auto;
-    display: block;
-    align-items: center;
+    margin-bottom: 30px;
+	padding: 50px 0 0 0;
+    font-size: 1rem;
     line-height: 1.7;
-    user-select: none;
-    border-right: 1px solid rgba(0, 0, 0, 0.06);
-    background-color: transparent;
+    word-wrap: break-word;
+    color: var(--nero);
 }
 
+section.horizontal .item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-
-/* Gestione dei tag di formattazione */
-section.horizontal .item span, 
 section.horizontal .item b {
-    display: inline; /* Mantiene tutto nella stessa linea */
-    font-weight: 500;
-    margin: 0;
-    padding: 0;
+    font-weight: bold;
+    text-transform: none;
 }
 
 section.horizontal .item i {
-    font-size: inherit; /* Mantieni la stessa dimensione del testo circostante */
-    font-style: italic; /* Imposta solo lo stile corsivo */
-    font-weight: normal; /* Assicura che non venga applicato il grassetto */
-    line-height: inherit; /* Uniforma la linea con il testo circostante */
-    color: inherit; /* Assicura che il colore rimanga lo stesso del contesto */
-    display: inline; /* Mantiene il comportamento inline come gli altri */
+    font-style: italic;
+    font-size: 1rem; /* Reso della stessa dimensione del testo normale */
 }
 
-/* Assicura la visualizzazione corretta dei <br> */
-section.horizontal .item br {
-    display: block; /* Mantiene la funzione di andare a capo */
-    line-height: 1.2; /* Spaziatura regolabile */
+/* Lightbox (immagini cliccabili) */
+/* Lightbox Stile */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-section.horizontal .item:before {
-    position: absolute;
-    font-size: 100px;
-    opacity: .13;
-    font-weight: bold;    
-    z-index: -1;
-    transform: translate(-30px, -50px);
-    line-height: 1;
+#lightbox.active {
+    opacity: 1;
+    visibility: visible;
 }
 
-section.horizontal .animation-wrap.to-right {
-    counter-reset: item;
-    float: left;
+#lightbox img, #lightbox video {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
 }
 
-section.horizontal .animation-wrap.to-left {
-    counter-reset: item 11;
-    float: right; 
-}
-
-section.horizontal .animation-wrap.to-right .item:before {
-    counter-increment: item;
-    content: counter(item);
-}
-
-section.horizontal .animation-wrap.to-left .item:before {
-    counter-increment: item -1;
-    content: counter(item);
-}
-
-/* Stile per il Modale */
-body.modal-active {
-  overflow: hidden; /* Disabilita lo scroll quando il modale è attivo */
-}
-
-.clickable-item {
-  cursor: pointer; /* Mostra il cursore "manina" */
-  transition: transform 0.3s ease;
-}
-
-.clickable-item:hover {
-  transform: scale(1.05); /* Effetto di zoom su hover */
-}
-
-/* Stile principale per il modale */
-.media-modal {
-  display: none; /* Nascosto di default */
-  position: fixed; /* Posizionato rispetto alla finestra */
-  z-index: 9999;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centra il modale rispetto alla finestra */
-  background-color: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
-  justify-content: center; /* Centra orizzontalmente */
-  align-items: center; /* Centra verticalmente */
-  width: auto; /* Dimensioni adattive */
+.auto-video {
+  width: 100%; 
   height: auto;
-  padding: 20px; /* Spazio interno */
-  box-sizing: border-box; /* Include padding nelle dimensioni */
-  transition: opacity 0.3s ease; /* Aggiungi una transizione */
-	overflow: hidden; /* Nascondi overflow */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-/* Bottone di Chiusura */
-.media-modal-close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #fefaf1;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* Stile comune per l'Immagine e il Video */
-.modal-content, .modal-video-content {
-  max-width: 90vw; /* Limita la larghezza dell'immagine o video */
-  max-height: 90vh; /* Limita l'altezza dell'immagine o video */
-  margin: auto;
-}
-
-/* Stile per l'Immagine */
-.modal-content {
-  width: auto;
-  height: auto;
-  display: block;
-}
-
-/* Stile per il Video */
-.modal-video-content {
-  display: none; /* Nascosto di default */
-}
-
-.modal-video-content video {
-  width: 100%; /* Mantieni le proporzioni */
-  height: auto; /* Mantieni le proporzioni */
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* Mantieni le proporzioni */
-}
-
-/* Transizione */
-.media-modal, .media-modal-close {
-  transition: all 0.3s ease;
-}
-
-/* Animazione per l'apertura */
-.media-modal-show {
-  display: flex; /* Visualizza il modale come flexbox */
-  opacity: 1; /* Rende visibile il modale */
-}
-
 
 /* Footer */
 footer {
@@ -294,7 +160,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1440px;
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: 20px 0;
     margin-bottom: 0;
@@ -310,236 +176,89 @@ footer {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-	
-	header.case-study-header {
-    padding-left: 15px;
-	padding-right: 15px;	
-}
-	
-
-    .case-study-header-content {
-        height: auto;
-		padding: 0 15px;
+    .case-study-title {
+        font-size: 3rem;
+        line-height: 1.2;
     }
-	
-	.case-study-title {
-		font-size: 3rem;
-	}
-	
-	.case-study-description {
-		font-size: 0.85rem;
-		padding: 50px 50px 50px 0;
-		
-	}
 
-    /* Make each item in the horizontal section full-width */
-    section.horizontal .item {
-        width: auto !important;
-        /*padding-left: 15px !important;  Forza il padding sinistro */
-    	/*padding-right: 15px !important;  Forza il padding destro */
-        font-size: 1rem !important;
-        height: auto !important;
-		margin-left: 0;
-		margin-right: 0;
-		border-right: none;
-		flex: 0 0 90vw; /* Quasi tutta la larghezza in mobile */
-        padding: 20px 30px; /* Riduce ulteriormente il padding */
+    .case-study-description {
+        font-size: 0.9rem;
+        padding-bottom: 20px;
     }
 
     section.horizontal {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        overflow-x: hidden; /* Eliminate horizontal scroll */
+        gap: 20px;
+    }
+
+    section.horizontal .item img {
+        border-radius: 5px;
+    }
+
+    .media-modal img, .media-modal video {
+        max-width: 95%;
+        max-height: 85%;
     }
 	
-	section.horizontal .pin-wrap,
-    section.horizontal .animation-wrap {
-        display: block !important; /* Force column layout */
-        position: relative;
-        width: 90% !important;
-        height: auto !important;
-        padding: 0 10px;
-    }
-	
-
-    section.horizontal .item:before {
-        font-size: 80px; /* Riduce il numero di sezione */
-        transform: translate(-15px, -30px); /* Adatta il posizionamento */
-    }
-	
-	/* Gestisci il margine del contenitore principale */
-  .container-wrapper {
-    padding: 0 15px; /* Aggiungi padding laterale per evitare overflow */
-  }
-	
-	.media-modal {
-    width: 90vw; /* Aumenta la larghezza del modale */
-    height: auto;
-  }
-
-  .modal-video-content video {
-    max-width: 100%; /* Adatta alla dimensione del contenitore */
-    height: auto; /* Mantieni le proporzioni */
-  }
+	#main-scrollbar {
+		padding: 0;
 }
-	
-/* Mobile Menu Toggle */
-.mobile-menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: var(--nero);
-}
-
-/* Menu overlay per mobile */
-.mobile-menu-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    transform: translateX(100%);
-    width: 100%;
-    height: 100%;
-    background-color: #0d0d0d;
-    color: #fefaf1;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Cambia align-items per spostare il testo più in alto */
-    padding-top: 100px; /* Aggiungi padding per dare spazio sopra */
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Lista di elementi del menu */
-.mobile-menu-overlay ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-/* Margine tra gli elementi del menu */
-.mobile-menu-overlay li {
-    margin: 20px 0;
-}
-
-/* Link del menu */
-.mobile-menu-overlay a {
-    text-decoration: none;
-    color: #fefaf1;
-    font-size: 2rem;
-    text-transform: uppercase;
-}
-
-/* Aggiungi la classe 'open' per mostrare il menu */
-.mobile-menu-overlay.open {
-    transform: translateX(0);
-}
-
-/* Stile per il pulsante di chiusura (X) */
-.mobile-menu-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #fefaf1;
-    content: '✕'; /* Sostituisce 'Chiudi' con l'icona 'X' */
-    font-weight: 400;
-}
-
-/* Visualizza il pulsante menu in mobile */
-@media (max-width: 768px) {
+	 /* Menu Mobile */
     .mobile-menu-toggle {
-        display: block;
+        display: block; /* Mostra il pulsante per il menu mobile */
+        font-size: 1.2rem;
+        color: var(--nero);
+        cursor: pointer;
     }
 
-    nav a {
-        display: none;
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--nero);
+        color: var(--bianco);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+		padding-top: 185px;
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-}
+    .mobile-menu-overlay ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    .mobile-menu-overlay li {
+        margin: 20px 0;
+    }
+
+    .mobile-menu-overlay a {
+        text-decoration: none;
+        color: var(--bianco);
+        font-size: 2.5rem;
+        text-transform: uppercase;
+    }
+
 
 /* Tablet Styles */
 @media (min-width: 769px) and (max-width: 1024px) {
-    header.case-study-header, footer {
-        max-width: 90vw;
-        margin: 0 auto;
-        padding: 20px 10px;
-    }
-	
-	.case-study-title {
-		font-size: 3rem;
-	}
-
-
-    section.horizontal .pin-wrap,
-    section.horizontal .animation-wrap {
-		display: block!important;
-        height: auto;
-        padding: 0 15px;
+    .case-study-title {
+        font-size: 4rem;
     }
 
-    section.horizontal .item {
-        padding: 20px;
-        width: 80% !important;
-        height: auto;
-		border-right: none;
+    .case-study-description {
+        font-size: 1rem;
+        padding-bottom: 20px;
     }
 
     section.horizontal {
-        padding: 0px;
-        overflow-x: hidden;
+        gap: 25px;
     }
 	
-	.media-modal {
-    width: 85vw; /* Riduci leggermente la larghezza */
-    height: auto;
-  }
-
-  .modal-video-content video {
-    max-width: 100%; /* Limita la larghezza */
-    height: auto; /* Mantieni le proporzioni */
-  }
-}
 	
-	@media (max-width: 1024px) {
-		
-		.horizontal {
-			padding: 0 15px !important;
-		}
-		
-		
-		section.hotizontal .item {
-			transform: none !important; /* Disabilita ogni trasformazione */
-			flex: 0 0 80vw; /* Adatta la larghezza degli item per schermi più piccoli */
-        	padding: 30px 40px; /* Riduce il padding */
-			
-		}
-		
-		section.horizontal .item br {
-        line-height: 1.4; /* Maggiore spazio tra le righe in schermi più piccoli */
-    }
-		
-		.modal-video-content video {
-   width: 40%; /* Limita il video alla dimensione del contenitore */
-    height: auto; /* Mantieni le proporzioni */
-  }
-		
-		section.horizontal .item:last-child {
-    padding-right: 10px; /* Aggiungi padding extra all'ultimo item */
-    margin-right: 40px;  /* Aggiungi un margine a destra per garantire visibilità */
+	}
 }
-		
-		.footer-line {
-        border-top: 2px solid var(--nero);
-        width: 90%; /* Riduci la larghezza per dispositivi più piccoli */
-        margin: 0 auto;
-    }
-
-    .footer-content {
-        max-width: 90vw; /* Imposta la larghezza per mobile/tablet */
-        margin: 0 auto;
-        padding: 20px 10px;
-    }
-		
-		}

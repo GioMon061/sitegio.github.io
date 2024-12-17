@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Design Cantina Vinicola - Other projects</title>
     <!-- Collegamento al CSS generale -->
     <link rel="stylesheet" href="../css/style.css">
     <!-- Collegamento al CSS specifico del caso studio -->
     <link rel="stylesheet" href="css/progetti.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KXWZK25C8C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KXWZK25C8C');
+</script>
 
 </head>
 <body>
@@ -15,14 +26,14 @@
 	<div class="container-wrapper">
     <header class="project-header">
         <div class="logo">
-            <a href="https://gioiamongelli.com" target="_self">
+            <a href="https://gioiamongelli.com" >
                 <img src="../img/logo.svg" alt="Gioia Mongelli Logo">
             </a>
         </div>
      <nav>
                 <div class="mobile-menu-toggle">Menu</div>
 		 <a href="../index.html" class="nav-link" data-cursor="-opaque">Home</a>
-            	<a href="../index.html/#case-studies"  class="nav-link" data-cursor="-opaque">Case Studies</a>
+            	<a href="../index.html#case-studies"  class="nav-link" data-cursor="-opaque">Case Studies</a>
     <a href="../services/services.html"  class="nav-link" data-cursor="-opaque">Services</a>
     <a href="../about/about.html"  class="nav-link" data-cursor="-opaque">About</a>
     <a href="../contact/contact.html"  class="nav-link" data-cursor="-opaque">Contact</a>
@@ -34,7 +45,7 @@
         <div class="mobile-menu-close">X</div>
         <ul>
            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html/#case-studies">Case Studies</a></li>
+            <li><a href="../index.html#case-studies">Case Studies</a></li>
         <li><a href="../services/services.html">Services</a></li>
         <li><a href="../about/about.html">About</a></li>
         <li><a href="../contact/contact.html">Contact</a></li>
@@ -52,7 +63,6 @@
             </p>
         </div>
     </section>
-	</div>
 	
 
 
@@ -60,58 +70,37 @@
 	
 <!-- Sezione Contenuto - Singolo Progetto -->
 <section class="content-section">
-  <!-- Primo Blocco: Testo a sinistra, Immagine a destra -->
+	<!-- Primo Blocco-->
+  <div class="flex-container">
+ <div class="text-box">
+      <p>Creation of a promotional newsletter for a Napa Valley winery. </p>
+    </div>
+<div class="item"><video src="video/email-design.webm" autoplay muted loop playsinline class="auto-video"></video></div>
+  </div>
+	  <!-- Secondo Blocco-->
   <div class="flex-container">
     <div class="text-box">
-      <p>Creation of a promotional newsletter for a Napa Valley winery. The project aimed to highlight the characteristics of two distinct wines using the visual assets and copy provided by the client.</p>
+      <p>The project aimed to highlight the characteristics of two distinct wines using the visual assets and copy provided by the client.</p>
     </div>
     <div class="image-box">
-      <img src="img/vineyard-01.png" data-type="image" data-src="img/vineyard-01.png" class="clickable-item" alt="Newsletter laptop mockup 01">
+      <img src="img/vineyard-01.webp" data-type="image" data-src="img/vineyard-01.webp" class="clickable-item" alt="Newsletter laptop mockup 01">
     </div>
   </div>
-
-  <!-- Secondo Blocco: Immagine a sinistra, Testo a destra (inversione) -->
+  <!-- Terzo Blocco-->
   <div class="flex-container">
-    <div class="image-box">
-      <img src="img/vineyard-02.png" data-type="image" data-src="img/vineyard-02.png" class="clickable-item" alt="Newsletter laptop mockup 02">
-    </div>
     <div class="text-box">
-      <p><b>Design details</b>
-    <ul>Use of the brand’s colour palette and typography to maintain visual consistency.</ul>
-    <ul>Integration of the bottle label graphics to differentiate the two wines.</ul>
-    <ul>Emphasis on visual clarity to facilitate readability and comprehension.</ul></p>
+      <p><b>Design details</b><br>
+    Use of the brand’s colour palette and typography to maintain visual consistency.<br>
+    Integration of the bottle label graphics to differentiate the two wines.<br>
+    Emphasis on visual clarity to facilitate readability and comprehension.<br></p>
+    </div>
+	  <div class="image-box">
+      <img src="img/vineyard-02.webp" data-type="image" data-src="img/vineyard-02.webp" class="clickable-item" alt="Newsletter laptop mockup 02">
     </div>
   </div>
-
-  <!-- Terzo Blocco: Testo a sinistra, Immagine a destra -->
-  <div class="flex-container">
-   <!-- <div class="text-box">
-      <h2>Risultati Finali</h2>
-      <p>Descrivi i risultati finali ottenuti, se pertinenti, e come il design ha soddisfatto le esigenze del cliente.</p>
-    </div>
-    <div class="image-box">
-      <img src="../img/mockup3.jpg" alt="Descrizione dell'immagine 3">
-    </div>-->
-  </div>
-</section>
-
-     
-	<!-- Modal per le Immagini e i Video -->
-<div id="media-modal" class="media-modal">
-  <span class="media-modal-close">&times;</span>
-  <img id="modal-image" class="modal-content">
-  <div id="modal-video" class="modal-video-content">
-    <video id="video-iframe" controls>
-                <source src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-  </div>
-</div>
-	<!-- END Sezione Contenuto-->
-	
+		</section>
 	
  <!-- Footer -->
-	<div class="container-wrapper">
     <footer>
         <div class="footer-line"></div>
         <div class="footer-content container">
@@ -123,7 +112,7 @@
             </div>
         </div>
     </footer>
-		</div>
+	</div>
 	<!-- Aggiunta del cursore personalizzato -->
     <div class="custom-cursor"></div>
 

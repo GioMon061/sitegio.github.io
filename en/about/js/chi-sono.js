@@ -1,99 +1,54 @@
-// === Codice per le animazioni della pagina "Chi sono" ===
-gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", function() {
+    // === Animazioni GSAP per il titolo e la descrizione ===
+    gsap.registerPlugin(ScrollTrigger);
 
-// Animazioni a comparsa per il titolo e il testo
-gsap.from(".about-title", {
-  scrollTrigger: {
-    trigger: ".about-title",
-    start: "top 90%",
-    toggleActions: "restart none none reset"
-  },
-  opacity: 0,
-  y: 50,
-  duration: 1.5,
-  ease: "power2.out"
-});
+    // Animazione per il titolo dell'hero
+    gsap.from(".about-title", {
+        opacity: 0,
+        y: 50,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".about-title",
+            start: "top 80%", // Inizia quando il titolo è visibile all'80%
+            toggleActions: "play none none none"
+        }
+    });
 
-gsap.from(".about-text, .about-image", {
-  scrollTrigger: {
-    trigger: ".about-text",
-    start: "top 85%",
-    toggleActions: "restart none none reset"
-  },
-  opacity: 0,
-  x: -50,
-  duration: 1.2,
-  ease: "power2.out",
-  stagger: 0.3
-});
+    // Animazione per l'immagine e il testo di descrizione
+    gsap.from(".about-image, .about-text", {
+        opacity: 0,
+        y: 50,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".about-content",
+            start: "top 85%", // Inizia quando il contenuto è visibile all'85%
+            toggleActions: "play none none none"
+        }
+    });
 
-gsap.from(".about-paragraph", {
-  scrollTrigger: {
-    trigger: ".about-paragraph",
-    start: "top 85%",
-    toggleActions: "restart none none reset"
-  },
-  opacity: 0,
-  y: 50,
-  duration: 1.2,
-  ease: "power2.out",
-  stagger: 0.3
-});
-
-// === Gestione del menu mobile con animazione personalizzata ===
-document.querySelector('.mobile-menu-toggle').addEventListener('click', function () {
-  gsap.to('.mobile-menu-overlay', { 
-    x: 0, 
-    duration: 1.5, 
-    ease: 'power4.out' 
-  });
-
-  // Anima le voci del menu mobile
-  const mobileMenuItems = document.querySelectorAll('.mobile-menu-overlay ul li');
-  gsap.from(mobileMenuItems, {
-    y: 50,
-    opacity: 0,
-    duration: 0.5,
-    stagger: 0.2,
-    ease: 'power4.out',
-  });
-});
-
-// Chiusura del menu mobile con animazione
-document.querySelector('.mobile-menu-close').addEventListener('click', function () {
-  gsap.to('.mobile-menu-overlay', { 
-    x: '100%', 
-    duration: 0.5,
-    ease: 'power4.out' 
-  });
-});
-
-// Visibilità del menu desktop in base alla larghezza della finestra
-const navMenu = document.querySelector("nav");
-window.addEventListener("resize", () => {
-  if (window.innerWidth >= 768) {
-    navMenu.classList.add("desktop-visible");
-    document.querySelector('.mobile-menu-overlay').classList.remove("open");
-  } else {
-    navMenu.classList.remove('desktop-visible');
-  }
-});
-
-// Verifica dello stato del menu in caricamento pagina
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.innerWidth >= 768) {
-    navMenu.classList.add('desktop-visible');
-  } else {
-    navMenu.classList.remove('desktop-visible');
-  }
-});
-
-// Seleziona il cursore personalizzato esistente nell'HTML
+    // Animazione per i paragrafi (opzionale, se presente del testo aggiuntivo)
+    gsap.from(".about-paragraph", {
+        opacity: 0,
+        y: 50,
+        duration: 1.2,
+        stagger: 0.3, // Aggiunge un leggero ritardo per ogni paragrafo
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".about-paragraph",
+            start: "top 90%",
+            toggleActions: "play none none none"
+        }
+    });
+	
+	// === Cursore Personalizzato ===
 const cursor = document.querySelector('.custom-cursor');
+const customCursor = document.querySelector('.custom-cursor');
 
-// Aggiungi l'evento di movimento del mouse per spostare il cursore
+// Movimento del cursore personalizzato
 document.addEventListener('mousemove', (e) => {
-  gsap.to(cursor, {
+  gsap.to(customCursor, {
     x: e.clientX,
     y: e.clientY,
     ease: 'power3.out',
@@ -101,28 +56,42 @@ document.addEventListener('mousemove', (e) => {
   });
 });
 
-// Aggiungi l'effetto di riduzione del cursore al passaggio sopra i link
-const customCursor = document.querySelector('.custom-cursor');
+    // === Funzione del menu mobile ===
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const menuOverlay = document.querySelector('.mobile-menu-overlay');
+    const menuClose = document.querySelector('.mobile-menu-close');
 
-window.addEventListener('mousemove', (e) => {
-  gsap.to(customCursor, {
-    x: e.clientX,
-    y: e.clientY,
-    ease: "power3.out",
-    duration: 0.2,
-  });
+    // Funzione per aprire il menu mobile
+    menuToggle.addEventListener('click', function () {
+        gsap.to('.mobile-menu-overlay', { x: 0, duration: 1.5, ease: 'power4.out' });
+        const mobileMenuItems = document.querySelectorAll('.mobile-menu-overlay ul li');
+        gsap.from(mobileMenuItems, {
+            y: 50, opacity: 0, duration: 0.5, stagger: 0.2, ease: 'power4.out',
+        });
+    });
+
+    // Funzione per chiudere il menu mobile
+    menuClose.addEventListener('click', function () {
+        gsap.to('.mobile-menu-overlay', { x: '100%', duration: 0.5, ease: 'power4.out' });
+    });
+
+    // Sincronizzazione del menu desktop e mobile in base alla larghezza della finestra
+    const navMenu = document.querySelector("nav");
+    window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+            navMenu.classList.add("desktop-visible");
+            document.querySelector('.mobile-menu-overlay').classList.remove("open");
+        } else {
+            navMenu.classList.remove('desktop-visible');
+        }
+    });
+
+    // Verifica dello stato del menu al caricamento della pagina
+    if (window.innerWidth >= 768) {
+        navMenu.classList.add('desktop-visible');
+    } else {
+        navMenu.classList.remove('desktop-visible');
+    }
 });
-
-// Nascondi il cursore su link e pulsanti di navigazione
-const navLinks = document.querySelectorAll('nav a, .nav-button, .social-icons a');
-navLinks.forEach(link => {
-  link.addEventListener('mouseenter', () => {
-    gsap.to(customCursor, { opacity: 0, duration: 0.2 });
-  });
-  link.addEventListener('mouseleave', () => {
-    gsap.to(customCursor, { opacity: 1, duration: 0.2 });
-  });
-});
-
 
 

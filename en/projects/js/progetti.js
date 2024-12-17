@@ -45,31 +45,28 @@ gsap.to('.project-description', {
 });
 
 // === Animazione a Comparsa dei Blocchi di Contenuto ===
-gsap.set('.flex-container', { opacity: 0, y: 50 }); // Imposta lo stato iniziale
+gsap.set('.flex-container', { opacity: 0, y: 50 });
 
 gsap.utils.toArray('.flex-container').forEach(container => {
   gsap.to(container, {
     scrollTrigger: {
       trigger: container,
       scroller: document.body,
-      start: 'top 80%', // Inizia l'animazione quando il blocco entra nell'80% del viewport
-      end: 'top 20%', // Fino a quando il blocco è al 20% del viewport
-      toggleActions: 'play none none reverse', // Gioca l'animazione e inverte all'uscita
+      start: 'top 80%',
+      end: 'top 20%',
+      toggleActions: 'play none none reverse',
     },
     opacity: 1,
     y: 0,
-    duration: 0.8, // Durata dell'animazione
-    ease: 'power3.out', // Easing per l'entrata fluida
+    duration: 0.8,
+    ease: 'power3.out',
   });
 });
 
-
-// === Funzionalità Modale per Immagini e Video ===
-const modal = document.getElementById("media-modal");
-const modalImage = document.getElementById("modal-image");
-const modalVideo = document.getElementById("modal-video");
-const videoIframe = document.getElementById("video-iframe");
-const modalClose = document.querySelector(".media-modal-close");
+// === Funzionalità Lightbox (come nel caso studio) ===
+const lightbox = document.createElement('div');
+lightbox.id = 'lightbox';
+document.body.appendChild(lightbox);
 
 const clickableItems = document.querySelectorAll(".clickable-item");
 
@@ -78,76 +75,37 @@ clickableItems.forEach(item => {
     const mediaType = this.getAttribute("data-type");
     const mediaSrc = this.getAttribute("data-src");
 
+    lightbox.innerHTML = ''; // Pulisce il contenuto precedente
+
     if (mediaType === "image") {
-      showModal();
-      modalImage.style.display = "block";
-      modalVideo.style.display = "none";
-      modalImage.src = mediaSrc;
+      const img = document.createElement('img');
+      img.src = mediaSrc;
+      img.alt = 'Ingrandimento immagine';
+      lightbox.appendChild(img);
     } else if (mediaType === "video") {
-      showModal();
-      modalImage.style.display = "none";
-      modalVideo.style.display = "block";
-      videoIframe.src = mediaSrc;
-      adjustVideoSize(); // Regola la dimensione del video quando viene caricato
+      const video = document.createElement('video');
+      video.controls = true;
+      video.src = mediaSrc;
+      lightbox.appendChild(video);
     }
+
+    lightbox.classList.add('active');
+    document.body.style.overflow = "hidden"; // Disabilita scroll del body
   });
 });
 
-// Mostra il modale e centra l'elemento
-function showModal() {
-  // Sincronizza con la posizione dello scroll virtuale
-  const scrollOffsetX = bodyScrollBar.scrollLeft;
-  const scrollOffsetY = bodyScrollBar.scrollTop;
+// Chiudi lightbox con click su sfondo o tasto ESC
+lightbox.addEventListener('click', (e) => {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = "auto"; 
+});
 
-  modal.style.left = `${scrollOffsetX + window.innerWidth / 2}px`;
-  modal.style.top = `${scrollOffsetY + window.innerHeight / 2}px`;
-  
-  modal.style.display = "flex";
-  document.body.classList.add("modal-active"); // Disabilita scroll principale
-  setTimeout(() => {
-    modal.classList.add("media-modal-show");
-  }, 50);
-}
-
-// Chiusura della finestra modale
-modalClose.onclick = function () {
-  closeModal();
-};
-
-window.onclick = function (event) {
-  if (event.target === modal) {
-    closeModal();
+document.addEventListener('keydown', (e) => {
+  if (e.key === "Escape") {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = "auto";
   }
-};
-
-// Funzione per chiudere il modale e ripristinare gli stati
-function closeModal() {
-  modal.classList.remove("media-modal-show");
-  document.body.classList.remove("modal-active"); // Riabilita scroll principale
-  setTimeout(() => {
-    modal.style.display = "none";
-    videoIframe.src = ""; // Resetta l'URL del video per fermarlo
-    modalImage.src = ""; // Resetta l'URL dell'immagine
-  }, 300);
-}
-
-// Funzione per regolare la dimensione del video
-function adjustVideoSize() {
-  const videoWidth = videoIframe.videoWidth;
-  const videoHeight = videoIframe.videoHeight;
-  const aspectRatio = videoWidth / videoHeight;
-
-  if (aspectRatio > 1) { // Se il video è più largo che alto
-    videoIframe.style.width = "80vw";
-    videoIframe.style.height = "auto";
-  } else { // Se il video è più alto che largo
-    videoIframe.style.width = "auto";
-    videoIframe.style.height = "80vh";
-  }
-}
-
-// Aggiungi un evento per ridimensionare il video quando viene caricato
-videoIframe.addEventListener('loadeddata', adjustVideoSize);
+});
 
 // === Gestione del menu mobile con animazione personalizzata ===
 document.querySelector('.mobile-menu-toggle').addEventListener('click', function () {
@@ -187,7 +145,7 @@ document.addEventListener('mousemove', (e) => {
   gsap.to(cursor, { x: e.clientX, y: e.clientY + offsetY, ease: 'power3.out', duration: 0.15 });
 });
 
-const interactiveLinks = document.querySelectorAll('nav a, .nav-button, .social-icons a, section.horizontal .item a, footer a');
+const interactiveLinks = document.querySelectorAll('nav a, .nav-button, .social-icons a, .flex-container a, footer a');
 
 interactiveLinks.forEach(link => {
   link.addEventListener('mouseenter', () => {

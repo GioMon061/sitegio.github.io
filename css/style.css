@@ -10,12 +10,16 @@
 	font-size: 111%;
     --bianco: #fefaf1;
     --nero: #0d0d0d;
-    --rosa: #FFB3BA;
+    --corallo: #FFB3BA;
+	--verdeacido: #DFFE91;
+	--celeste: #95D3FF;
+	--menta: #BAFFC9;
+	--lilla: #B697F8;
+	--rosa: #F2B3D6;
+	--giallo: #FBFD8C;
 }
 
-html{
-	scroll-behavior: smooth;
-}
+
 
 html,
 body {
@@ -76,8 +80,6 @@ header {
 .logo img {
     width: 90px; /* Dimensione del logo */
     height: auto;
-	display: flex;
-	align-items: center;
 }
 
 .language-switcher {
@@ -103,7 +105,7 @@ header {
 }
 
 .language-link:hover {
-    color: var(--rosa); /* Cambia colore in hover per effetto */
+    color: var(--corallo); /* Cambia colore in hover per effetto */
 }
 
 header nav {
@@ -119,7 +121,6 @@ header nav a {
     font-weight: 500;
     text-transform: uppercase;
 }
-
 
 
 nav a {
@@ -235,11 +236,6 @@ nav a::before {
   opacity: 1;
 }
 
-/* Nascondi il pallino sulle voci di navigazione */
-nav a:hover ~ .custom-cursor, .nav-button:hover ~ .custom-cursor {
-  opacity: 0; /* Effetto di scomparsa */
-}
-
 /*header nav a {
     margin-left: 30px;
     text-decoration: none;
@@ -331,7 +327,7 @@ nav a {
 	font-weight: 500;
     text-transform: uppercase;
     font-size: 1rem; /* Dimensione ridotta del sottotitolo */
-    margin: 90px 0 0; /* Spazio aumentato tra la headline e il sottotitolo */
+    margin: 75px 0 0; /* Spazio aumentato tra la headline e il sottotitolo */
     max-width: 590px; /* Larghezza massima per il testo del sottotitolo */
 }
 
@@ -382,6 +378,7 @@ nav a {
     opacity: 1; /* Leggera trasparenza per non distrarre troppo */
 }
 
+
 .case-studies-section {
     position: relative;
     width: 100%;
@@ -417,6 +414,11 @@ nav a {
     overflow: hidden;
     width: 100%;
     height: 500px; /* Regola l'altezza secondo il tuo design */
+	cursor: grab;
+}
+
+.case-studies-wrapper.active {
+    cursor: grabbing; /* Mostra il pugno quando si trascina */
 }
 
 .case-studies {
@@ -448,7 +450,8 @@ nav a {
     width: 100%;
     height: 300px; /* Regola l'altezza dell'immagine */
     background-color: #ddd;
-    overflow: visible; /* Assicurati che il contenuto che esce sia visibile */
+    position: relative;
+    /* overflow: visible; Assicurati che il contenuto che esce sia visibile */
 }
 
 .case-study hr {
@@ -488,13 +491,21 @@ nav a {
   text-decoration: none;
 }
 
-
 .case-study-image {
    width: 100%;
    height: 100%;
    object-fit: cover; /* Copre l'area mantenendo le proporzioni */
    object-position: center; /* Centra l'immagine all'interno del placeholder */
 }
+
+.case-studies {
+  will-change: transform; /* Informa il browser che la proprietà transform cambierà spesso */
+}
+
+.see-more-container {
+    display: none;
+}
+
 
 /* SEZIONE CHI SONO */
 
@@ -588,11 +599,11 @@ nav a {
 }
 
 
-/* SEZIONE COME POSSO AIUTARTI */
+/* SEZIONE COME POSSO AIUTARTI 
 .services-section {
     padding: 200px 0px 250px;
     background-color: var(--bianco);
-}
+}*/
 
 /* Contenitore con due colonne */
 .services-container {
@@ -636,10 +647,10 @@ nav a {
 }
 
 .services-item.E {
-	padding-bottom: 90px;
+	padding-bottom: 62px;
 }
 
-/* Stile per i pulsanti */
+/* Stile per i pulsanti 
 .services-button, .pdf-button {
     display: inline-block;
     padding: 10px 30px;
@@ -656,11 +667,219 @@ nav a {
     width: fit-content;
 }
 
-/* Hover per i pulsanti */
+/* Hover per i pulsanti 
 .services-button:hover, .pdf-button:hover {
     background-color: var(--bianco);
     color: var(--nero);
     border: 2px solid var(--nero);
+}
+
+/* sezione COME POSSO AIUTARTI VARIABILE */
+.come-posso-aiutarti {
+	width: 100vw; /* Copri l'intera larghezza dello schermo */
+	margin-left: calc(-50vw + 50%); /* Estendi il margine sinistro */
+}
+.services-section {
+    padding: 200px 0px 250px;
+    background-color: var(--nero);
+	color: var(--bianco);
+}
+
+/* Stile variabile per i pulsanti */
+.services-button, .pdf-button {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: var(--bianco);
+    color: var(--nero);
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-family: 'Suisse Int\'l', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid var(--bianco);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    max-width: 200px;
+    width: fit-content;
+}
+
+/* Hover per i pulsanti variabile*/
+.services-button:hover, .pdf-button:hover {
+    background-color: var(--nero);
+    color: var(--bianco);
+    border: 2px solid var(--bianco);
+}
+
+/* Testimonial Section */
+.testimonial-section {
+  background-color: var(--bianco);
+  color: var(--nero);
+  padding: 150px 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.testimonial-section .container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+
+.testimonial-title {
+  font-size: 3rem;
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.testimonial-title .light {
+  font-family: 'Times Now', serif;
+  font-weight: 300;
+}
+
+.testimonial-title .bold {
+  font-family: 'Suisse Int\'l', sans-serif;
+  font-weight: 400;
+}
+
+.testimonial-slider {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Centra il contenuto orizzontalmente */
+  align-items: center;     /* Centra verticalmente, se necessario */
+  min-height: 575px; /* o un valore adatto al tuo layout */
+}
+
+.testimonial-card {
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  box-sizing: border-box; 
+  max-width: 1100px;
+  width: 100%;	
+  margin: 0 auto;
+  border: 3px solid #0d0d0d;
+  border-radius: 12px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-card.active {
+  opacity: 1; /* Card attiva visibile */
+  transform: translateX(0); /* Card attiva centrata */
+}
+
+.testimonial-card:last-child {
+  margin-right: 0;
+}
+
+.testimonial-text {
+  font-family: 'Suisse Int\'l', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-family: 'Suisse Int\'l', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.author-role {
+  font-family: 'Suisse Int\'l', sans-serif;
+  font-size: 0.9rem;
+}
+
+.author-role i {
+	font-style: italic;
+  font-size: inherit; /* Usa la stessa dimensione del testo circostante */
+  line-height: inherit;
+}
+
+.author-image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.original-testimonial {
+  max-width: 300px; /* Dimensione ridotta per non dominare la scena */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.original-testimonial-label {
+  font-size: 0.8rem;
+  font-family: 'Suisse Int\'l', sans-serif;
+  color: #6b6b6b;
+  margin-bottom: 5px;
+  text-align: left;	
+}
+
+.original-testimonial img {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Navigazione */
+.testimonial-navigation {
+  position: absolute;
+  top: 50%; 
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.nav-arrow {
+  pointer-events: all;	
+  background-color: var(--nero);
+  color: var(--bianco);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background-color: var(--corallo);
+  color: var(--nero);
+  border: 3px solid #0d0d0d;
+  	
+}
+
+.nav-arrow:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
 }
 
 
@@ -728,6 +947,13 @@ nav a {
     opacity: 1; /* Lasciamo che GSAP gestisca l'opacità */
     z-index: 2; /* Testo sopra */
     /* Rimosse le transitions per evitare conflitti */
+}
+
+.project__item-link:hover + .project__item-img {
+    opacity: 1; /* Appare l'immagine in hover */
+    transform: translate3d(calc(-100% - 6vw), -30%, 0) rotate3d(0, 0, 1, 4deg);
+    transition: all 0.4s ease; /* Solo transizione immagine */
+    z-index: 3;
 }
 
 .project__item-img {
@@ -859,6 +1085,7 @@ nav a {
     border: 2px solid var(--nero);
 }
 
+
 /* Stile per il pulsante di scroll verso l'alto */
 #scroll-to-top {
   position: fixed; /* Fissa il pulsante rispetto alla finestra */
@@ -885,8 +1112,6 @@ nav a {
   opacity: 1; /* Rende il pulsante completamente opaco */
   transform: scale(1.1); /* Ingrandimento leggero */
 }
-
-
 
 /* Footer */
 footer {
@@ -935,11 +1160,13 @@ i {
 
 /* General Styles for Mobile */
 @media (max-width: 768px) {
+	
 	body, html {
         overflow-x: hidden;
     }
 	
 		/* Hero section */
+	
 	.nav-button {
     display: none;
   }
@@ -975,7 +1202,6 @@ i {
         margin-bottom: 20px;
 	}
 	
-	
     .case-studies {
         display: flex;
         flex-direction: column; /* Cambia direzione da riga a colonna */
@@ -986,20 +1212,20 @@ i {
 	
     .case-study {
         flex: 0 0 auto;
-        width: 100%; /* Larghezza completa */
-        margin-right: 0; /* Rimuovi margine destro */
-        margin-bottom: 40px; /* Spazio tra i casi studio */
+		width: 100%;
+        margin-right: 0;
+        margin-bottom: 40px;
     }
 	
-	 .placeholder {
+	.placeholder {
         width: 100%;
         height: auto; /* Lascia che l'altezza si adatti */
-        aspect-ratio: 4 / 3; /* Imposta il rapporto d'aspetto desiderato */
+        aspect-ratio: 4 / 3;
         position: relative;
         overflow: hidden;
     }
-
-    /* Stile per le immagini */
+	
+	/* Stile per le immagini */
     .case-study-image {
         width: 100%;
         height: 100%;
@@ -1009,16 +1235,44 @@ i {
         left: 0;
     }
 	
-	
 	.scroll-indicator {
         display: none;
     }
 	
+	.see-more-container {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
 
 	.hidden-mobile {
         display: none !important;
     }
+	
+	
+	/* Stile per pulsante */
+	.see-more-button, .button {
+		display: inline-block;
+		padding: 10px 30px;
+		background-color: var(--nero);
+		color: var(--bianco);
+		border-radius: 30px;
+		text-transform: uppercase;
+		font-family: 'Suisse Int\'l', sans-serif;
+		text-decoration: none;
+		text-align: center;
+		border: 2px solid var(--nero);
+		transition: background-color 0.3s ease, color 0.3s ease;
+		max-width: 200px;
+		width: fit-content;
+	}
 
+	/* Hover per i pulsanti */
+	.see-more-button:hover, .button:hover {
+		background-color: var(--bianco);
+		color: var(--nero);
+		border: 2px solid var(--nero);
+	}
 	
     /* Chi sono section for mobile */
 
@@ -1077,12 +1331,34 @@ i {
 	}
 	
 	.services-item.E {
-    padding-bottom: 50px;
-}
+    padding-bottom: 50px;}
+		
+		/* testimonials*/
+		.testimonial-card {
+    padding: 20px;
+  }
+
+  .testimonial-title {
+    font-size: 2rem;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+  }
+
+  .author-image img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav-arrow {
+    display: none; /* Nessuna freccia su mobile */
+  }
+
 	/* Altri progetti section for mobile */
 	
     .other-projects h2 {
-        font-size: 2rem; /* Smaller heading size */
+        font-size: 1.8rem; /* Smaller heading size */
     }
 
     .project__item-img {
@@ -1123,7 +1399,6 @@ i {
     .social-icons {
         margin-top: 20px;
     }
-	
 
 	
 }
@@ -1194,11 +1469,19 @@ i {
     nav a {
         display: none; /* Nascondi il menu principale su mobile */
     }
+	
+	.custom-cursor {
+		display: none;
+	}
 }
 
 
 /* General Styles for Tablets */
 @media (min-width: 769px) and (max-width: 1024px) {
+	
+	.custom-cursor {
+		display: none;
+	}
 	
 	/* Hero section */
 	.hero-text h1 {
@@ -1220,6 +1503,36 @@ i {
         width: 12px; /* Riduzione della freccia su tablet */
         height: 70px;
     }
+	
+	.case-studies-wrapper {
+    overflow-x: scroll; /* Abilita lo scorrimento orizzontale */
+    scroll-snap-type: x mandatory; /* Usa lo snap per rendere più fluido lo scorrimento */
+    -webkit-overflow-scrolling: touch; /* Scorrimento fluido su dispositivi touch */
+  }
+
+  .case-study {
+    scroll-snap-align: start; /* Allinea gli elementi quando lo scorrimento si ferma */
+  }
+	
+	.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .carousel-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+  }
+
+  .carousel-indicator.active {
+    background-color: #333; /* Colore attivo */
+  }
 	
 	
     /* Chi sono section for tablet */
@@ -1261,6 +1574,24 @@ i {
         width: 48%;
         margin-bottom: 0;
     }
+	
+	/* testimonials */
+	.testimonial-card {
+    padding: 30px;
+  }
+
+  .testimonial-title {
+    font-size: 2.5rem;
+  }
+
+  .testimonial-text {
+    font-size: 1.1rem;
+  }
+
+  .author-image img {
+    width: 50px;
+    height: 50px;
+  }
 	
 	/* Altri progetti section for tablets */
 	.other-projects h2 {

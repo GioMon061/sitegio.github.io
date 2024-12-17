@@ -1,128 +1,109 @@
-// === Codice per le animazioni della pagina "Chi sono" ===
-gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", function() {
+    gsap.registerPlugin(ScrollTrigger);
 
-// Animazioni a comparsa per il titolo e il testo
-gsap.from(".about-title", {
-  scrollTrigger: {
-    trigger: ".about-title",
-    start: "top 90%",
-    toggleActions: "restart none none reset"
-  },
-  opacity: 0,
-  y: 50,
-  duration: 1.5,
-  ease: "power2.out"
+    // Animazione per il titolo dell'hero
+    gsap.from(".about-title", {
+        opacity: 0,
+        y: 50,
+        duration: 1.5,
+        ease: "power3.out",
+        force3D: true,
+        scrollTrigger: {
+            trigger: ".about-title",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+    });
+
+    // Animazione per l'immagine e il testo di descrizione
+    gsap.from(".about-image, .about-text", {
+        opacity: 0,
+        y: 50,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".about-content",
+            start: "top 85%",
+            toggleActions: "play none none none"
+        }
+    });
+
+    // Animazione per i paragrafi
+    gsap.from(".about-paragraph", {
+        opacity: 0,
+        y: 50,
+        duration: 1.2,
+        stagger: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: ".about-paragraph",
+            start: "top 90%",
+            toggleActions: "play none none none"
+        }
+    });
+
+    // Cursore Personalizzato
+    const customCursor = document.querySelector('.custom-cursor');
+    document.addEventListener('mousemove', (e) => {
+        gsap.to(customCursor, {
+            x: e.clientX,
+            y: e.clientY,
+            ease: 'power3.out',
+            duration: 0.15,
+        });
+    });
+
+    // Funzione del menu mobile
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const menuOverlay = document.querySelector('.mobile-menu-overlay');
+    const menuClose = document.querySelector('.mobile-menu-close');
+
+    menuToggle.addEventListener('click', function () {
+        gsap.to('.mobile-menu-overlay', { x: 0, duration: 1.5, ease: 'power4.out' });
+        const mobileMenuItems = document.querySelectorAll('.mobile-menu-overlay ul li');
+        gsap.from(mobileMenuItems, {
+            y: 50, opacity: 0, duration: 0.5, stagger: 0.2, ease: 'power4.out',
+        });
+    });
+
+    menuClose.addEventListener('click', function () {
+        gsap.to('.mobile-menu-overlay', { x: '100%', duration: 0.5, ease: 'power4.out' });
+    });
+
+    const navMenu = document.querySelector("nav");
+    window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+            navMenu.classList.add("desktop-visible");
+            document.querySelector('.mobile-menu-overlay').classList.remove("open");
+        } else {
+            navMenu.classList.remove('desktop-visible');
+        }
+    });
+
+    if (window.innerWidth >= 768) {
+        navMenu.classList.add('desktop-visible');
+    } else {
+        navMenu.classList.remove('desktop-visible');
+    }
 });
 
-gsap.from(".about-text, .about-image", {
-  scrollTrigger: {
-    trigger: ".about-text",
-    start: "top 85%",
-    toggleActions: "restart none none reset"
-  },
-  opacity: 0,
-  x: -50,
-  duration: 1.2,
-  ease: "power2.out",
-  stagger: 0.3
+// Forza il repaint quando la pagina si ricarica
+window.addEventListener('load', function() {
+    document.body.style.display = 'none';
+    document.body.offsetHeight; // Forza un repaint
+    document.body.style.display = '';
 });
 
-gsap.from(".about-paragraph", {
-  scrollTrigger: {
-    trigger: ".about-paragraph",
-    start: "top 85%",
-    toggleActions: "restart none none reset"
-  },
-  opacity: 0,
-  y: 50,
-  duration: 1.2,
-  ease: "power2.out",
-  stagger: 0.3
+// Forza il refresh delle animazioni GSAP quando la pagina diventa visibile
+document.addEventListener("visibilitychange", function() {
+    if (document.visibilityState === "visible") {
+        ScrollTrigger.refresh();
+    }
 });
 
-// === Gestione del menu mobile con animazione personalizzata ===
-document.querySelector('.mobile-menu-toggle').addEventListener('click', function () {
-  gsap.to('.mobile-menu-overlay', { 
-    x: 0, 
-    duration: 1.5, 
-    ease: 'power4.out' 
-  });
-
-  // Anima le voci del menu mobile
-  const mobileMenuItems = document.querySelectorAll('.mobile-menu-overlay ul li');
-  gsap.from(mobileMenuItems, {
-    y: 50,
-    opacity: 0,
-    duration: 0.5,
-    stagger: 0.2,
-    ease: 'power4.out',
-  });
+window.addEventListener("pageshow", function(event) {
+    if (event.persisted) {  // Controlla se la pagina è stata ripristinata dalla cache
+        ScrollTrigger.refresh(); // Forza il refresh delle animazioni GSAP
+    }
 });
-
-// Chiusura del menu mobile con animazione
-document.querySelector('.mobile-menu-close').addEventListener('click', function () {
-  gsap.to('.mobile-menu-overlay', { 
-    x: '100%', 
-    duration: 0.5,
-    ease: 'power4.out' 
-  });
-});
-
-// Visibilità del menu desktop in base alla larghezza della finestra
-const navMenu = document.querySelector("nav");
-window.addEventListener("resize", () => {
-  if (window.innerWidth >= 768) {
-    navMenu.classList.add("desktop-visible");
-    document.querySelector('.mobile-menu-overlay').classList.remove("open");
-  } else {
-    navMenu.classList.remove('desktop-visible');
-  }
-});
-
-// Verifica dello stato del menu in caricamento pagina
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.innerWidth >= 768) {
-    navMenu.classList.add('desktop-visible');
-  } else {
-    navMenu.classList.remove('desktop-visible');
-  }
-});
-
-// Seleziona il cursore personalizzato esistente nell'HTML
-const cursor = document.querySelector('.custom-cursor');
-
-// Aggiungi l'evento di movimento del mouse per spostare il cursore
-document.addEventListener('mousemove', (e) => {
-  gsap.to(cursor, {
-    x: e.clientX,
-    y: e.clientY,
-    ease: 'power3.out',
-    duration: 0.15,
-  });
-});
-
-// Aggiungi l'effetto di riduzione del cursore al passaggio sopra i link
-const customCursor = document.querySelector('.custom-cursor');
-
-window.addEventListener('mousemove', (e) => {
-  gsap.to(customCursor, {
-    x: e.clientX,
-    y: e.clientY,
-    ease: "power3.out",
-    duration: 0.2,
-  });
-});
-
-// Nascondi il cursore su link e pulsanti di navigazione
-const navLinks = document.querySelectorAll('nav a, .nav-button, .social-icons a');
-navLinks.forEach(link => {
-  link.addEventListener('mouseenter', () => {
-    gsap.to(customCursor, { opacity: 0, duration: 0.2 });
-  });
-  link.addEventListener('mouseleave', () => {
-    gsap.to(customCursor, { opacity: 1, duration: 0.2 });
-  });
-});
-
-
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Livello_2" data-name="Livello 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke-width: 1.62px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #0d0d0d;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: #0d0d0d;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #ffb3ba;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Livello_1-2" data-name="Livello 1">
+    <g>
+      <circle class="cls-2" cx="22.5" cy="22.5" r="21.5"/>
+      <g>
+        <path class="cls-1" d="M36.01,22.5H10.76"/>
+        <path class="cls-3" d="M20.83,15.43c.22.34.12.8-.23,1.02l-9.51,6.06,9.51,6.06c.34.22.45.68.23,1.02-.22.34-.68.44-1.02.23l-10.49-6.68c-.21-.14-.34-.37-.34-.62s.13-.49.34-.62l10.49-6.68c.12-.08.26-.12.4-.12.24,0,.48.12.62.34Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

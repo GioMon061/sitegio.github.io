@@ -18,7 +18,6 @@ bodyScrollBar.addListener(ScrollTrigger.update);
 // === Animazioni di entrata per titolo e descrizione ===
 gsap.set('.case-study-title, .case-study-description', { opacity: 0, y: 50 });
 
-// Animazione del titolo del Caso Studio
 gsap.to('.case-study-title', {
   scrollTrigger: {
     trigger: '.case-study-title',
@@ -32,7 +31,6 @@ gsap.to('.case-study-title', {
   ease: 'power3.out',
 });
 
-// Animazione della descrizione del Caso Studio
 gsap.to('.case-study-description', {
   scrollTrigger: {
     trigger: '.case-study-description',
@@ -58,10 +56,8 @@ function manageHorizontalScroll() {
       var thisAnimWrap = thisPinWrap.querySelector('.animation-wrap');
       var lastItem = thisAnimWrap.querySelector('.item:last-child'); // Seleziona l'ultimo elemento
 
-      // Modifica il valore finale per includere un margine maggiore
       var getToValue = () => -(thisAnimWrap.scrollWidth - window.innerWidth + 150); // Aumentato il margine per evitare il taglio
 
-      // Applicazione dell'animazione GSAP
       gsap.fromTo(thisAnimWrap, {
         x: () => thisAnimWrap.classList.contains('to-right') ? 0 : getToValue()
       }, {
@@ -89,7 +85,6 @@ function manageHorizontalScroll() {
       });
     });
   } else {
-    // Disabilita scroll e trasformazioni su tablet e mobile
     gsap.killTweensOf(".animation-wrap");
     document.querySelectorAll('.animation-wrap').forEach(function (animWrap) {
       animWrap.style.transform = 'none';
@@ -101,43 +96,102 @@ function manageHorizontalScroll() {
 manageHorizontalScroll();
 window.addEventListener('resize', manageHorizontalScroll);
 
-const isMobile = window.matchMedia("(max-width: 768px)").matches;
+// === Funzionalità Modale per Immagini e Video ===
+const modal = document.getElementById("media-modal");
+const modalImage = document.getElementById("modal-image");
+const modalVideo = document.getElementById("modal-video");
+const videoIframe = document.getElementById("video-iframe");
+const modalClose = document.querySelector(".media-modal-close");
 
-if (isMobile) {
-  document.querySelectorAll('.item').forEach(item => {
-    item.style.transform = 'none';
+const clickableItems = document.querySelectorAll(".clickable-item");
+
+clickableItems.forEach(item => {
+  item.addEventListener("click", function () {
+    const mediaType = this.getAttribute("data-type");
+    const mediaSrc = this.getAttribute("data-src");
+
+    if (mediaType === "image") {
+      showModal();
+      modalImage.style.display = "block";
+      modalVideo.style.display = "none";
+      modalImage.src = mediaSrc;
+    } else if (mediaType === "video") {
+      showModal();
+      modalImage.style.display = "none";
+      modalVideo.style.display = "block";
+      videoIframe.src = mediaSrc;
+      adjustVideoSize(); // Regola la dimensione del video quando viene caricato
+    }
   });
+});
+
+// Mostra il modale e centra l'elemento
+function showModal() {
+  // Sincronizza con la posizione dello scroll virtuale
+  const scrollOffsetX = bodyScrollBar.scrollLeft;
+  const scrollOffsetY = bodyScrollBar.scrollTop;
+
+  modal.style.left = `${scrollOffsetX + window.innerWidth / 2}px`;
+  modal.style.top = `${scrollOffsetY + window.innerHeight / 2}px`;
+  
+  modal.style.display = "flex";
+  document.body.classList.add("modal-active"); // Disabilita scroll principale
+  setTimeout(() => {
+    modal.classList.add("media-modal-show");
+  }, 50);
 }
 
-if (document.querySelector('.gsap-marker-scroller-start')) {		  
-  const markers = gsap.utils.toArray('[class *= "gsap-marker"]');	
-  bodyScrollBar.addListener(({ offset }) => gsap.set(markers, { marginTop: -offset.y }));
+// Chiusura della finestra modale
+// Chiudi il modale al clic del pulsante di chiusura
+modalClose.addEventListener('click', closeModal);
+
+// Chiudi il modale al clic all'esterno dell'area del contenuto
+modal.addEventListener('click', function (event) {
+  if (event.target === modal) {
+    closeModal();
+  }
+});
+
+// Funzione per chiudere il modale e ripristinare gli stati
+function closeModal() {
+  modal.classList.remove("media-modal-show");
+  document.body.classList.remove("modal-active"); // Riabilita scroll principale
+  setTimeout(() => {
+    modal.style.display = "none";
+    videoIframe.src = ""; // Resetta l'URL del video per fermarlo
+    modalImage.src = ""; // Resetta l'URL dell'immagine
+  }, 300);
 }
+
+// Funzione per regolare la dimensione del video
+function adjustVideoSize() {
+  const videoWidth = videoIframe.videoWidth;
+  const videoHeight = videoIframe.videoHeight;
+  const aspectRatio = videoWidth / videoHeight;
+
+  if (aspectRatio > 1) { // Se il video è più largo che alto
+    videoIframe.style.width = "80vw";
+    videoIframe.style.height = "auto";
+  } else { // Se il video è più alto che largo
+    videoIframe.style.width = "auto";
+    videoIframe.style.height = "80vh";
+  }
+}
+
+// Aggiungi un evento per ridimensionare il video quando viene caricato
+videoIframe.addEventListener('loadeddata', adjustVideoSize);
 
 // === Gestione del menu mobile con animazione personalizzata ===
 document.querySelector('.mobile-menu-toggle').addEventListener('click', function () {
-  gsap.to('.mobile-menu-overlay', { 
-    x: 0, 
-    duration: 1.5, 
-    ease: 'power4.out' 
-  });
-
+  gsap.to('.mobile-menu-overlay', { x: 0, duration: 1.5, ease: 'power4.out' });
   const mobileMenuItems = document.querySelectorAll('.mobile-menu-overlay ul li');
   gsap.from(mobileMenuItems, {
-    y: 50,
-    opacity: 0,
-    duration: 0.5,
-    stagger: 0.2,
-    ease: 'power4.out',
+    y: 50, opacity: 0, duration: 0.5, stagger: 0.2, ease: 'power4.out',
   });
 });
 
 document.querySelector('.mobile-menu-close').addEventListener('click', function () {
-  gsap.to('.mobile-menu-overlay', { 
-    x: '100%', 
-    duration: 0.5,
-    ease: 'power4.out' 
-  });
+  gsap.to('.mobile-menu-overlay', { x: '100%', duration: 0.5, ease: 'power4.out' });
 });
 
 const navMenu = document.querySelector("nav");
@@ -160,18 +214,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // === Cursore Personalizzato ===
 const cursor = document.querySelector('.custom-cursor');
-
 document.addEventListener('mousemove', (e) => {
   const offsetY = bodyScrollBar.scrollTop;
-  gsap.to(cursor, {
-    x: e.clientX,
-    y: e.clientY + offsetY,
-    ease: 'power3.out',
-    duration: 0.15,
-  });
+  gsap.to(cursor, { x: e.clientX, y: e.clientY + offsetY, ease: 'power3.out', duration: 0.15 });
 });
 
-// Selettori per tutti i link con gestione del cursore
 const interactiveLinks = document.querySelectorAll('nav a, .nav-button, .social-icons a, section.horizontal .item a, footer a');
 
 interactiveLinks.forEach(link => {
@@ -179,19 +226,7 @@ interactiveLinks.forEach(link => {
     cursor.style.opacity = 0;
     link.style.cursor = "pointer";
   });
-
   link.addEventListener('mouseleave', () => {
     cursor.style.opacity = 1;
-  });
-});
-
-// Nascondi il cursore su link e pulsanti di navigazione specifici
-const navLinks = document.querySelectorAll('nav a, .nav-button, .social-icons a');
-navLinks.forEach(link => {
-  link.addEventListener('mouseenter', () => {
-    gsap.to(cursor, { opacity: 0, duration: 0.2 });
-  });
-  link.addEventListener('mouseleave', () => {
-    gsap.to(cursor, { opacity: 1, duration: 0.2 });
   });
 });
