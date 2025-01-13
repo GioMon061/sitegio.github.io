@@ -70,7 +70,7 @@ html, body  {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 20px;
-    padding: 20px 0;
+    padding: 50px 0;
     transition: all 0.3s ease;
 	margin: 0 auto; /* Centra la griglia */
 	max-width: 1440px;
