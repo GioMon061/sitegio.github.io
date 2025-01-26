@@ -56,26 +56,32 @@
 }
 
 .contact-boxes {
-    display: flex;
-    justify-content: space-between;
-    padding: 50px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Due colonne uguali */
+    gap: 40px; /* Spaziatura uniforme tra i box */
+    padding: 30px 0px 100px;
     margin-top: 20px;
-    gap: 20px; /* Aggiunta spaziatura tra i box */
 }
 
 .contact-box {
     background-color: var(--nero);
     border: 2px solid var(--nero);
-    padding: 30px;
+    padding: 40px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out, background-color 0.3s ease;
-    width: 30%;
     color: var(--bianco);
     font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  /* Allinea i contenuti in alto */
+    align-items: flex-start;      /* Allinea i contenuti a sinistra */
+    height: 100%;
 }
 
 .contact-box h2 {
     font-size: 1.5rem;
+	margin-bottom: 10px;
+	align-self: flex-start;
 }
 
 .contact-box a {
@@ -153,6 +159,12 @@
     cursor: pointer;
 }
 
+.contact-box p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+	align-self: flex-start;
+}
+
 /* Specifiche del footer */
 footer {
     background-color: var(--bianco);
@@ -228,7 +240,7 @@ footer {
     }
 
     .contact-box {
-        width: 85%; /* I box occupano l'intera larghezza */
+        width: 100%; /* I box occupano l'intera larghezza */
         margin-bottom: 20px;
     }
 	
