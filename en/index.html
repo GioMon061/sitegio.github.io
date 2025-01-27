@@ -497,7 +497,7 @@ Consistency is essential to building trust and credibility. <br>My <strong>Brand
    <footer>
     <div class="footer-line"></div>
     <div class="footer-content">
-        <span>&copy; Gioia Mongelli - 2024</span>
+        <span id="year">&copy; Gioia Mongelli - <span id="current-year"></span></span>
         <div class="social-icons">
             <!--<a href="https://www.instagram.com" target="_blank"><i class="ph ph-instagram-logo"></i></a>-->
             <a href="https://www.linkedin.com/in/gioiamongelli/" target="_blank"><i class="ph ph-linkedin-logo"></i></a>
@@ -522,5 +522,8 @@ Consistency is essential to building trust and credibility. <br>My <strong>Brand
 	<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 	<script src="js/script.js"></script>
+		<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
