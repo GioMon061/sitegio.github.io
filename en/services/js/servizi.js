@@ -190,3 +190,13 @@ document.addEventListener("DOMContentLoaded", () => {
     navMenu.classList.remove('desktop-visible');
   }
 });
+
+// Funzione per aggiornare l'anno automaticamente
+function updateYear() {
+    const yearSpan = document.getElementById('current-year');
+    const currentYear = new Date().getFullYear();
+    yearSpan.textContent = currentYear;
+}
+
+// Esegui la funzione quando la pagina è caricata
+document.addEventListener("DOMContentLoaded", updateYear);
