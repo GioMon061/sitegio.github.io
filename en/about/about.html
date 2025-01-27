@@ -80,7 +80,7 @@
     <footer>
         <div class="footer-line"></div>
         <div class="footer-content">
-            <span>&copy; Gioia Mongelli - 2024</span>
+            <span id="year">&copy; Gioia Mongelli - <span id="current-year"></span></span>
             <div class="social-icons">
         <!--<a href="https://www.instagram.com" target="_blank"><i class="ph ph-instagram-logo"></i></a>-->
             <a href="https://www.linkedin.com/in/gioiamongelli/" target="_blank"><i class="ph ph-linkedin-logo"></i></a>
@@ -97,5 +97,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.6.3/dist/smooth-scrollbar.js"></script>
     <script src="js/chi-sono.js"></script>
+		<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
