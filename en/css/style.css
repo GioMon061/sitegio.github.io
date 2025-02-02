@@ -1357,7 +1357,7 @@ i {
 	.testimonial-section::after {
     content: '';
     display: block;
-    height: 60px; /* Aggiunge uno spazio extra sotto per evitare sovrapposizione */
+    height: 80px; /* Aggiunge uno spazio extra sotto per evitare sovrapposizione */
 }
     .testimonial-card {
         width: 100%;             /* Occupare quasi tutta la larghezza disponibile */
@@ -1382,13 +1382,12 @@ i {
         box-sizing: border-box;
     }
 	
-	    .testimonial-navigation {
-        position: relative;         
-        margin-top: 770px;         /* Sposta le frecce sotto il box */
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
+.testimonial-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 370px; /* Spazio sotto il box */
+}
 
     /* Ridimensionamento e spostamento delle frecce */
     .nav-arrow {
