@@ -1335,6 +1335,101 @@ i {
 	.services-item.E {
     padding-bottom: 50px;
 }
+	
+	
+	/* TESTIMONIALS*/
+
+	 /* Risoluzione del problema del contenuto tagliato */
+	
+	.testimonial-section {
+  padding: 20px 0 40px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative; /* Garantisce il contesto di posizionamento */
+}
+	
+	.testimonial-section .container {
+  margin: 0 auto;
+  padding: 0 15px;
+  position: relative;
+} 
+	
+	.testimonial-section::after {
+    content: '';
+    display: block;
+    height: 60px; /* Aggiunge uno spazio extra sotto per evitare sovrapposizione */
+}
+    .testimonial-card {
+        width: 100%;             /* Occupare quasi tutta la larghezza disponibile */
+        max-width: 600px;        /* Limite massimo */
+        padding: 15px;
+        margin: 0 auto;          /* Centrare il box */
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        background-color: var(--bianco);
+        overflow: hidden;        /* Evita che il contenuto trabocchi */
+    }
+
+    .testimonial-slider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 0 15px;
+        overflow: visible;
+        width: 100%;
+        box-sizing: border-box;
+    }
+	
+	    .testimonial-navigation {
+        position: relative;         
+        margin-top: 770px;         /* Sposta le frecce sotto il box */
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    /* Ridimensionamento e spostamento delle frecce */
+    .nav-arrow {
+        pointer-events: all;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--nero);
+        color: var(--bianco);
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+    }
+	
+	   .nav-arrow:hover {
+        background-color: var(--corallo);
+    }
+
+    .testimonial-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .author-image img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .author-name {
+        font-size: 0.9rem;
+    }
+
+    .author-role {
+        font-size: 0.8rem;
+    }
+}
+	
 	/* Altri progetti section for mobile */
 	
     .other-projects h2 {
@@ -1381,7 +1476,7 @@ i {
     }
 
 	
-}
+
 
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
