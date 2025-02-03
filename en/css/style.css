@@ -901,7 +901,7 @@ nav a {
 }
 
 .other-projects h2 {
-    font-size: 3rem;
+    font-size: 3rem !important;
     text-align: left; /* Allineamento a sinistra */
     margin-bottom: 60px;
 }
@@ -1338,11 +1338,10 @@ i {
 	
 	
 	/* TESTIMONIALS*/
-
 	 /* Risoluzione del problema del contenuto tagliato */
 	
 	.testimonial-section {
-  padding: 20px 0 40px;
+  padding: 40px 0 40px;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   position: relative; /* Garantisce il contesto di posizionamento */
