@@ -1334,6 +1334,9 @@ i {
     padding-bottom: 50px;}
 		
 		/* testimonials*/
+	.testimonial-slider {
+		overflow: visible;
+	}
 		.testimonial-card {
     padding: 20px;
   }
@@ -1356,6 +1359,14 @@ i {
   }
 
 	/* Altri progetti section for mobile */
+	.other-projects {
+    /*background-color: var(--nero); 
+    color: var(--bianco); 
+    padding: 150px 0; /* Spazio sopra e sotto */
+    /*width: 100vw; /* Imposta la larghezza al 100% della viewport */
+    /*margin-left: calc(-50vw + 50%); /* Centra lo sfondo */
+		margin-top: 300px;
+}
 	
     .other-projects h2 {
         font-size: 1.8rem; /* Smaller heading size */
