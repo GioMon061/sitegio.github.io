@@ -1349,6 +1349,7 @@ i {
 
   .testimonial-title {
     font-size: 2rem;
+	  padding-bottom: 130px;
   }
 
   .testimonial-text {
@@ -1363,7 +1364,7 @@ i {
 	.testimonial-navigation {
 		justify-content: center;
 		gap: 20px;
-		top: 150%;
+		top: 140%;
 		z-index: 1;
 	}
 	
