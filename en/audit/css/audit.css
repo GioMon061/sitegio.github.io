@@ -414,47 +414,6 @@
     line-height: 1.4;
 }
 
-/* Responsive Benefits Design */
-@media (max-width: 1024px) {
-    .audit-who-container {
-        flex-direction: column;
-        text-align: center;
-		  padding-left:  15px;
-		padding-right:   15px;
-    }
-
-    .audit-who-column.image-column,
-    .audit-who-column.text-column {
-        max-width: 100%;
-    }
-	
-	 .audit-who-title {
-        text-align: center;  /* Correzione centratura titolo */
-        margin-left: 0;      /* Rimuoviamo margin-left */
-    }
-	
-	 .audit-who-list {
-        text-align: center;
-    }
-
-    .audit-who-list li {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .audit-who-title {
-        font-size: 2.2rem;
-    }
-
-    .audit-who-list li {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
 /* Sezione FAQ */
 .audit-faq {
     background-color: var(--bianco);
@@ -535,6 +494,49 @@
     background-color: var(--nero);
     color: var(--bianco);
 }
+
+
+/* Responsive Benefits Design */
+@media (max-width: 1024px) {
+    .audit-who-container {
+        flex-direction: column;
+        text-align: center;
+		  padding-left:  15px;
+		padding-right:   15px;
+    }
+
+    .audit-who-column.image-column,
+    .audit-who-column.text-column {
+        max-width: 100%;
+    }
+	
+	 .audit-who-title {
+        text-align: center;  /* Correzione centratura titolo */
+        margin-left: 0;      /* Rimuoviamo margin-left */
+    }
+	
+	 .audit-who-list {
+        text-align: center;
+    }
+
+    .audit-who-list li {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .audit-who-title {
+        font-size: 2.2rem;
+    }
+
+    .audit-who-list li {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
