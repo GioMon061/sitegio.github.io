@@ -714,7 +714,7 @@ nav a {
 .testimonial-section {
   background-color: var(--bianco);
   color: var(--nero);
-  padding: 150px 0;
+  padding: 100px 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 }
