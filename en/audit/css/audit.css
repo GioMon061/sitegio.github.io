@@ -5,6 +5,7 @@
     --nero: #0d0d0d;
     --bianco: #fefaf1;
     --corallo: #FFB3BA;
+	--grigio: #6B6B6B;
 }
 
 
@@ -101,7 +102,13 @@
     gap: 60px; /* Migliorato lo spazio tra immagine e testo */
 }
 
-/* Colonna sinistra (immagine) */
+.audit-benefits-column p {
+	font-size: 1rem;
+    line-height: 1.7;
+    word-wrap: break-word;
+}
+
+/* Colonna sinistra (immagine) */ 
 .audit-benefits-column.image-column {
     flex: 1;
     max-width: 50%;
@@ -147,7 +154,6 @@
 .audit-benefits-list {
     list-style: none;
     padding: 0;
-    font-size: 1.2rem;
     line-height: 1.8;
     color: var(--nero);
 }
@@ -172,6 +178,8 @@
     display: inline-block;
     line-height: 1.4;
 }
+
+
 
 /* Responsive Benefits Design */
 @media (max-width: 1024px) {
@@ -233,6 +241,17 @@
 }
 
 /* Colonna sinistra (testo) */
+.audit-process-column.text-column p {
+	font-size: 1rem;
+    line-height: 1.7;
+    word-wrap: break-word;
+	color: var(--bianco);
+}
+
+.audit-process-column.text-column a {
+	color: var(--bianco);
+}
+
 .audit-process-column.text-column {
     flex: 1;
     max-width: 50%;
@@ -264,7 +283,7 @@
 .audit-process-list {
     list-style: none;
     padding: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.8;
     color: var(--bianco);
 }
@@ -300,6 +319,142 @@
     border-radius: 10px;
 }
 
+
+/* Sezione Audit Who is this for */
+.audit-who {
+    background-color: var(--bianco);
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 100px 0; 
+}
+
+.audit-who-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+    gap: 60px; /* Migliorato lo spazio tra immagine e testo */
+}
+
+.audit-who-column p {
+	font-size: 1rem;
+    line-height: 1.7;
+    word-wrap: break-word;
+}
+
+/* Colonna sinistra (immagine) */ 
+.audit-who-column.image-column {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.audit-who-column.image-column img {
+    width: 100%;
+    max-height: 400px; /* Limitiamo l'altezza */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Colonna destra (testo) */
+.audit-who-column.text-column {
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
+}
+
+/* Titolo */
+.audit-who-title {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    color: var(--nero);
+	margin-left: 47px;
+}
+
+.audit-who-title .light {
+    font-family: 'Times Now', serif;
+    font-weight: 300;
+}
+
+.audit-who-title .bold {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 400;
+}
+
+/* Lista con icone ben allineate */
+.audit-who-list {
+    list-style: none;
+    padding: 0;
+    line-height: 1.8;
+    color: var(--nero);
+}
+
+.audit-who-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px; /* Aumentato lo spazio tra icona e testo */
+    margin-bottom: 15px; /* Ridotto spazio tra gli elementi */
+}
+
+.audit-who-list i {
+    font-size: 1.8rem;
+    color: var(--nero);
+    min-width: 30px; /* Fissa la dimensione dell'icona per allineare il testo */
+	text-align: center;
+    margin-top: 0px; /* Spinge leggermente l'icona verso il basso */
+}
+
+/* Testo a fianco delle icone */
+.audit-who-list span {
+    display: inline-block;
+    line-height: 1.4;
+}
+
+/* Responsive Benefits Design */
+@media (max-width: 1024px) {
+    .audit-who-container {
+        flex-direction: column;
+        text-align: center;
+		  padding-left:  15px;
+		padding-right:   15px;
+    }
+
+    .audit-who-column.image-column,
+    .audit-who-column.text-column {
+        max-width: 100%;
+    }
+	
+	 .audit-who-title {
+        text-align: center;  /* Correzione centratura titolo */
+        margin-left: 0;      /* Rimuoviamo margin-left */
+    }
+	
+	 .audit-who-list {
+        text-align: center;
+    }
+
+    .audit-who-list li {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .audit-who-title {
+        font-size: 2.2rem;
+    }
+
+    .audit-who-list li {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
 /* Sezione FAQ */
 .audit-faq {
     background-color: var(--bianco);
@@ -333,15 +488,15 @@
 }
 
 .faq-item h3 {
-    font-size: 1.3rem;
+    font-size: 1rem;
     margin-bottom: 10px;
     color: var(--nero);
 }
 
 .faq-item p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
+    font-size: 1rem;
+    line-height: 1.4;
+	color: var(--grigio)
 }
 
 /* Sezione CTA */
