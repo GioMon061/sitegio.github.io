@@ -1364,7 +1364,7 @@ i {
 	.testimonial-navigation {
 		justify-content: center;
 		gap: 20px;
-		top: 150%;
+		top: 130%;
 		z-index: 1;
 	}
 	
