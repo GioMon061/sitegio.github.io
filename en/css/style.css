@@ -1236,13 +1236,7 @@ i {
         left: 0;
     }
 	
-	.auto-video {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover; /* Adatta il video */
-  max-height: 400px;
-}
+
 
 	
 	.scroll-indicator {
