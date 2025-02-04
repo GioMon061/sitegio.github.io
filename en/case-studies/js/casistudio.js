@@ -53,7 +53,7 @@ gsap.utils.toArray('.horizontal .item').forEach(container => {
     scrollTrigger: {
       trigger: container,
       scroller: document.body,
-      start: 'top 80%', // Inizia l'animazione quando il blocco entra nel viewport
+      start: 'top 80%',
       toggleActions: 'play none none reverse',
     },
     opacity: 1,
@@ -85,8 +85,24 @@ clickableItems.forEach(item => {
     } else if (mediaType === "video") {
       const video = document.createElement('video');
       video.controls = true;
-      video.src = mediaSrc;
+      video.autoplay = true;
+      video.playsInline = true;
+
+      // Aggiungi entrambe le sorgenti video (webm + mp4)
+      const sourceWebm = document.createElement('source');
+      sourceWebm.src = mediaSrc;
+      sourceWebm.type = 'video/webm';
+
+      const sourceMp4 = document.createElement('source');
+      sourceMp4.src = mediaSrc.replace('.webm', '.mp4');
+      sourceMp4.type = 'video/mp4';
+
+      // Appendi le sorgenti al video
+      video.appendChild(sourceWebm);
+      video.appendChild(sourceMp4);
+
       lightbox.appendChild(video);
+      video.play(); // Forza l'avvio del video
     }
 
     lightbox.classList.add('active');
