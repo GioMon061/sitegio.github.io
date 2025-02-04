@@ -85,8 +85,12 @@ clickableItems.forEach(item => {
     } else if (mediaType === "video") {
       const video = document.createElement('video');
       video.controls = true;
-      video.src = mediaSrc;
-      lightbox.appendChild(video);
+  video.autoplay = true;
+  video.playsInline = true;
+  video.muted = false;  // Interattivo, quindi non va messo muted
+  video.src = mediaSrc;
+  lightbox.appendChild(video);
+  video.play();  // Forza l'avvio
     }
 
     lightbox.classList.add('active');
