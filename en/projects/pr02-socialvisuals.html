@@ -75,7 +75,14 @@
    <div class="text-box">
       <p>The project involved developing social media content for a brand with a lifestyle visual style, focusing on a feminine and elegant aesthetic.</p>
     </div>
-<div class="item"><video src="video/lifestyle-social.webm" autoplay muted loop playsinline class="auto-video"></video></div>
+	  <div class="item">
+    <video autoplay muted loop playsinline class="auto-video">
+        <source src="video/lifestyle-social.webm" type="video/webm">
+        <source src="video/lifestyle-social.mp4" type="video/mp4">
+        <!-- Messaggio di fallback per browser obsoleti -->
+        Your browser does not support the video tag.
+    </video>
+</div>
   </div>
   <!-- Secondo Blocco-->
   <div class="flex-container">
