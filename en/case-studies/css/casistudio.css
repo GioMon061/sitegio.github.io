@@ -144,6 +144,8 @@ section.horizontal .item i {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+
+
 /* Footer */
 footer {
     background-color: var(--bianco);
@@ -186,6 +188,14 @@ footer {
         padding-bottom: 20px;
     }
 
+		.auto-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Adatta il video */
+  max-height: 400px;
+}
+	
     section.horizontal {
         gap: 20px;
     }
