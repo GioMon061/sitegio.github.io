@@ -1362,7 +1362,7 @@ i {
 	.testimonial-navigation {
 		justify-content: center;
 		gap: 20px;
-		top: 100%;
+		top: 150%;
 		z-index: 1;
 	}
 	
