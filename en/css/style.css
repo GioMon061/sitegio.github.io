@@ -1338,6 +1338,8 @@ i {
     padding-bottom: 50px;}
 		
 		/* testimonials*/
+	
+	
 	.testimonial-slider {
 		overflow: visible;
 	}
@@ -1362,7 +1364,7 @@ i {
 	.testimonial-navigation {
 		justify-content: center;
 		gap: 20px;
-		top: 150%;
+		top: 130%;
 		z-index: 1;
 	}
 	
@@ -1395,7 +1397,7 @@ i {
     padding: 150px 0; /* Spazio sopra e sotto */
     /*width: 100vw; /* Imposta la larghezza al 100% della viewport */
     /*margin-left: calc(-50vw + 50%); /* Centra lo sfondo */
-		margin-top: 350px;
+		margin-top: 200px;
 }
 	
     .other-projects h2 {
