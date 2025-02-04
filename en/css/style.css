@@ -1339,7 +1339,7 @@ i {
 		overflow: visible;
 	}
 		.testimonial-card {
-    padding: 20px 20px 50px 20px;
+    padding: 0 15px;
   }
 
   .testimonial-title {
