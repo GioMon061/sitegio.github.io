@@ -17,7 +17,6 @@
 	--lilla: #B697F8;
 	--rosa: #F2B3D6;
 	--giallo: #FBFD8C;
-	
 }
 
 
@@ -901,7 +900,7 @@ nav a {
 }
 
 .other-projects h2 {
-    font-size: 3rem !important;
+    font-size: 3rem;
     text-align: left; /* Allineamento a sinistra */
     margin-bottom: 60px;
 }
@@ -1333,62 +1332,39 @@ i {
 	}
 	
 	.services-item.E {
-    padding-bottom: 50px;
-}
-	
-	
-	/* TESTIMONIALS*/
-	 /* Risoluzione del problema del contenuto tagliato */
-	
-	.testimonial-section {
-  padding: 40px 0 40px;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  position: relative; /* Garantisce il contesto di posizionamento */
-}
-	
-	.testimonial-section .container {
-  margin: 0 auto;
-  padding: 0 15px;
-  position: relative;
-} 
-	
-	.testimonial-section::after {
-    content: '';
-    display: block;
-    height: 80px; /* Aggiunge uno spazio extra sotto per evitare sovrapposizione */
-}
-    .testimonial-card {
-        width: 100%;             /* Occupare quasi tutta la larghezza disponibile */
-        max-width: 600px;        /* Limite massimo */
-        padding: 15px;
-        margin: 0 auto;          /* Centrare il box */
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        box-sizing: border-box;
-        background-color: var(--bianco);
-        overflow: hidden;        /* Evita che il contenuto trabocchi */
-    }
+    padding-bottom: 50px;}
+		
+		/* testimonials*/
+	.testimonial-slider {
+		overflow: visible;
+	}
+		.testimonial-card {
+    padding: 20px 20px 50px 20px;
+  }
 
-    .testimonial-slider {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        padding: 0 15px;
-        overflow: visible;
-        width: 100%;
-        box-sizing: border-box;
-    }
-	
-.testimonial-navigation {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 370px; /* Spazio sotto il box */
-}
+  .testimonial-title {
+    font-size: 2rem;
+	  padding-bottom: 50px;
+  }
 
-    /* Ridimensionamento e spostamento delle frecce */
+  .testimonial-text {
+    font-size: 1rem;
+  }
+
+  .author-image img {
+    width: 50px;
+    height: 50px;
+  }
+	
+	.testimonial-navigation {
+		justify-content: center;
+		gap: 20px;
+		top: 165%;
+		z-index: 1;
+	}
+	
+
+   /* Ridimensionamento e spostamento delle frecce */
     .nav-arrow {
         pointer-events: all;
         width: 35px;
@@ -1409,26 +1385,15 @@ i {
         background-color: var(--corallo);
     }
 
-    .testimonial-text {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-
-    .author-image img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .author-name {
-        font-size: 0.9rem;
-    }
-
-    .author-role {
-        font-size: 0.8rem;
-    }
-}
-	
 	/* Altri progetti section for mobile */
+	.other-projects {
+    /*background-color: var(--nero); 
+    color: var(--bianco); 
+    padding: 150px 0; /* Spazio sopra e sotto */
+    /*width: 100vw; /* Imposta la larghezza al 100% della viewport */
+    /*margin-left: calc(-50vw + 50%); /* Centra lo sfondo */
+		margin-top: 300px;
+}
 	
     .other-projects h2 {
         font-size: 1.8rem; /* Smaller heading size */
@@ -1474,7 +1439,7 @@ i {
     }
 
 	
-
+}
 
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
@@ -1647,6 +1612,24 @@ i {
         width: 48%;
         margin-bottom: 0;
     }
+	
+	/* testimonials */
+	.testimonial-card {
+    padding: 30px;
+  }
+
+  .testimonial-title {
+    font-size: 2.5rem;
+  }
+
+  .testimonial-text {
+    font-size: 1.1rem;
+  }
+
+  .author-image img {
+    width: 50px;
+    height: 50px;
+  }
 	
 	/* Altri progetti section for tablets */
 	.other-projects h2 {
