@@ -714,7 +714,7 @@ nav a {
 .testimonial-section {
   background-color: var(--bianco);
   color: var(--nero);
-  padding: 150px 0;
+  padding: 110px 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 }
@@ -1364,7 +1364,7 @@ i {
 	.testimonial-navigation {
 		justify-content: center;
 		gap: 20px;
-		top: 130%;
+		top: 150%;
 		z-index: 1;
 	}
 	
