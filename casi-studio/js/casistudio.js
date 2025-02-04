@@ -90,11 +90,9 @@ clickableItems.forEach(item => {
   video.muted = false;  // Interattivo, quindi non va messo muted
   video.src = mediaSrc;
   lightbox.appendChild(video);
-  video.play();  // Forza l'avvio
-    }
-
-    lightbox.classList.add('active');
-    document.body.style.overflow = "hidden"; // Disabilita scroll del body
+  // Riproduci video manualmente dopo il click
+  video.play().catch(error => {
+    console.error("Errore riproduzione video:", error);
   });
 });
 
