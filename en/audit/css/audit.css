@@ -1,15 +1,21 @@
 @import url("../css/fonts.css");
 
-/* Definizione variabili di colore per coerenza con il resto del sito */
+/* Variabili di colore */
 :root {
     --nero: #0d0d0d;
     --bianco: #fefaf1;
     --corallo: #FFB3BA;
-	--grigio: #6B6B6B;
+    --grigio: #6B6B6B;
 }
 
+/* Layout generale */
+.container-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
 
-/* Layout generale della pagina */
+/* Header */
 .audit-header {
     display: flex;
     justify-content: space-between;
@@ -22,18 +28,13 @@
     align-items: center;
 }
 
-.container-wrapper {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
+/* Hero Section */
 .audit-header-content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 100px 0 30px;
-	line-height: 1.4;
+    line-height: 1.4;
 }
 
 .audit-title {
@@ -58,13 +59,13 @@
     font-weight: 500;
     text-transform: uppercase;
     font-size: 1rem;
-    max-width: 800px; /* Aumentato il width del sottotitolo */
+    max-width: 800px;
     white-space: normal;
     word-wrap: break-word;
-    overflow: visible;
-    margin-bottom: 40px; /* Aggiunto spazio extra sotto */
+    margin-bottom: 40px;
 }
 
+/* Pulsante */
 .audit-button {
     display: inline-block;
     padding: 15px 40px;
@@ -82,7 +83,6 @@
 .audit-button:hover {
     background-color: var(--bianco);
     color: var(--nero);
-    border: 2px solid var(--nero);
 }
 
 /* Sezione Audit Benefits */
@@ -90,25 +90,23 @@
     background-color: var(--bianco);
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    padding: 100px 0; 
+    padding: 100px 0;
 }
 
 .audit-benefits-container {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-    max-width: 1440px;
-    margin: 0 auto;
-    gap: 60px; /* Migliorato lo spazio tra immagine e testo */
+    gap: 60px;
 }
 
 .audit-benefits-column p {
-	font-size: 1rem;
+    font-size: 1rem;
     line-height: 1.7;
     word-wrap: break-word;
 }
 
-/* Colonna sinistra (immagine) */ 
+/* Colonna immagine */
 .audit-benefits-column.image-column {
     flex: 1;
     max-width: 50%;
@@ -119,25 +117,25 @@
 
 .audit-benefits-column.image-column img {
     width: 100%;
-    max-height: 400px; /* Limitiamo l'altezza */
+    max-height: 400px;
     object-fit: cover;
     border-radius: 10px;
 }
 
-/* Colonna destra (testo) */
+/* Colonna testo */
 .audit-benefits-column.text-column {
     flex: 1;
     max-width: 50%;
     text-align: left;
 }
 
-/* Titolo */
+/* Titolo Benefits */
 .audit-benefits-title {
     font-size: 3rem;
     margin-bottom: 30px;
     line-height: 1.2;
     color: var(--nero);
-	margin-left: 47px;
+    margin-left: 47px;
 }
 
 .audit-benefits-title .light {
@@ -150,7 +148,7 @@
     font-weight: 400;
 }
 
-/* Lista con icone ben allineate */
+/* Lista Benefits */
 .audit-benefits-list {
     list-style: none;
     padding: 0;
@@ -161,16 +159,15 @@
 .audit-benefits-list li {
     display: flex;
     align-items: flex-start;
-    gap: 15px; /* Aumentato lo spazio tra icona e testo */
-    margin-bottom: 15px; /* Ridotto spazio tra gli elementi */
+    gap: 15px;
+    margin-bottom: 15px;
 }
 
 .audit-benefits-list i {
     font-size: 1.8rem;
     color: var(--nero);
-    min-width: 30px; /* Fissa la dimensione dell'icona per allineare il testo */
-	text-align: center;
-    margin-top: 0px; /* Spinge leggermente l'icona verso il basso */
+    min-width: 30px;
+    text-align: center;
 }
 
 /* Testo a fianco delle icone */
@@ -178,50 +175,6 @@
     display: inline-block;
     line-height: 1.4;
 }
-
-
-
-/* Responsive Benefits Design */
-@media (max-width: 1024px) {
-    .audit-benefits-container {
-        flex-direction: column;
-        text-align: center;
-		  padding-left:  15px;
-		padding-right:   15px;
-    }
-
-    .audit-benefits-column.image-column,
-    .audit-benefits-column.text-column {
-        max-width: 100%;
-    }
-	
-	 .audit-benefits-title {
-        text-align: center;  /* Correzione centratura titolo */
-        margin-left: 0;      /* Rimuoviamo margin-left */
-    }
-	
-	 .audit-benefits-list {
-        text-align: center;
-    }
-
-    .audit-benefits-list li {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .audit-benefits-title {
-        font-size: 2.2rem;
-    }
-
-    .audit-benefits-list li {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
 
 /* Sezione Audit Process */
 .audit-process {
@@ -235,27 +188,15 @@
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-    max-width: 1440px;
-    margin: 0 auto;
-    gap: 60px; /* Spazio tra testo e immagine */
+    gap: 60px;
 }
 
-/* Colonna sinistra (testo) */
-.audit-process-column.text-column p {
-	font-size: 1rem;
-    line-height: 1.7;
-    word-wrap: break-word;
-	color: var(--bianco);
-}
-
-.audit-process-column.text-column a {
-	color: var(--bianco);
-}
-
+/* Colonna testo Process */
 .audit-process-column.text-column {
     flex: 1;
     max-width: 50%;
     text-align: left;
+    color: var(--bianco);
 }
 
 .audit-process-title {
@@ -263,27 +204,22 @@
     margin-bottom: 30px;
     line-height: 1.2;
     color: var(--bianco);
-    /*margin-left: 47px;  Allineamento con il testo */
 }
 
 .audit-process-title .light {
     font-family: 'Times Now', serif;
     font-weight: 300;
-    color: var(--bianco);
 }
 
 .audit-process-title .bold {
     font-family: 'Suisse Intl', sans-serif;
     font-weight: 400;
-    text-transform: none;
-    color: var(--bianco);
 }
 
-/* Lista con icone allineate */
+/* Lista Process */
 .audit-process-list {
     list-style: none;
     padding: 0;
-    font-size: 1rem;
     line-height: 1.8;
     color: var(--bianco);
 }
@@ -291,133 +227,20 @@
 .audit-process-list li {
     display: flex;
     align-items: flex-start;
-    gap: 15px; /* Spazio tra icona e testo */
+    gap: 15px;
     margin-bottom: 15px;
 }
 
 .audit-process-list i {
     font-size: 1.8rem;
     color: var(--corallo);
-    min-width: 30px; /* Allineamento uniforme icona */
+    min-width: 30px;
     text-align: center;
-    margin-top: 0;
-}
-
-/* Colonna destra (immagine) */
-.audit-process-column.image-column {
-    flex: 1;
-    max-width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.audit-process-column.image-column img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-
-/* Sezione Audit Who is this for */
-.audit-who {
-    background-color: var(--bianco);
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    padding: 100px 0; 
-}
-
-.audit-who-container {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    max-width: 1440px;
-    margin: 0 auto;
-    gap: 60px; /* Migliorato lo spazio tra immagine e testo */
-}
-
-.audit-who-column p {
-	font-size: 1rem;
-    line-height: 1.7;
-    word-wrap: break-word;
-}
-
-/* Colonna sinistra (immagine) */ 
-.audit-who-column.image-column {
-    flex: 1;
-    max-width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.audit-who-column.image-column img {
-    width: 100%;
-    max-height: 400px; /* Limitiamo l'altezza */
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* Colonna destra (testo) */
-.audit-who-column.text-column {
-    flex: 1;
-    max-width: 50%;
-    text-align: left;
-}
-
-/* Titolo */
-.audit-who-title {
-    font-size: 3rem;
-    margin-bottom: 30px;
-    line-height: 1.2;
-    color: var(--nero);
-}
-
-.audit-who-title .light {
-    font-family: 'Times Now', serif;
-    font-weight: 300;
-}
-
-.audit-who-title .bold {
-    font-family: 'Suisse Intl', sans-serif;
-    font-weight: 400;
-}
-
-/* Lista con icone ben allineate */
-.audit-who-list {
-    list-style: none;
-    padding: 0;
-    line-height: 1.8;
-    color: var(--nero);
-}
-
-.audit-who-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px; /* Aumentato lo spazio tra icona e testo */
-    margin-bottom: 15px; /* Ridotto spazio tra gli elementi */
-}
-
-.audit-who-list i {
-    font-size: 1.8rem;
-    color: var(--nero);
-    min-width: 30px; /* Fissa la dimensione dell'icona per allineare il testo */
-	text-align: center;
-    margin-top: 0px; /* Spinge leggermente l'icona verso il basso */
-}
-
-/* Testo a fianco delle icone */
-.audit-who-list span {
-    display: inline-block;
-    line-height: 1.4;
 }
 
 /* Sezione FAQ */
 .audit-faq {
     background-color: var(--bianco);
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
     padding: 100px 0;
     text-align: left;
 }
@@ -438,7 +261,6 @@
 .faq-title .bold {
     font-family: 'Suisse Intl', sans-serif;
     font-weight: 400;
-    text-transform: capitalize;
 }
 
 .faq-item {
@@ -446,7 +268,7 @@
 }
 
 .faq-item h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 10px;
     color: var(--nero);
 }
@@ -454,207 +276,53 @@
 .faq-item p {
     font-size: 1rem;
     line-height: 1.4;
-	color: var(--grigio)
-}
-
-/* Sezione CTA */
-.audit-cta {
-    background-color: var(--nero);
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    padding: 100px 0;
-    text-align: center;
-    color: var(--bianco);
-}
-
-.audit-cta-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.audit-cta p {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-}
-
-.audit-cta .audit-button {
-    display: inline-block;
-    padding: 15px 40px;
-    background-color: var(--bianco);
-    color: var(--nero);
-    border-radius: 30px;
-    font-weight: 500;
-    border: 2px solid var(--bianco);
-    transition: all 0.3s ease;
-    text-decoration: none !important;
-}
-
-.audit-cta .audit-button:hover {
-    background-color: var(--nero);
-    color: var(--bianco);
-}
-
-
-/* Responsive Benefits Design */
-@media (max-width: 1024px) {
-    .audit-who-container {
-        flex-direction: column;
-        text-align: center;
-		  padding-left:  15px;
-		padding-right:   15px;
-    }
-
-    .audit-who-column.image-column,
-    .audit-who-column.text-column {
-        max-width: 100%;
-    }
-	
-	 .audit-who-title {
-        text-align: center;  /* Correzione centratura titolo */
-        margin-left: 0;      /* Rimuoviamo margin-left */
-    }
-	
-	 .audit-who-list {
-        text-align: center;
-    }
-
-    .audit-who-list li {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .audit-who-title {
-        font-size: 2.2rem;
-    }
-
-    .audit-who-list li {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .audit-process-container {
-        flex-direction: column-reverse; /* Immagine sotto il testo su schermi piccoli */
-        text-align: center;
-	    padding-left:  15px;
-		padding-right:   15px;
-    }
-
-    .audit-process-column.image-column,
-    .audit-process-column.text-column {
-        max-width: 100%;
-
-    }
-	
-	
-    .audit-process-title {
-        text-align: center;  /* Centra il titolo */
-        margin-left: 0;      /* Rimuove il margin-left */
-    }
-    .audit-process-list {
-        text-align: center;
-    }
-    .audit-process-list li {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .audit-process-title {
-        font-size: 2.2rem;
-    }
-
-    .audit-process-list li {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-/* Section - FAQ */
-.audit-faq {
-    padding: 100px 0;
-    background-color: var(--bianco);
-}
-
-.audit-faq h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 40px;
-    color: var(--nero);
-}
-
-.faq-item {
-    max-width: 800px;
-    margin: 0 auto 30px;
-}
-
-.faq-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: var(--nero);
-}
-
-.faq-item p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
+    color: var(--grigio);
 }
 
 .audit-faq a {
     color: var(--corallo);
     text-decoration: none;
-	position: relative;
-  	display: inline-block;
-  	color: inherit;
-  	cursor: pointer;	
-}
- .audit-faq a:before,
- .audit-faq a:after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
 }
 
- .audit-faq a:before {
-  background: rgba(255, 179, 186); /* Colore della linea di base */
-  opacity: 0.9;
+.audit-faq a:before,
+.audit-faq a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
 }
 
- .audit-faq a:after {
-  background: #0d0d0d; /* Colore della sottolineatura al passaggio del mouse */
-  transform: scaleX(0); /* Nasconde la linea inizialmente */
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+.audit-faq a:before {
+    background: rgba(255, 179, 186);
 }
 
- .audit-faq a:hover:after {
-  transform: scaleX(1); /* Espande la linea */
+.audit-faq a:after {
+    background: #0d0d0d;
+    transform: scaleX(0);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.25, 1);
 }
 
+.audit-faq a:hover:after {
+    transform: scaleX(1);
+}
 
-/* CTA Finale */
+/* CTA */
 .audit-cta {
-    text-align: center;
-    padding: 80px 0;
     background-color: var(--nero);
+    padding: 80px 0;
+    text-align: center;
     color: var(--bianco);
 }
 
 .audit-cta p {
     font-size: 1.8rem;
     margin-bottom: 30px;
-    font-weight: 400;
 }
 
 .audit-cta .audit-button {
@@ -666,35 +334,38 @@
 .audit-cta .audit-button:hover {
     background-color: var(--nero);
     color: var(--bianco);
-    border: 2px solid var(--bianco);
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
+/* Media Queries */
+@media (max-width: 1024px) {
     .audit-title {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 
-    .audit-subtitle {
-        font-size: 1rem;
-        max-width: 90%;
-    }
-
-    .benefits-content,
-    .process-content {
+    .audit-process-container,
+    .audit-benefits-container,
+    .audit-who-container {
         flex-direction: column;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .audit-benefits-title,
+    .audit-process-title,
+    .faq-title {
         text-align: center;
     }
 
-    .benefits-text,
-    .process-text {
-        padding-left: 0;
-        max-width: 100%;
+    .audit-benefits-list li,
+    .audit-process-list li {
+        flex-direction: column;
+        align-items: center;
     }
+}
 
-    .benefits-image,
-    .process-image {
-        max-width: 100%;
+@media (max-width: 768px) {
+    .audit-title {
+        font-size: 3rem;
     }
 
     .faq-item {
@@ -706,34 +377,3 @@
         font-size: 1.5rem;
     }
 }
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    .audit-title {
-        font-size: 4rem;
-    }
-
-    .benefits-content,
-    .process-content {
-        flex-direction: row;
-    }
-
-    .benefits-text,
-    .process-text {
-        max-width: 50%;
-    }
-
-    .benefits-image,
-    .process-image {
-        max-width: 50%;
-    }
-}
-
-@media (max-width: 768px) {
-	
-	.container-wrapper  {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-}
-
-
