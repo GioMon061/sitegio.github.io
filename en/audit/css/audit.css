@@ -444,7 +444,7 @@
 }
 
 .faq-item h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 10px;
     color: var(--nero);
 }
@@ -595,13 +595,13 @@
 }
 
 .faq-item h3 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin-bottom: 10px;
     color: var(--nero);
 }
 
 .faq-item p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.6;
     color: #333;
 }
