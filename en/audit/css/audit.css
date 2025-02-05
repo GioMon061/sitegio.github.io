@@ -248,6 +248,37 @@
 
 .audit-process-column.text-column a {
 	color: var(--bianco);
+	text-decoration: none;
+	position: relative;
+  	display: inline-block;
+  	color: inherit;
+  	cursor: pointer;
+}
+
+ .audit-process-column.text-column a:before,
+ .audit-process-column.text-column a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+}
+
+ .audit-process-column.text-column a:before {
+  background: rgba(254, 250, 241); /* Colore della linea di base */
+  opacity: 0.9;
+}
+
+ .audit-process-column.text-column a:after {
+  background: #B697F8; /* Colore della sottolineatura al passaggio del mouse */
+  transform: scaleX(0); /* Nasconde la linea inizialmente */
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+ .audit-process-column.text-column a:hover:after {
+  transform: scaleX(1); /* Espande la linea */
 }
 
 .audit-process-column.text-column {
