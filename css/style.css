@@ -649,6 +649,10 @@ nav a {
 .services-item.E {
 	padding-bottom: 62px;
 }
+.services-item.E ul {
+  padding-left: 20px; /* Allinea i bullet points con il margine del testo */
+  list-style-position: inside; /* Mostra i punti elenco all'interno del margine */
+}
 
 /* Stile per i pulsanti 
 .services-button, .pdf-button {
