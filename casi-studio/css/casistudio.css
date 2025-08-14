@@ -106,6 +106,9 @@ section.horizontal .item i {
     font-size: 1rem; /* Reso della stessa dimensione del testo normale */
 }
 
+section.horizontal .item ul {
+	padding-left: 15px;
+}
 /* Lightbox (immagini cliccabili) */
 /* Lightbox Stile */
 #lightbox {
