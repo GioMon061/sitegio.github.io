@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.8 144.8">
   <style>
-    .st0 { fill: #0d0d0d; }
+    /* Usiamo i selettori diretti invece delle classi per Chrome */
+    path { fill: #0d0d0d; } 
+    
     @media (prefers-color-scheme: dark) {
-      .st0 { fill: #fefaf1 !important; }
+      path { fill: #fefaf1 !important; }
     }
   </style>
   <g id="Livello_6">
-    <path class="st0" d="M72.4,36.2v36.2c0-20-16.2-36.2-36.2-36.2S0,52.4,0,72.4s16.2,36.2,36.2,36.2,36.2-16.2,36.2-36.2v36.2c20,0,36.2-16.2,36.2-36.2s-16.2-36.2-36.2-36.2Z"/>
-    <path class="st0" d="M108.6,36.2v72.4c20,0,36.2-16.2,36.2-36.2s-16.2-36.2-36.2-36.2Z"/>
+    <path d="M72.4,36.2v36.2c0-20-16.2-36.2-36.2-36.2S0,52.4,0,72.4s16.2,36.2,36.2,36.2,36.2-16.2,36.2-36.2v36.2c20,0,36.2-16.2,36.2-36.2s-16.2-36.2-36.2-36.2Z"/>
+    <path d="M108.6,36.2v72.4c20,0,36.2-16.2,36.2-36.2s-16.2-36.2-36.2-36.2Z"/>
   </g>
 </svg>
