@@ -228,7 +228,7 @@ html, body  {
 
 /* Margine per l'ultimo box */
 .servizio-card:last-of-type {
-    margin-bottom: 50px; /* Aggiungi margine sotto l'ultimo box */
+    /*margin-bottom: 50px; /* Aggiungi margine sotto l'ultimo box */
 }
 
 /* Quando l'animazione termina, gli elementi rimangono visibili */
@@ -250,7 +250,7 @@ html, body  {
 /* Bento Layout */
 
 .servizio-card:nth-child(1) {
-    grid-column: span 7 /* Occupa metà della larghezza */
+    grid-column: span 12 /* Occupa metà della larghezza */
 }
 
 .servizio-card:nth-child(2) {
@@ -267,7 +267,7 @@ html, body  {
 
 /* Servizio 5 occuperà l'intera larghezza */
 .servizio-card:nth-child(5) {
-    grid-column: span 12; /* Occupa tutta la larghezza in fondo */
+    grid-column: span 7; /* Occupa tutta la larghezza in fondo */
 }
 
 /*Links*/
